@@ -157,7 +157,7 @@ class Reparacion{
     }
 }
 //fin clase Reparación
-//Clase LineaDeArticulo
+//Clase LineaDeArticulo:
 class LineaDeArticulo{
     constructor(idArt, idVenta, unid, precio){
         this.idArticulo = idArt;//ID o Objeto?
@@ -202,7 +202,7 @@ class Venta{
 	    return sFila;
     }
 }
-//Fin clase Venta:
+//Fin clase Venta
 
 //Clase Cliente:
 class Cliente{
@@ -226,3 +226,4 @@ class Cliente{
 	    return sFila;
     }
 }
+//Fin clase Cliente
