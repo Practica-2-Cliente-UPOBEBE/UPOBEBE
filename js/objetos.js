@@ -70,6 +70,15 @@ UpoBebe.prototype._buscarReparacion = function(sNombre){
 
     return oReparacion;
 }
+UpoBebe.prototype.buscarCliente = function(dni){
+    let oCliente = null;
+    this.tClientes.forEach(function(value){
+        if(value.dni == dni) {
+            oCliente=value;
+        } 
+    });
+    return oCliente;
+}
 
 //******fin métodos de búsquedas
 
