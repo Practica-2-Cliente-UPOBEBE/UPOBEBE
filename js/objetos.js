@@ -1,3 +1,4 @@
+"use strict";
 //CLASE UPOBEBE
 function UpoBebe(){
     this.tClientes = new Array();
@@ -156,10 +157,72 @@ class Reparacion{
     }
 }
 //fin clase Reparación
+//Clase LineaDeArticulo
+class LineaDeArticulo{
+    constructor(idArt, idVenta, unid, precio){
+        this.idArticulo = idArt;//ID o Objeto?
+        this.idVenta = idVenta;//Preguntar a Carlos
+        this.unidades = unid;
+        this.precioArticulo = precio;
+    }
+    totalLinea(){
+        return this.unidades * this.precioArticulo;
+    }
+    toString(){
+        let sFila = "<tr><td>"+ this.aLineaArticulo.idArticulo +"</td>";
+        sFila += "<td>"+ this.aLineaArticulo.idVenta +"</td>";
+        sFila += "<td>"+ this.aLineaArticulo.unidades +"</td>";
+        sFila += "<td>"+ this.aLineaArticulo.precioArticulo +"</td>";
+        sFila += "<td>"+ this.aLineaArticulo.totalLinea() +"</td></tr>";
+        return sFila;
+    }
+}
+//Fin clase LineaDeArticulo
 
 //Clase Venta:
 class Venta{
-    constructor(){
-        
+    constructor(id, aLineaArticulo, fecha){
+        this.idVenta = id;
+        this.aLineaArticulo = aLineaArticulo;
+        this.fVenta = fecha;
+    }
+    importe(){
+        this.aLineaArticulo.reduce(function(total, valor){
+            return total + valor.totalLinea();
+        });
+    }
+    toString(){
+        let nFilas = this.aLineaArticulo.length;
+        let sFila="<tr>";
+        sFila+="<td rowspan='"+ nFilas +"'>"+ this.idVenta +"</td>";
+        for(let i = 0; i < nFilas ; i++){
+            sFila += this.aLineaArticulo[i].toString();
+        }
+	    sFila+="<td rowspan='"+ nFilas +"'>"+ this.fVenta +"</td>";
+	    return sFila;
+    }
+}
+//Fin clase Venta:
+
+//Clase Cliente:
+class Cliente{
+    constructor(dni, nombre, apellidos, direccion, correo, tlf){
+        this.dniCliente = dni;
+        this.nombreCliente = nombre;
+        this.apellidosCliente = apellidos;
+        this.direccionCliente = direccion;
+        this.correoCliente = correo;
+        this.tlfCliente = tlf;
+    }
+    toString(){
+        let sFila="<tr>";
+	    sFila+="<td>"+this.dniCliente+"</td>";
+	    sFila+="<td>"+this.nombreCliente+"</td>";
+	    sFila+="<td>"+this.apellidosCliente+"</td>";
+        sFila+="<td>"+this.direccionCliente+"</td>";
+        sFila+="<td>"+this.correoCliente+"</td>";
+        sFila+="<td>"+this.tlfCliente+"</td>";
+	    sFila+="</tr>";
+	    return sFila;
     }
 }
