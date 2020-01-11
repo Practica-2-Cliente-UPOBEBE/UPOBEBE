@@ -122,3 +122,10 @@ class Reparacion{
     }
 }
 //fin clase Reparación
+
+//Clase Venta:
+class Venta{
+    constructor(){
+        
+    }
+}
