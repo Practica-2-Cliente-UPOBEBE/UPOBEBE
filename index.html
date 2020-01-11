@@ -4,10 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
     <title>UPOBEBE</title>
 </head>
 <body>
-    Prueba Patri hola, soy alfredo
+    <div class=" pt-3">
+
+        <div class="jumbotron text-center" style="margin-bottom:0">
+            <h1>UPOBEBE</h1>
+            <p>BabyShop</p> 
+                <form action="" name="frmBuscador">
+                    <input class=" mr-sm-2" type="text" placeholder="Buscar">
+                    <input class="btn btn-success " type="submit" value="Buscar" onclick="fBuscador()"></input>
+                </form>
+                  
+                
+          </div>
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#" onclick="fMostrarPaginaPrincipal()">Logo/Home</a>
+          
+            <ul class="navbar-nav">
+              
+              <!-- Dropdown -->
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  Altas
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#" onclick="fMostrarAltaArticulo()">Artículo</a>
+                  <a class="dropdown-item" href="#" onclick="fMostarAltaCliente()">Cliente</a>
+                  <a class="dropdown-item" href="#" onclick="fMostarAltaEmpleado()">Empleado</a>
+                  <a class="dropdown-item" href="#" onclick="fMostrarAltaTaller()">Taller</a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  Bajas / Modificar
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#" onclick="fMostrarBajaModificarCliente()">Cliente</a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  Listados
+                </a>
+                <div class="dropdown-menu">
+                   
+                    <a class="dropdown-item" href="#" onclick="fMostrarListadoVestas()">Listar Ventas</a>
+                  <a class="dropdown-item" href="#" onclick="fMostrarListadoEmpleados()">Listar Empleados</a>
+                  <a class="dropdown-item" href="#" onclick="fMostrarListadoCliente()">Listar Clientes</a>
+                  <a class="dropdown-item" href="#" onclick="fMostrarListadoTaller()">Listar Talleres</a>
+                  <a class="dropdown-item" href="#" onclick="fMostrarListadoArticulo()">Listar Artículos</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" onclick="fMostrarListadoPeriodoVendidos()">Art. Vendidos por periodos</a>
+                  <a class="dropdown-item" href="#" onclick="fMostrarListadoPeriodoComprados()">Art. Comprados por periodos</a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+
+          
+
+    </div>
 
 <script type="text/javascript" src="js/objetos.js"></script>
 <script type="text/javascript" src="js/codigo.js"></script>
