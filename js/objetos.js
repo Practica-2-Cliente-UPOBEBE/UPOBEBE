@@ -5,6 +5,8 @@ function UpoBebe(){
     this.tVentas = new Array();
     this.tArticulos = new Array();
     this.tTalleres = new Array();
+    this.tReparaciones = new Array();
+    
 }
 
 //métodos de la clase UPOBEBE
@@ -51,14 +53,35 @@ UpoBebe.prototype._buscarEmpleado = function(sDNI){
     return oEmpleado;
 }
 
+UpoBebe.prototype._buscarReparacion = function(sNombre){
+    var oReparacion = null;
+    var i = 0;
+    
+    while(i < this.tReparaciones.length && oReparacion == null){
+        
+        if(this.tEmpleados[i].dni == sDNI){
+            oEmpleado = this.tEmpleados[i];
+        }
+        i++;
+    }
+
+    
+
+    return oReparacion;
+}
+
 //******fin métodos de búsquedas
 
 //*** Método reparar */
     UpoBebe.prototype.reparar = function(sNifTaller,sIDventas,sNombreReparacion,sDescripcionRep,fCosteRep,dcFechaRep){
         var cReparado = false;
-        var oTaller = this._buscarTaller(sNif);
-        var oVenta = this._buscarVenta(sID);
+        var oTaller = this._buscarTaller(sNifTaller);
+        var oVenta = this._buscarVenta(sIDventas);
+        var oReparacion = this._buscarReparacion(sNombreReparacion);
+        var oReparacionHecha = null;
+
         
+
 
 
         return cReparado;
@@ -66,8 +89,20 @@ UpoBebe.prototype._buscarEmpleado = function(sDNI){
     }
 //** fin método REPARAR */
 
+// *********LISTADOS ******
 
+UpoBebe.prototype.listadoEmpleados = function(){
+    var tabla = '<h1>Empleados : </h1><table border="1"><thead><tr><th>DNI</th><th>Nombre</th><th>Apelldio</th><th>Salario</th><th>Dirección</th><th>Correo</th><th>Rol</th><th>Teléfono</th></tr></thead>';
 
+    for(var i=0; i< this.tEmpleados.length; i++){
+        tabla += this.tEmpleados[i].toHTMLrow();
+    }
+    tabla += "</table>";
+
+    return tabla;
+}
+
+///**** FIN LISTADOS ************* */
 
 //fin métodos de la clase UPOBEBE
 //fin clase UPO BEBE*****************************************************************************
@@ -104,19 +139,18 @@ class Empleado{
 // Clase Reparación:
 class Reparacion{
 
-    constructor(sNombre,sDescripcion,fCoste,dtFecha_Reparacion){
-        this.nombreReparacion = sNombre;
-        this.descripcionReparacion = sDescripcion;
-        this.costeReparacion = parseFloat(fCoste);
-        this.fecha_reparacion = dtFecha_Reparacion;
+    constructor(ID_Reparacion,ID_Articulo,ID_Venta,dtFecha_Reparacion){
+        this.IDReparacion = ID_Reparacion;
+        //DUDA SOBRE ID_ARTICULO e ID_VENTA viniendo de los objetos de estos// 
+        this.fechaReparacion = dtFecha_Reparacion;
 
     }
     toString(){
         var sFila="<tr>";
-	    sFila+="<td>"+this.nombreReparacion+"</td>";
-	    sFila+="<td>"+this.descripcionReparacion+"</td>";
-	    sFila+="<td>"+this.costeReparacion+"</td>";
-        sFila+="<td>"+this.fecha_reparacion+"</td>";
+	    sFila+="<td>"+this.IDReparacion+"</td>";
+	    //sFila+="<td>"++"</td>";
+	    //sFila+="<td>"++"</td>";
+        
 	    sFila+="</tr>";
 	    return sFila;
     }
