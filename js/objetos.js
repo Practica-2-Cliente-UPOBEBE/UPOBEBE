@@ -102,7 +102,7 @@ UpoBebe.prototype.buscarCliente = function(dni){
 // *********LISTADOS ******
 
 UpoBebe.prototype.listadoEmpleados = function(){
-    var tabla = '<h1>Empleados : </h1><table border="1"><thead><tr><th>DNI</th><th>Nombre</th><th>Apelldio</th><th>Salario</th><th>Dirección</th><th>Correo</th><th>Rol</th><th>Teléfono</th></tr></thead>';
+    var tabla = "<table border='1'><thead><tr><th>DNI</th><th>Nombre</th><th>Apelldio</th><th>Salario</th><th>Dirección</th><th>Correo</th><th>Rol</th><th>Teléfono</th></tr></thead>";
 
     for(var i=0; i< this.tEmpleados.length; i++){
         tabla += this.tEmpleados[i].toHTMLrow();
