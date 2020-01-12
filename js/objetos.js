@@ -119,6 +119,17 @@ UpoBebe.prototype.listadoEmpleados = function(){
     return tabla;
 }
 
+UpoBebe.prototype.listadoClientes = function(){
+    var tabla = "<table border='1'><thead><tr><th>DNI</th><th>Nombre</th><th>Apelldios</th><th>Dirección</th><th>Correo</th><th>Teléfono</th></tr></thead>";
+
+    for(var i=0; i< this.tClientes.length; i++){
+        tabla += this.tClientes[i].toString();
+    }
+    tabla += "</table>";
+
+    return tabla;
+}
+
 ///**** FIN LISTADOS ************* */
 
 //fin métodos de la clase UPOBEBE

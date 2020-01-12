@@ -19,6 +19,9 @@ fOcultarTablasListado();
 function fOcultarFormularios(){
 
     frmAltaEmpleado.style.display = "none";
+    frmAltaArticulo.style.display = "none";
+    frmAltaCliente.style.display = "none";
+    frmAltaTaller.style.display = "none";
 }
 function fMostrarPaginaPrincipal(){
     //le damos al LOGO/HOME:
@@ -41,6 +44,42 @@ function fMostrarListadoEmpleados(){
     document.getElementById("tabla").innerHTML = oUpoBebe.listadoEmpleados();
 }
 // fin EMPLEADO
+
+// Articulo
+ function fMostrarAltaArticulo()
+{
+    fOcultarFormularios();
+    fOcultarTablasListado();
+    frmAltaArticulo.style.display = "block";
+    frmAltaArticulo.reset();
+}
+// fin articulo
+
+// Cliente
+function fMostarAltaCliente(){
+    fOcultarFormularios();
+    fOcultarTablasListado();
+    frmAltaCliente.style.display = "block";
+    frmAltaCliente.reset();
+}
+
+function fMostrarListadoCliente(){
+
+}
+// fin cliente
+
+//taller
+    function fMostrarAltaTaller(){
+        fOcultarFormularios();
+        fOcultarTablasListado();
+        frmAltaTaller.style.display = "block";
+        frmAltaTaller.reset();
+    }
+
+    function fMostrarListadoTaller(){
+
+    }
+// fin taller
 
 // FIN mostrar y ocultar formularios
 
