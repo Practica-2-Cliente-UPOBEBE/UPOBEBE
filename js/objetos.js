@@ -210,8 +210,10 @@ class LineaDeArticulo{
 
 //Clase Venta:
 class Venta{
-    constructor(id, aLineaArticulo, fecha){
+    constructor(id, dniCliente, dniEmpleado, aLineaArticulo, fecha){
         this.idVenta = id;
+        this.dniCliente = dniCliente;
+        this.dniEmpleado = dniEmpleado;
         this.aLineaArticulo = aLineaArticulo;
         this.fVenta = fecha;
     }
