@@ -41,6 +41,12 @@ UpoBebe.prototype.altaTaller = function(oTaller){
 //****BUSQUEDAS ***métodos de búsquedas:
 UpoBebe.prototype._buscarEmpleado = function(sDNI){
     var oEmpleado = null;
+    var array = this.tEmpleados.filter(tEmpleados => tEmpleados.dniEmpleado == sDNI);
+    if(array.length>0){
+        oEmpleado=array[0];
+    }
+    return oEmpleado;
+    /*
     var i = 0;
 
     while(i < this.tEmpleados.length && oEmpleado == null){
@@ -52,6 +58,7 @@ UpoBebe.prototype._buscarEmpleado = function(sDNI){
     }
 
     return oEmpleado;
+    */
 }
 
 UpoBebe.prototype._buscarReparacion = function(sNombre){
@@ -117,6 +124,8 @@ UpoBebe.prototype.listadoEmpleados = function(){
 //fin métodos de la clase UPOBEBE
 //fin clase UPO BEBE*****************************************************************************
 
+
+//***** CLASES  */
 //clase EMPLEADO
 class Empleado{
 
