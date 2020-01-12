@@ -9,8 +9,8 @@ fOcultarFormularios();
 
         // Datos empleados
         oUpoBebe.altaEmpleado(new Empleado ("111A","Lola","Lorenzo Lomas",1004.02,"lola@email.com","Encargada",999999999));
-        oUpoBebe.altaEmpleado(new Empleado ("222A","Juan","Rodríguez Tomás",1004.02,"juan@email.com","Dependiente",888888888));
-        oUpoBebe.altaEmpleado(new Empleado ("333A","Ana","Pérez Ramona",1004.02,"ana@email.com","Jefa",777777777));
+        oUpoBebe.altaEmpleado(new Empleado ("222A","Juan","Rodríguez Tomás",960.02,"juan@email.com","Dependiente",888888888));
+        oUpoBebe.altaEmpleado(new Empleado ("333A","Ana","Pérez Ramona",1200,"ana@email.com","Jefa",777777777));
     }
 // fin de datos INICIALES
 

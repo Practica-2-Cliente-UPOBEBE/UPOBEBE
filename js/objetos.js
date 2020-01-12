@@ -60,7 +60,7 @@ UpoBebe.prototype._buscarReparacion = function(sNombre){
     
     while(i < this.tReparaciones.length && oReparacion == null){
         
-        if(this.tEmpleados[i].dni == sDNI){
+        if(this.tEmpleados[i].nombre == sNombre){
             oEmpleado = this.tEmpleados[i];
         }
         i++;
