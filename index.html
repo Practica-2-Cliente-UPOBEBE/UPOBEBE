@@ -60,7 +60,7 @@
                 </a>
                 <div class="dropdown-menu">
                    
-                    <a class="dropdown-item" href="#" onclick="fMostrarListadoVestas()">Listar Ventas</a>
+                    <a class="dropdown-item" href="#" onclick="fMostrarListadoVentas()">Listar Ventas</a>
                   <a class="dropdown-item" href="#" onclick="fMostrarListadoEmpleados()">Listar Empleados</a>
                   <a class="dropdown-item" href="#" onclick="fMostrarListadoCliente()">Listar Clientes</a>
                   <a class="dropdown-item" href="#" onclick="fMostrarListadoTaller()">Listar Talleres</a>
@@ -72,11 +72,60 @@
               </li>
             </ul>
           </nav>
-
-          
-
     </div>
-
+    <!-- FIN MEnú-->
+    
+    <!---
+      Parte de formularios
+    -->
+    <!--- FORMULARIOS ALTAS -->
+    <!--
+      Frm Alta Empleado
+    -->
+    <div id="divFrmAltaEmpleado" class="container col-6">
+      <form action="" name="frmAltaEmpleado" class="m-2" id="frmAltaEmpleado">
+        <h3>Alta Empleado:</h3>
+        <div class="form-group">
+          <label for="txtNIFEmpleado" class="mb-0">DNI:</label>
+          <input type="text" name="txtNIF" id="txtNIF" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="txtNombreEmpleado" class="mb-0">Nombre:</label>
+          <input type="text" name="txtNombreEmpleado" id="txtNombreEmpleado" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="txtApellidoEmpleado" class="mb-0">Apellidos:</label>
+          <input type="text" name="txtApellidoEmpleado" id="txtApellidoEmpleado" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="txtSalarioEmpleado" class="mb-0">Salario:</label>
+          <input type="number" name="txtSalarioEmpleado" id="txtSalarioEmpleado" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="txtDireccionEmpleado" class="mb-0">Dirección:</label>
+          <input type="text" name="txtDireccionEmpleado" id="txtDireccionEmpleado" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="txtCorreoEmpleado" class="mb-0">Correo electrónico:</label>
+          <input type="text" name="txtCorreoEmpleado" id="txtCorreoEmpleado" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="txtRolEmpleado" class="mb-0">Rol:</label>
+          <input type="text" name="txtRolEmpleado" id="txtRolEmpleado" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="txtTlfEmpleado" class="mb-0">Teléfono:</label>
+          <input type="text" name="txtTlfEmpleado" id="txtTlfEmpleado" class="form-control">
+        </div>
+        <input type="button" class="btn btn-primary" id="aceptarAltaEmpleado" name="aceptarAltaEmpleado"
+        onclick="altaEmpleado();" value="Dar de Alta" />
+      </form>
+    </div>
+    <!--
+      Fin frm Alta empleado
+    -->
+    
+    <!--  FIN DE FORMULARIOS ALTAS-->
 <script type="text/javascript" src="js/objetos.js"></script>
 <script type="text/javascript" src="js/codigo.js"></script>
 </body>
