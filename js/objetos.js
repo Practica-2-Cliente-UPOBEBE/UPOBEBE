@@ -14,7 +14,15 @@ function UpoBebe(){
 
 ///*****ALTAS  */
 UpoBebe.prototype.altaCliente = function(oCliente){
-
+    let mensaje;
+    if(this.buscarCliente(oCliente.dni) != null){
+        mensaje = "ERROR: El cliente ya existe";
+    }else{
+        this.tClientes.push(oCliente);
+        mensaje = "Cliente añadido con éxito";
+    }
+        
+    return mensaje;
 }
 
 UpoBebe.prototype.altaArticulo = function(oArticulo){
