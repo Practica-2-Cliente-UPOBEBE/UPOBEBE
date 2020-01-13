@@ -10,6 +10,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <title>UPOBEBE</title>
+    <style>
+    .error {
+         background-color:#EFC9C1;
+         }
+    </style>
 </head>
 <body>
     <div class=" pt-3">
@@ -201,7 +206,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="aceptar"></label>
           <div class="col-md-4">
-            <button id="aceptar" name="aceptar" class="btn btn-primary">Aceptar</button>
+            <input type="button"  onclick="aceptarAltaCliente();" name="aceptar" class="btn btn-primary" value="Dar de alta"/>
           </div>
         </div>
         
@@ -211,7 +216,7 @@
     <!--
       Fin frm Alta cliente
     -->
-    
+
     <!--
       name de los formularios:
       Alta articulo  -- frmAltaArticulo
