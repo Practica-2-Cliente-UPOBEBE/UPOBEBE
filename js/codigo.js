@@ -18,7 +18,7 @@ fOcultarTablasListado();
 // mostrar y ocultar formularios cuando hacemos click:
 function fOcultarFormularios(){
     frmAltaEmpleado.style.display = "none";
-    //frmAltaArticulo.style.display = "none";
+    frmAltaArticulo.style.display = "none";
     frmAltaCliente.style.display = "none";
     //frmAltaTaller.style.display = "none";
 }

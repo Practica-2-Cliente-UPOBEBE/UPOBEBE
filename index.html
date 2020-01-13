@@ -211,12 +211,48 @@
     <!--
       Fin frm Alta cliente
     -->
-      
+       <!--
+      Frm Alta Articulo
+    -->
+    <div id="divFrmAltaArticulo" class="container col-6">
+      <form action="" name="frmAltaArticulo" class="m-2" id="frmAltaArticulo">
+        <h3>Alta Artículo:</h3>
+        <div class="form-group">
+          <label for="txtIDArticulo" class="mb-0">ID:</label>
+          <input type="text" name="txtIDArticulo" id="txtIDArticulo" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="txtNombreArticulo" class="mb-0">Nombre del artículo:</label>
+          <input type="text" name="txtNombreArticulo" id="txtNombreArticulo" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="txtDescripcionArticulo" class="mb-0">Descripción:</label>
+          <input type="text" name="txtDescripcionArticulo" id="txtDescripcionArticulo" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="txtCategoriaArticulo" class="mb-0">Categoria:</label>
+          <select class="form-control" id="selectCategoria" name="selectCategoria">
+            <option>Carrocería</option>
+            <option>Sillas auto</option>
+            <option>Alimentación</option>
+            <option>Textil</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="txtPrecioArticulo" class="mb-0">Precio:</label>
+          <input type="text" name="txtPrecioArticulo" id="txtPrecioArticulo" class="form-control">
+        </div>
+        <input type="button" class="btn btn-primary" id="aceptarAltaArticulo" name="aceptarAltaArticulo"
+        onclick="altaArticulo();" value="Dar de Alta" />
+      </form>
+    </div>
+    <!--
+      Fin Alta Articulo
+    -->
 
     <!--
       name de los formularios:
-      Alta articulo  -- frmAltaArticulo
-       Alta cliente  -- frmAltaCliente
+
        Alta Taller -- frmAltaTaller
     -->
 
