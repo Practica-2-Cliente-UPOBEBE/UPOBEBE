@@ -89,6 +89,8 @@ function fMostrarListadoCliente(){
 // alta Empleado
     function fAltaEmpleado()
     {
+        frmAltaEmpleado.aceptarAltaEmpleado.addEventListener("click", fValidarAltaEmpleado, false);
+        /*
         let sNifEmpleado = frmAltaEmpleado.txtNIF.value.trim();
         let sNombreEmpleado = frmAltaEmpleado.txtNombreEmpleado.value.trim();
         let sApellidosEmpleado = frmAltaEmpleado.txtApellidoEmpleado.value.trim();
@@ -108,8 +110,22 @@ function fMostrarListadoCliente(){
             alert("El empleado YA EXISTE con ese DNI");
             
         }
+      */
         
     }
+    function fValidarAltaEmpleado(oEvento)
+    {
+    
+        var oE = oEvento || window.event;
+        var bValido = true;
+        var sError = "";
+        limpiarErrores();
+
+        let sNifEmpleado = frmAltaEmpleado.txtNIF.value.trim();
+        //let oExpRep = ;
+
+}
+    
 //fin alta empleado
 //Alta cliente
     function aceptarAltaCliente(){
