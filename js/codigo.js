@@ -17,11 +17,10 @@ fOcultarTablasListado();
 
 // mostrar y ocultar formularios cuando hacemos click:
 function fOcultarFormularios(){
-
     frmAltaEmpleado.style.display = "none";
-    frmAltaArticulo.style.display = "none";
+    //frmAltaArticulo.style.display = "none";
     frmAltaCliente.style.display = "none";
-    frmAltaTaller.style.display = "none";
+    //frmAltaTaller.style.display = "none";
 }
 function fMostrarPaginaPrincipal(){
     //le damos al LOGO/HOME:
@@ -59,8 +58,10 @@ function fMostrarListadoEmpleados(){
 function fMostarAltaCliente(){
     fOcultarFormularios();
     fOcultarTablasListado();
-    frmAltaCliente.style.display = "block";
     frmAltaCliente.reset();
+    frmAltaCliente.style.display = "block";
+    
+
 }
 
 function fMostrarListadoCliente(){
