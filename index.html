@@ -138,7 +138,125 @@
     <!--
       Fin frm Alta empleado
     -->
-
+<!--
+       frm Alta cliente
+    -->
+    <div id="divFrmAltaCliente"  style="margin-left: 40%;">
+        <form name="frmAltaCliente" class="form-horizontal" >
+            <fieldset>
+            
+            <!-- Form Name -->
+            <legend>Alta de cliente</legend>
+            
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="dni">DNI</label>  
+              <div class="col-md-4">
+              <input id="dni" name="dni" type="text" placeholder="DNI cliente" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="nombre">Nombre</label>  
+              <div class="col-md-4">
+              <input id="nombre" name="nombre" type="text" placeholder="nombre cliente" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="apellidos">Apellidos</label>  
+              <div class="col-md-4">
+              <input id="apellidos" name="apellidos" type="text" placeholder="apellidos cliente" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="direccion">Dirección</label>  
+              <div class="col-md-4">
+              <input id="direccion" name="direccion" type="text" placeholder="direccion cliente" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="correo">Correo</label>  
+              <div class="col-md-4">
+              <input id="correo" name="correo" type="text" placeholder="correo cliente" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="tlf">Teléfono</label>  
+              <div class="col-md-4">
+              <input id="tlf" name="tlf" type="text" placeholder="teléfono cliente" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="aceptar"></label>
+              <div class="col-md-4">
+                <input type="button"  onclick="aceptarAltaCliente();" name="aceptar" class="btn btn-primary" value="Dar de alta"/>
+              </div>
+            </div>
+            
+            </fieldset>
+            </form>
+        </div>
+        <!--
+          Fin frm Alta cliente
+        -->
+    
+    
+    
+    <!--
+          Frm Alta Articulo
+        -->
+        <div id="divFrmAltaArticulo" class="container col-6">
+          <form action="" name="frmAltaArticulo" class="m-2" id="frmAltaArticulo">
+            <h3>Alta Artículo:</h3>
+            <div class="form-group">
+              <label for="txtIDArticulo" class="mb-0">ID:</label>
+              <input type="text" name="txtIDArticulo" id="txtIDArticulo" class="form-control input-md" required="">
+            </div>
+            <div class="form-group">
+              <label for="txtNombreArticulo" class="mb-0">Nombre del artículo:</label>
+              <input type="text" name="txtNombreArticulo" id="txtNombreArticulo" class="form-control" required="">
+            </div>
+            <div class="form-group">
+              <label for="txtDescripcionArticulo" class="mb-0">Descripción:</label>
+              <input type="text" name="txtDescripcionArticulo" id="txtDescripcionArticulo" class="form-control" required="">
+            </div>
+            <div class="form-group">
+              <label for="txtCategoriaArticulo" class="mb-0">Categoria:</label>
+              <select class="form-control" id="selectCategoria" name="selectCategoria" required="">
+                <option>Carrocería</option>
+                <option>Sillas auto</option>
+                <option>Alimentación</option>
+                <option>Textil</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="txtPrecioArticulo" class="mb-0">Precio:</label>
+              <input type="text" name="txtPrecioArticulo" id="txtPrecioArticulo" class="form-control" required="">
+            </div>
+            <input type="button" class="btn btn-dark" id="aceptarAltaArticulo" name="aceptarAltaArticulo"
+            onclick="altaArticulo();" value="Dar de Alta" />
+          </form>
+        </div>
+        <!--
+          Fin Alta Articulo
+        -->
     <!--
       name de los formularios:
       Alta articulo  -- frmAltaArticulo
