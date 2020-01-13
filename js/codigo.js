@@ -111,6 +111,78 @@ function fMostrarListadoCliente(){
         
     }
 //fin alta empleado
+//Alta cliente
+    function aceptarAltaCliente(){
+        let dni = frmAltaCliente.dni.value.trim();
+        let nombre = frmAltaCliente.nombre.value.trim();
+        let apellidos = frmAltaCliente.apellidos.value.trim();
+        let direccion = frmAltaCliente.direccion.value.trim();
+        let correo = frmAltaCliente.correo.value.trim();
+        let tlf = frmAltaCliente.tlf.value.trim();
+        let mensaje = "ERROR:";
+        let bValido = true;
+        limpiarErrores();
+        if(dni == ""){
+            bValido = false;
+            mensaje += "\nDebe rellenar el campo DNI";
+            frmAltaCliente.dni.classList.add("error");
+            frmAltaCliente.dni.focus();
+        }
+        if(nombre == ""){
+            if(bValido){
+                bValido = false;
+                frmAltaCliente.nombre.focus();
+            }
+            frmAltaCliente.nombre.classList.add("error");
+            mensaje += "\nDebe rellenar el campo Nombre";
+        }
+        if(apellidos == ""){
+            if(bValido){
+                bValido = false;
+                frmAltaCliente.apellidos.focus();
+            }
+            mensaje += "\nDebe rellenar el campo Apellidos";
+            frmAltaCliente.apellidos.classList.add("error");
+        }
+        if(direccion == ""){
+            if(bValido){
+                bValido = false;
+                frmAltaCliente.direccion.focus();
+            }
+            mensaje += "\nDebe rellenar el campo Dirección";
+            frmAltaCliente.direccion.classList.add("error");
+        }
+        if(correo == ""){
+            if(bValido){
+                bValido = false;
+                frmAltaCliente.correo.focus();
+            }
+            mensaje += "\nDebe rellenar el campo Correo";
+            frmAltaCliente.correo.classList.add("error");
+        }
+        if(tlf == ""){
+            if(bValido){
+                bValido = false;
+                frmAltaCliente.tlf.focus();
+            }
+            mensaje += "\nDebe rellenar el campo Teléfono";
+            frmAltaCliente.tlf.classList.add("error");
+        }
+        if(!bValido){
+            alert(mensaje);
+        }else{
+            alert(oUpoBebe.altaCliente(new Cliente(dni, nombre, apellidos, direccion, correo, tlf)));
+        }
 
+        function limpiarErrores(){
+            frmAltaCliente.dni.classList.remove("error");
+            frmAltaCliente.nombre.classList.remove("error");
+            frmAltaCliente.apellidos.classList.remove("error");
+            frmAltaCliente.direccion.classList.remove("error");
+            frmAltaCliente.correo.classList.remove("error");
+            frmAltaCliente.tlf.classList.remove("error");
+        }
+    }
+//Fin alta cliente
 
 //** fin ALTAS */
