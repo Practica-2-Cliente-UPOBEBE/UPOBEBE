@@ -65,7 +65,10 @@ function fMostarAltaCliente(){
 }
 
 function fMostrarListadoCliente(){
+    fOcultarFormularios();
 
+    
+    document.getElementById("tabla").style.display = "block";
 }
 // fin cliente
 
