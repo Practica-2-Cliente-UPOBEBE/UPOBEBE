@@ -66,7 +66,9 @@ function fMostarAltaCliente(){
 
 function fMostrarListadoCliente(){
     fOcultarFormularios();
-
+    oUpoBebe.tClientes.forEach(element => {
+        document.getElementById("tabla").appendChild(element.toString()); 
+    });
     
     document.getElementById("tabla").style.display = "block";
 }
