@@ -66,6 +66,11 @@ function fMostarAltaCliente(){
 
 function fMostrarListadoCliente(){
     fOcultarFormularios();
+    //Borrar los nodos hijos de la tabla
+    while (document.getElementById("tabla").firstChild) {
+        document.getElementById("tabla").removeChild(document.getElementById("tabla").firstChild);
+      }
+    //Añadir las filas a la tabla
     oUpoBebe.tClientes.forEach(element => {
         document.getElementById("tabla").appendChild(element.toString()); 
     });
