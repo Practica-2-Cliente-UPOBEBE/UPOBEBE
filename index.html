@@ -257,11 +257,29 @@
         <!--
           Fin Alta Articulo
         -->
-    <!--
-      name de los formularios:
+    
 
-       Alta Taller -- frmAltaTaller
-    -->
+   <!--Frm Alta Articulo -->
+        <div id="divFrmAltaTaller" class="container col-6">
+          <form action="" name="frmAltaTaller" class="m-2" id="frmAltaTaller">
+            <h3>Alta Taller:</h3>
+            <div class="form-group">
+              <label for="txtNombreTaller" class="mb-0">Nombre del taller:</label>
+              <input type="text" name="txtNombreTaller" id="txtNombreTaller" class="form-control" required="">
+            </div>
+            <div class="form-group">
+              <label for="txtNIFTaller" class="mb-0">NIF:</label>
+              <input type="text" name="txtNIFTaller" id="txtNIFTaller" class="form-control" required="">
+            </div>
+            <div class="form-group">
+              <label for="txtDireccionTaller" class="mb-0">Dirección:</label>
+              <input type="text" name="txtDireccionTaller" id="txtDireccionTaller" class="form-control" required="">
+            </div>
+            <input type="button" class="btn btn-dark" id="aceptarAltaTaller" name="aceptarAltaTaller"
+            onclick="altaTaller();" value="Dar de Alta" />
+          </form>
+        </div>
+        <!-- Fin Alta Taller -->
 
 
 
