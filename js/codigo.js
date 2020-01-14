@@ -20,7 +20,7 @@ function fOcultarFormularios(){
     frmAltaEmpleado.style.display = "none";
     frmAltaArticulo.style.display = "none";
     frmAltaCliente.style.display = "none";
-    //frmAltaTaller.style.display = "none";
+    frmAltaTaller.style.display = "none";
 }
 function fMostrarPaginaPrincipal(){
     //le damos al LOGO/HOME:
