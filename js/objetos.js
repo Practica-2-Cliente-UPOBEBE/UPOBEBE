@@ -339,4 +339,3 @@ class Articulo{
 	    return sFila;
     }
 }
-}
