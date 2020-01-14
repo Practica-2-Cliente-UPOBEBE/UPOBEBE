@@ -26,7 +26,14 @@ UpoBebe.prototype.altaCliente = function(oCliente){
 }
 
 UpoBebe.prototype.altaArticulo = function(oArticulo){
-
+    let mensaje;
+    if (this._buscarArticulo(oArticulo.idArticulo) != null){
+        mensaje = "ERROR: El artículo ya existe";
+    }else{
+        this.tArticulos.push(oArticulo);
+        mensaje = "Artículo añadido"
+    }
+    return mensaje;
 }
 
 UpoBebe.prototype.altaEmpleado = function(oEmpleado){
@@ -93,6 +100,16 @@ UpoBebe.prototype.buscarCliente = function(dni){
         } 
     });
     return oCliente;
+}
+
+UpoBebe.prototype._buscarArticulo = function(sIdArticulo){
+    var oArticulo = null;
+    this.tArticulos.forEach(function(value){
+    if(value.idArticulo == sIdArticulo){
+        oArticulo.value;
+    }
+});
+    return oArticulo;
 }
 
 //******fin métodos de búsquedas
@@ -273,3 +290,28 @@ class Cliente{
     }
 }
 //Fin clase Cliente
+
+//clase Articulo
+class Articulo{
+
+    constructor(sIdArticulo,sNombreArticulo,sDescripcionArticulo,sCategoria,fPrecioArticulo){
+        this.idArticulo = sIdArticulo;
+        this.nombreArticulo = sNombreArticulo;
+        this.descripcionArticulo = sDescripcionArticulo;
+        this.categoria = sCategoria;
+        this.precioArticulo = parseFloat(fPrecioArticulo);
+
+
+    }
+    toHTMLrow(){
+        var sFila="<tr>";
+	    sFila+="<td>"+this.idArticulo+"</td>";
+	    sFila+="<td>"+this.nombreArticulo+"</td>";
+	    sFila+="<td>"+this.descripcionArticulo+"</td>";
+        sFila+="<td>"+this.categoria+"</td>";
+        sFila+="<td>"+this.precioArticulo+"</td>";
+	    sFila+="</tr>";
+	    return sFila;
+    }
+}
+}
