@@ -68,6 +68,8 @@ function fMostarAltaCliente() {
 
 function fMostrarListadoCliente() {
 
+    
+    document.getElementById("tabla").style.display = "block";
 }
 // fin cliente
 
@@ -100,8 +102,11 @@ function fAltaEmpleado() {
         let sCorreoEmpleado = frmAltaEmpleado.txtCorreoEmpleado.value.trim();
         let sRolEmpleado = frmAltaEmpleado.txtRolEmpleado.value.trim();
         let iTlfEmpleado = frmAltaEmpleado.txtTlfEmpleado.value.trim();
-
         let oEmpleado = new Empleado(sNifEmpleado,sNombreEmpleado,sApellidosEmpleado,fSalarioEmpleado,sDireccionEmpleado,sCorreoEmpleado,sRolEmpleado,iTlfEmpleado);
+
+        /*
+        let oEmpleado = new Empleado(sNifEmpleado,sNombreEmpleado,sApellidosEmpleado,fSalarioEmpleado,sDireccionEmpleado,sCorreoEmpleado,sRolEmpleado,iTlfEmpleado);
+
 
         if(oUpoBebe.altaEmpleado(oEmpleado))
         {
