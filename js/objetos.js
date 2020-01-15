@@ -137,8 +137,9 @@ UpoBebe.prototype._buscarArticulo = function(sIdArticulo){
 
 UpoBebe.prototype.listadoEmpleados = function(){
     
-    let tabla = document.createElement("table");
-    tabla.id ="listadito";
+    //let tabla = document.createElement("table");
+    //tabla.id ="listadito";
+    let tabla = document.getElementById("tabla");
     let cabecera = tabla.createTHead();
     let fila= cabecera.insertRow(-1);
     let celda = fila.insertCell(-1);
@@ -160,11 +161,9 @@ UpoBebe.prototype.listadoEmpleados = function(){
     let cuerpito = document.createElement("tbody");
     
     for(var i=0; i< this.tEmpleados.length; i++){
-        cuerpito.append(this.tEmpleado[i].toHTMLrow());
+        cuerpito.append(this.tEmpleados[i].toHTMLrow());
     }
-    tabla.append(cuerpito);
-
-    return tabla;
+    return cuerpito;
 
     /*
     var tabla = "<table border='1'><thead><tr><th>DNI</th><th>Nombre</th><th>Apelldio</th><th>Salario</th><th>Dirección</th><th>Correo</th><th>Rol</th><th>Teléfono</th></tr></thead>";
