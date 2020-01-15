@@ -307,4 +307,64 @@ function fMostrarListadoCliente(){
     }
 //Fin alta cliente
 
+/Alta artículo
+function altaArticulo() {
+    let sIDArticulo = frmAltaArticulo.txtIDArticulo.value.trim();
+    let sNombreArticulo = frmAltaArticulo.txtNombreArticulo.value.trim();
+    let sDescripcionArticulo = frmAltaArticulo.txtDescripcionArticulo.value.trim();
+    let sCategoria = frmAltaArticulo.selectCategoria.value;
+    let fPrecioArticulo = parseFloat(frmAltaArticulo.txtPrecioArticulo.value.trim());
+    let mensaje = "ERROR:";
+    let bValido = true;
+    limpiarErrores();
+    if (sIDArticulo == "") {
+        bValido = false;
+        mensaje += "\nDebe rellenar el campo ID";
+        frmAltaArticulo.txtIDArticulo.classList.add("error");
+        frmAltaArticulo.txtIDArticulo.focus();
+    }
+    if (sNombreArticulo == "") {
+        bValido = false;
+        mensaje += "\nDebe rellenar el campo nombre";
+        frmAltaArticulo.txtNombreArticulo.classList.add("error");
+        frmAltaArticulo.txtNombreArticulo.focus();
+    }
+
+    if (sDescripcionArticulo == "") {
+        bValido = false;
+        mensaje += "\nDebe rellenar el campo descripcion";
+        frmAltaArticulo.txtDescripcionArticulo.classList.add("error");
+        frmAltaArticulo.txtDescripcionArticulo.focus();
+    }
+    if (sCategoria == 0) {
+        bValido = false;
+        mensaje += "\nDebe elegir una categoria";
+        frmAltaArticulo.selectCategoria.classList.add("error");
+        frmAltaArticulo.selectCategoria.focus();
+    }
+    
+    if (fPrecioArticulo == "") {
+        bValido = false;
+        mensaje += "\nDebe rellenar el campo PRECIO";
+        frmAltaArticulo.txtPrecioArticulo.classList.add("error");
+        frmAltaArticulo.txtPrecioArticulo.focus();
+    }
+
+    if (!bValido) {
+        alert(mensaje);
+    } else {
+        alert(oUpoBebe.altaArticulo(new Articulo(sIDArticulo, sNombreArticulo, sDescripcionArticulo, sCategoria, fPrecioArticulo)));
+    }
+
+    function limpiarErrores() {
+        frmAltaArticulo.txtIDArticulo.classList.remove("error");
+        frmAltaArticulo.txtNombreArticulo.classList.remove("error");
+        frmAltaArticulo.txtDescripcionArticulo.classList.remove("error");
+        frmAltaArticulo.selectCategoria.classList.remove("error");
+        frmAltaArticulo.txtPrecioArticulo.classList.remove("error");
+    }
+
+}
+//Fin alta artículo
+
 //** fin ALTAS */
