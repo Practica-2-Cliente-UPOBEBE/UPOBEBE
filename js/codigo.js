@@ -307,7 +307,7 @@ function fMostrarListadoCliente(){
     }
 //Fin alta cliente
 
-/Alta artículo
+//Alta artículo
 function altaArticulo() {
     let sIDArticulo = frmAltaArticulo.txtIDArticulo.value.trim();
     let sNombreArticulo = frmAltaArticulo.txtNombreArticulo.value.trim();
