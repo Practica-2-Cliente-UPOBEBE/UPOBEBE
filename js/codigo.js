@@ -40,10 +40,12 @@ function fMostarAltaEmpleado(){
 }
 function fMostrarListadoEmpleados(){
     fOcultarFormularios();
-    //document.getElementById("tabla").style.display = "block";
+    document.getElementById("tabla").style.display = "table";
+    
     //document.getElementById("tabla").innerHTML = oUpoBebe.listadoEmpleados();
     let tablaAMostrar = oUpoBebe.listadoEmpleados();
     document.getElementById("tabla").append(tablaAMostrar);
+    
 }
 // fin EMPLEADO
 

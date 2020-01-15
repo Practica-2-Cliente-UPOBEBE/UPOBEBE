@@ -227,7 +227,7 @@ class Empleado{
 
         celda = linea.insertCell(-1);
         celda.textContent=this.correoEmpleado;
-
+        celda = linea.insertCell(-1);
         celda.textContent=this.rolEmpleado;
 
         celda = linea.insertCell(-1);
