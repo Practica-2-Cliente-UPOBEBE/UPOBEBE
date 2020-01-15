@@ -198,15 +198,16 @@ class Reparacion{
 //fin clase Reparación
 //Clase LineaDeArticulo:
 class LineaDeArticulo{
-    constructor(idArt, idVenta, unid, precio){
-        this.idArticulo = idArt;//ID o Objeto?
+    constructor(idLinea, oArt, oVenta, unid, precio){
+        this.idLinea = idLinea;
+        this.oArt = oArt;
         // Carlos:
         //poner el objeto.  En objeto venta, crear LINEAS y que sea nulo en el constructo de objeto Venta
         //boton aceptar -> inserta todas las líneas en el objeto venta
         //en el propio método del objeto venta , agregamos la linea
         //oVenta -> método -> agregarlínea()
         //oVenta tendrá una array
-        this.idVenta = idVenta;//Preguntar a Carlos
+        this.oVenta = oVenta;
         this.unidades = unid;
         this.precioArticulo = precio;
     }
@@ -226,10 +227,10 @@ class LineaDeArticulo{
 
 //Clase Venta:
 class Venta{
-    constructor(id, dniCliente, dniEmpleado, aLineaArticulo, fecha){
+    constructor(id, oCliente, oEmpleado, aLineaArticulo, fecha){
         this.idVenta = id;
-        this.dniCliente = dniCliente;
-        this.dniEmpleado = dniEmpleado;
+        this.oCliente = oCliente;
+        this.oEmpleado = oEmpleado;
         this.aLineaArticulo = aLineaArticulo;
         this.fVenta = fecha;
     }
