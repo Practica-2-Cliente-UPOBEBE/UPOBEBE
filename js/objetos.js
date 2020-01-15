@@ -1,6 +1,7 @@
 "use strict";
 //CLASE UPOBEBE
 function UpoBebe(){
+    this.tLineaArticulo = new Array();
     this.tClientes = new Array();
     this.tEmpleados = new Array();
     this.tVentas = new Array();
@@ -215,7 +216,7 @@ class Reparacion{
 //fin clase Reparación
 //Clase LineaDeArticulo:
 class LineaDeArticulo{
-    constructor(idLinea, oArt, oVenta, unid, precio){
+    constructor(idLinea, oArt, oVenta, unid){
         this.idLinea = idLinea;
         this.oArt = oArt;
         // Carlos:
@@ -226,10 +227,9 @@ class LineaDeArticulo{
         //oVenta tendrá una array
         this.oVenta = oVenta;
         this.unidades = unid;
-        this.precioArticulo = precio;
     }
     totalLinea(){
-        return this.unidades * this.precioArticulo;
+        return this.unidades * this.oArt.precioArticulo;
     }
     toString(){
         let sFila = "<tr><td>"+ this.aLineaArticulo.idArticulo +"</td>";
