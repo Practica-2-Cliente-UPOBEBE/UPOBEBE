@@ -67,12 +67,21 @@ function fMostarAltaCliente(){
 function fMostrarListadoCliente(){
     fOcultarFormularios();
     //Borrar los nodos hijos de la tabla
-    while (document.getElementById("tabla").firstChild) {
-        document.getElementById("tabla").removeChild(document.getElementById("tabla").firstChild);
+    let tHead = document.getElementById("tabla").createTHead();
+    let tBody = document.getElementById("tabla").appendChild(document.getElementById("tabla").createTBody());
+    let cabecera = tHead.insertRow(-1);
+    cabecera.insertCell(-1).textContent = "DNI";
+    cabecera.insertCell(-1).textContent = "NOMBRE";
+    cabecera.insertCell(-1).textContent = "APELLIDOS";
+    cabecera.insertCell(-1).textContent = "DIRECCIÓN";
+    cabecera.insertCell(-1).textContent = "CORREO";
+    cabecera.insertCell(-1).textContent = "TELÉFONO";
+    while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
       }
     //Añadir las filas a la tabla
     oUpoBebe.tClientes.forEach(element => {
-        document.getElementById("tabla").appendChild(element.toString()); 
+        tBody.appendChild(element.toString()); 
     });
     
     document.getElementById("tabla").style.display = "block";
@@ -235,50 +244,50 @@ function fMostrarListadoCliente(){
         let mensaje = "ERROR:";
         let bValido = true;
         limpiarErrores();
-        if(dni == ""){
+        if(/^(X(-|\.)?0?\d{7}(-|\.)?[A-Z]|[A-Z](-|\.)?\d{7}(-|\.)? [0-9A-Z]|\d{8}(-|\.)?[A-Z])$/.test(dni) == false){
             bValido = false;
-            mensaje += "\nDebe rellenar el campo DNI";
+            mensaje += "\nEl DNI es incorrecto";
             frmAltaCliente.dni.classList.add("error");
             frmAltaCliente.dni.focus();
         }
-        if(nombre == ""){
+        if(/[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}/.test(nombre) == false){
             if(bValido){
                 bValido = false;
                 frmAltaCliente.nombre.focus();
             }
             frmAltaCliente.nombre.classList.add("error");
-            mensaje += "\nDebe rellenar el campo Nombre";
+            mensaje += "\nEl nombre es incorrecto";
         }
-        if(apellidos == ""){
+        if(/[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,64}/.test(apellidos) == false){
             if(bValido){
                 bValido = false;
                 frmAltaCliente.apellidos.focus();
             }
-            mensaje += "\nDebe rellenar el campo Apellidos";
+            mensaje += "\nLos apellidos son incorrectos";
             frmAltaCliente.apellidos.classList.add("error");
         }
-        if(direccion == ""){
+        if(/^[a-zA-Z\s0-9]{2,20}$/.test(direccion) == false){
             if(bValido){
                 bValido = false;
                 frmAltaCliente.direccion.focus();
             }
-            mensaje += "\nDebe rellenar el campo Dirección";
+            mensaje += "\nLa dirección es incorrecta";
             frmAltaCliente.direccion.classList.add("error");
         }
-        if(correo == ""){
+        if(/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/.test(correo) == false){
             if(bValido){
                 bValido = false;
                 frmAltaCliente.correo.focus();
             }
-            mensaje += "\nDebe rellenar el campo Correo";
+            mensaje += "\nEl correo es incorrecto";
             frmAltaCliente.correo.classList.add("error");
         }
-        if(tlf == ""){
+        if(/^[9678]\d{8}$/.test(tlf) == false){
             if(bValido){
                 bValido = false;
                 frmAltaCliente.tlf.focus();
             }
-            mensaje += "\nDebe rellenar el campo Teléfono";
+            mensaje += "\nEl teléfono es incorrecto";
             frmAltaCliente.tlf.classList.add("error");
         }
         if(!bValido){
