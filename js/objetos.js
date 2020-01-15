@@ -161,7 +161,7 @@ UpoBebe.prototype.listadoEmpleados = function(){
     let cuerpito = document.createElement("tbody");
     
     for(var i=0; i< this.tEmpleados.length; i++){
-        cuerpito.append(this.tEmpleados[i].toHTMLrow());
+       cuerpito.append(this.tEmpleados[i].toHTMLrow());
     }
     return cuerpito;
 
