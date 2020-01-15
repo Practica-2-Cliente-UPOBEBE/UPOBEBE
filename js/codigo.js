@@ -3,7 +3,7 @@ var oUpoBebe = new UpoBebe();
 fDatosIniciales();
 fOcultarFormularios();
 fOcultarTablasListado();
-
+document.addEventListener(onload, f, false);
 
 // DATOS INICIALES EN LOS LISTADOS:
     function fDatosIniciales(){
@@ -26,6 +26,7 @@ function fMostrarPaginaPrincipal(){
     //le damos al LOGO/HOME:
     fOcultarFormularios();
     fOcultarTablasListado();
+    // Mostrar por defecto la lista de los artículos
 }
 function fOcultarTablasListado(){
     document.getElementById("tabla").style.display = "none";
@@ -307,7 +308,7 @@ function fMostrarListadoCliente(){
     }
 //Fin alta cliente
 
-/Alta artículo
+//Alta artículo
 function altaArticulo() {
     let sIDArticulo = frmAltaArticulo.txtIDArticulo.value.trim();
     let sNombreArticulo = frmAltaArticulo.txtNombreArticulo.value.trim();
@@ -368,3 +369,49 @@ function altaArticulo() {
 //Fin alta artículo
 
 //** fin ALTAS */
+///////////////////////// Mostrar carrito /////////////////////////
+
+function fMostrarCarrito(){
+    fOcultarFormularios();
+    fOcultarTablasListado();
+    console.log(oUpoBebe.tLineaArticulo.length);
+    let contenedorLineas = document.getElementById("body").appendChild(document.createElement("DIV"));
+    //Si hay alguna linea que aun no se le ha asignado a una venta es porque esta en el carrito, entonces se pinta en pantalla:
+    if( oUpoBebe.tLineaArticulo.length == 0 || oUpoBebe.tLineaArticulo[(oUpoBebe.tLineaArticulo.length-1)].oVenta != null){
+        contenedorLineas.appendChild(document.createElement("P")).appendChild(document.createTextNode("El carrito está vacío"));
+    }else{
+        let contadorTotalLineas = 0;
+        let tablaLineas = document.createElement("TABLE");
+        let filaCabecera = tablaLineas.createTHead().insertRow(-1);
+        filaCabecera.insertCell(-1).textContent = "ARTÍCULO";
+        filaCabecera.insertCell(-1).textContent = "UNIDADES";
+        filaCabecera.insertCell(-1).textContent = "PRECIO";
+        filaCabecera.insertCell(-1).textContent = "TOTAL DE LÍNEA";
+        let cuerpoTabla = tablaLineas.createTBody();
+        oUpoBebe.tLineaArticulo.forEach(elemento =>{
+            if(elemento.oVenta == null){
+                let fila = cuerpoTabla.insertRow(-1);
+                fila.insertCell(-1).textContent = elemento.oArt.nombreArticulo;
+                fila.insertCell(-1).textContent = elemento.unidades;
+                fila.insertCell(-1).textContent = elemento.oArt.precioArticulo;
+                fila.insertCell(-1).textContent = elemento.totalLinea();
+                contadorTotalLineas += elemento.totalLinea();
+            }
+            let fila = cuerpoTabla.insertRow(-1);
+            let celda = fila.insertCell(-1);
+            celda.textContent("TOTAL PEDIDO");
+            celda.setAttribute("rowspan", "3");
+            fila.insertCell(-1).textContent = contadorTotalLineas;
+            //QUEDA AÑADIR LOS BOTONES
+        });
+
+    }
+}
+
+function f(){
+    let oL = new LineaDeArticulo(1, null, null, 2, 3);
+    let oU = new UpoBebe(); 
+    oU.tLineaArticulo.push(oL);
+    oU.tLineaArticulo.push(oL);
+    oU.tLineaArticulo.push(oL);
+}
