@@ -136,6 +136,37 @@ UpoBebe.prototype._buscarArticulo = function(sIdArticulo){
 // *********LISTADOS ******
 
 UpoBebe.prototype.listadoEmpleados = function(){
+    
+    let tabla = document.createElement("table");
+    tabla.id ="listadito";
+    let cabecera = tabla.createTHead();
+    let fila= cabecera.insertRow(-1);
+    let celda = fila.insertCell(-1);
+    celda.textContent = "DNI";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Apellido";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Salario";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Dirección";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Correo";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Rol";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Teléfono";
+    let cuerpito = document.createElement("tbody");
+    
+    for(var i=0; i< this.tEmpleados.length; i++){
+        cuerpito.append(this.tEmpleado[i].toHTMLrow());
+    }
+    tabla.append(cuerpito);
+
+    return tabla;
+
+    /*
     var tabla = "<table border='1'><thead><tr><th>DNI</th><th>Nombre</th><th>Apelldio</th><th>Salario</th><th>Dirección</th><th>Correo</th><th>Rol</th><th>Teléfono</th></tr></thead>";
 
     for(var i=0; i< this.tEmpleados.length; i++){
@@ -143,7 +174,7 @@ UpoBebe.prototype.listadoEmpleados = function(){
     }
     tabla += "</table>";
 
-    return tabla;
+    return tabla;*/
 }
 
 UpoBebe.prototype.listadoClientes = function(){
@@ -177,16 +208,30 @@ class Empleado{
         this.rolEmpleado = sRol;
         this.telefonoEmpleado = parseInt(iTelefono);
     }
+    
     toHTMLrow(){
         let linea = document.createElement("tr"); 
-        let celda = linea.createCell(-1);
+        let celda = linea.insertCell(-1);
         celda.textContent=this.dniEmpleado;
+
+        celda = linea.insertCell(-1);
         celda.textContent=this.nombreEmpleado;
+
+        celda = linea.insertCell(-1);
         celda.textContent=this.apellidosEmpleado;
+
+        celda = linea.insertCell(-1);
         celda.textContent=this.salarioEmpleado;
+
+        celda = linea.insertCell(-1);
         celda.textContent=this.direccionEmpleado;
+
+        celda = linea.insertCell(-1);
         celda.textContent=this.correoEmpleado;
+
         celda.textContent=this.rolEmpleado;
+
+        celda = linea.insertCell(-1);
         celda.textContent=this.telefonoEmpleado;
         return linea;
         /*
