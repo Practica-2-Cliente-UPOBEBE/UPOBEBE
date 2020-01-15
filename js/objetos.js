@@ -178,6 +178,18 @@ class Empleado{
         this.telefonoEmpleado = parseInt(iTelefono);
     }
     toHTMLrow(){
+        let linea = document.createElement("tr"); 
+        let celda = linea.createCell(-1);
+        celda.textContent=this.dniEmpleado;
+        celda.textContent=this.nombreEmpleado;
+        celda.textContent=this.apellidosEmpleado;
+        celda.textContent=this.salarioEmpleado;
+        celda.textContent=this.direccionEmpleado;
+        celda.textContent=this.correoEmpleado;
+        celda.textContent=this.rolEmpleado;
+        celda.textContent=this.telefonoEmpleado;
+        return linea;
+        /*
         var sFila="<tr>";
 	    sFila+="<td>"+this.dniEmpleado+"</td>";
 	    sFila+="<td>"+this.nombreEmpleado+"</td>";
@@ -188,7 +200,10 @@ class Empleado{
         sFila+="<td>"+this.rolEmpleado+"</td>";
         sFila+="<td>"+this.telefonoEmpleado+"</td>";
 	    sFila+="</tr>";
-	    return sFila;
+        return sFila;
+        */
+     
+
     }
 }
 // fin clase EMPLEADO

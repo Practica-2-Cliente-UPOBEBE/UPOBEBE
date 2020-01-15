@@ -40,8 +40,26 @@ function fMostarAltaEmpleado(){
 }
 function fMostrarListadoEmpleados(){
     fOcultarFormularios();
-    document.getElementById("tabla").style.display = "block";
-    document.getElementById("tabla").innerHTML = oUpoBebe.listadoEmpleados();
+    //document.getElementById("tabla").style.display = "block";
+    //document.getElementById("tabla").innerHTML = oUpoBebe.listadoEmpleados();
+    let tabla = document.createElement("table");
+    tabla.id ="listadito";
+    let cabecera = tabla.createTHead();
+    let fila= cabecera.createRow(-1);
+    let celda = fila.createCell(-1);
+    celda.textContent = "DNI";
+    celda.textContent = "Nombre";
+    celda.textContent = "Apellido";
+    celda.textContent = "Salario";
+    celda.textContent = "Dirección";
+    celda.textContent = "Correo";
+    celda.textContent = "Rol";
+    celda.textContent = "Teléfono";
+    let cuerpito = document.createElement("tbody");
+    cuerpito.append(this.tEmpleado[i].toHTMLrow());
+    tabla.append(cuerpito);
+
+    return tabla;
 }
 // fin EMPLEADO
 
