@@ -196,19 +196,19 @@ class Empleado{
 // Clase Reparación:
 class Reparacion{
 
-    constructor(ID_Reparacion,ID_Articulo,ID_Venta,dtFecha_Reparacion){
-        this.IDReparacion = ID_Reparacion;
-        //DUDA SOBRE ID_ARTICULO e ID_VENTA viniendo de los objetos de estos// 
-        // carlos dice: que son objetos , oArticulo, oVenta y oTaller
-        this.fechaReparacion = dtFecha_Reparacion;
+    constructor(sIdReparacion,oArticulo,oVenta,dtFechaReparacion){
+        this.IDReparacion = sIdReparacion;
+        this.oArt = oArticulo;
+        this.oVent = oVenta;
+        this.fechaReparacion = dtFechaReparacion;
 
     }
     toString(){
         var sFila="<tr>";
 	    sFila+="<td>"+this.IDReparacion+"</td>";
-	    //sFila+="<td>"++"</td>";
-	    //sFila+="<td>"++"</td>";
-        
+	    sFila+="<td>"+this.oArt+"</td>";
+	    sFila+="<td>"+this.oVent+"</td>";
+        sFila+="<td>"+this.fechaReparacion+"</td>";
 	    sFila+="</tr>";
 	    return sFila;
     }
