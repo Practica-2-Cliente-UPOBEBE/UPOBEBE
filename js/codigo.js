@@ -41,13 +41,22 @@ function fMostarAltaEmpleado(){
 function fMostrarListadoEmpleados(){
     fOcultarFormularios();
     document.getElementById("tabla").style.display = "table";
-    
+    fVaciarTabla();
     //document.getElementById("tabla").innerHTML = oUpoBebe.listadoEmpleados();
     let tablaAMostrar = oUpoBebe.listadoEmpleados();
     document.getElementById("tabla").append(tablaAMostrar);
     
 }
 // fin EMPLEADO
+
+function fVaciarTabla(){
+    let hijosTabla = document.querySelectorAll('#tabla > *');
+    if(hijosTabla.length > 0){
+        hijosTabla.forEach(hijo=>{
+            hijo.remove();
+        })
+    }
+}
 
 // Articulo
  function fMostrarAltaArticulo()
@@ -71,6 +80,7 @@ function fMostarAltaCliente(){
 
 function fMostrarListadoCliente(){
     fOcultarFormularios();
+    fVaciarTabla();
     //Borrar los nodos hijos de la tabla
     let tHead = document.getElementById("tabla").createTHead();
     let tBody = document.getElementById("tabla").appendChild(document.getElementById("tabla").createTBody());
@@ -89,7 +99,7 @@ function fMostrarListadoCliente(){
         tBody.appendChild(element.toString()); 
     });
     
-    document.getElementById("tabla").style.display = "block";
+    document.getElementById("tabla").style.display = "table";
 }
 // fin cliente
 
