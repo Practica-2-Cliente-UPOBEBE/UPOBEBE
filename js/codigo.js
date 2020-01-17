@@ -59,12 +59,21 @@ function fVaciarTabla(){
 }
 
 // Articulo
- function fMostrarAltaArticulo()
+function fMostrarAltaArticulo()
 {
     fOcultarFormularios();
     fOcultarTablasListado();
     frmAltaArticulo.style.display = "block";
     frmAltaArticulo.reset();
+}
+
+function fMostrarListadoArticulo(){
+    fOcultarFormularios();
+    document.getElementById("tabla").style.display = "table";
+    fVaciarTabla();
+    let tablaAMostrar = oUpoBebe.listadoArticulo();
+    document.getElementById("tabla").append(tablaAMostrar);
+    
 }
 // fin articulo
 
@@ -322,32 +331,39 @@ function fMostrarListadoCliente(){
     }
 //Fin alta cliente
 
+
 //Alta artículo
 function altaArticulo() {
     let sIDArticulo = frmAltaArticulo.txtIDArticulo.value.trim();
     let sNombreArticulo = frmAltaArticulo.txtNombreArticulo.value.trim();
     let sDescripcionArticulo = frmAltaArticulo.txtDescripcionArticulo.value.trim();
     let sCategoria = frmAltaArticulo.selectCategoria.value;
-    let fPrecioArticulo = parseFloat(frmAltaArticulo.txtPrecioArticulo.value.trim());
+    let fPrecioArticulo = frmAltaArticulo.txtPrecioArticulo.value.trim();
     let mensaje = "ERROR:";
     let bValido = true;
     limpiarErrores();
-    if (sIDArticulo == "") {
+
+    let oExpRegID = /^[a-zA-Z\s0-9]{5}$/;
+    if (oExpRegID.test(sIDArticulo) == false) {
         bValido = false;
-        mensaje += "\nDebe rellenar el campo ID";
+        mensaje += "\nEl campo ID debe contener 5 dígitos alfanuméricos.";
         frmAltaArticulo.txtIDArticulo.classList.add("error");
         frmAltaArticulo.txtIDArticulo.focus();
     }
-    if (sNombreArticulo == "") {
+
+    let oExpRegNombre = /[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}/;
+    if(oExpRegNombre.test(sNombreArticulo)==false)
+    {
         bValido = false;
-        mensaje += "\nDebe rellenar el campo nombre";
+        mensaje += "\nEl nombre es incorrecto.";
         frmAltaArticulo.txtNombreArticulo.classList.add("error");
         frmAltaArticulo.txtNombreArticulo.focus();
     }
-
-    if (sDescripcionArticulo == "") {
+    let oExpRegDescripcion = /^[a-zA-Z\s0-9]{5,40}$/;
+    if(oExpRegDescripcion.test(sDescripcionArticulo)==false)
+    {
         bValido = false;
-        mensaje += "\nDebe rellenar el campo descripcion";
+        mensaje += "\nEl campo descripción es erróneo";
         frmAltaArticulo.txtDescripcionArticulo.classList.add("error");
         frmAltaArticulo.txtDescripcionArticulo.focus();
     }

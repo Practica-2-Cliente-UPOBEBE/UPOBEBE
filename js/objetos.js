@@ -187,6 +187,29 @@ UpoBebe.prototype.listadoClientes = function(){
     return tabla;
 }
 
+
+UpoBebe.prototype.listadoArticulo = function(){
+    
+    let tabla = document.getElementById("tabla");
+    let cabecera = tabla.createTHead();
+    let fila= cabecera.insertRow(-1);
+    let celda = fila.insertCell(-1);
+    celda.textContent = "ID";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Descripcion";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Categoria";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Precio";
+    let cuerpo = document.createElement("tbody");
+    
+    for(var i=0; i< this.tArticulos.length; i++){
+       cuerpo.append(this.tArticulos[i].toHTMLrow());
+    }
+    return cuerpo;
+}
 ///**** FIN LISTADOS ************* */
 
 //fin métodos de la clase UPOBEBE
@@ -388,6 +411,25 @@ class Articulo{
 
 
     }
+        toHTMLrow(){
+        let linea = document.createElement("tr"); 
+        let celda = linea.insertCell(-1);
+        celda.textContent=this.idArticulo;
+
+        celda = linea.insertCell(-1);
+        celda.textContent=this.nombreArticulo;
+
+        celda = linea.insertCell(-1);
+        celda.textContent=this.descripcionArticulo;
+
+        celda = linea.insertCell(-1);
+        celda.textContent=this.categoria;
+
+        celda = linea.insertCell(-1);
+        celda.textContent=this.precioArticulo;
+
+        return linea;
+        /*/*
     toHTMLrow(){
         var sFila="<tr>";
 	    sFila+="<td>"+this.idArticulo+"</td>";
@@ -396,6 +438,7 @@ class Articulo{
         sFila+="<td>"+this.categoria+"</td>";
         sFila+="<td>"+this.precioArticulo+"</td>";
 	    sFila+="</tr>";
-	    return sFila;
+	    return sFila;*/
     }
 }
+//Fin clase artículo
