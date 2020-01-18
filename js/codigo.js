@@ -14,7 +14,7 @@ document.addEventListener(onload, f, false);
         //oUpoBebe.altaEmpleado(new Empleado ("333A","Ana","Pérez Ramona",1200,"Calle 3","ana@email.com","Jefa",777777777));
 
         // intento de carga de XML:
-        let oXML = loadXMLDoc("datosUpoBebe.xml");
+        //let oXML = loadXMLDoc("datosUpoBebe.xml");
     }
 // fin de datos INICIALES
 
