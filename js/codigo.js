@@ -31,18 +31,65 @@ document.getElementById("aceptarAltaArticulo").addEventListener("click",altaArti
 document.getElementById("aceptarAltaTaller").addEventListener("click",altaTaller,false);
 
 
-// DATOS INICIALES EN LOS LISTADOS:
+// DATOS INICIALES:
     function fDatosIniciales(){
+        // Cargar XML
+        let oXML = loadXMLDoc("../datosUpoBebe.xml");
 
-        // Datos empleados
-        //oUpoBebe.altaEmpleado(new Empleado ("111A","Lola","Lorenzo Lomas",1004.02,"Calle 1","lola@email.com","Encargada",999999999));
-        //oUpoBebe.altaEmpleado(new Empleado ("222A","Juan","Rodríguez Tomás",960.02,"Calle 2","juan@email.com","Dependiente",888888888));
-        //oUpoBebe.altaEmpleado(new Empleado ("333A","Ana","Pérez Ramona",1200,"Calle 3","ana@email.com","Jefa",777777777));
+        //Datos empleados
+        let oEmpleados = oXML.querySelectorAll("empleado");
+        for(let i=0;i < oEmpleados.length ; i++){
+            let dni = oEmpleados[i].querySelector("dni").textContent;
+            let nombre = oEmpleados[i].querySelector("nombre").textContent;
+            let apellidos = oEmpleados[i].querySelector("apellidos").textContent;
+            let salario = oEmpleados[i].querySelector("salario").textContent;
+            let direccion = oEmpleados[i].querySelector("direccion").textContent;
+            let correo = oEmpleados[i].querySelector("correo").textContent;
+            let rol = oEmpleados[i].querySelector("rol").textContent;
+            let tlf = oEmpleados[i].querySelector("telefono").textContent;
+            
+            oUpoBebe.altaEmpleado(new Empleado(dni, nombre, apellidos, salario, direccion, correo, rol, tlf));
+        }
+        //Datos clientes
+        let oClientes = oXML.querySelectorAll("cliente");
+        for(let i=0;i < oCLientes.length ; i++){
+            let dni = oCLientes[i].querySelector("dni").textContent;
+            let nombre = oCLientes[i].querySelector("nombre").textContent;
+            let apellidos = oCLientes[i].querySelector("apellidos").textContent;
+            let direccion = oCLientes[i].querySelector("direccion").textContent;
+            let correo = oCLientes[i].querySelector("correo").textContent;
+            let tlf = oCLientes[i].querySelector("telefono").textContent;
 
-        // intento de carga de XML:
-        //let oXML = loadXMLDoc("datosUpoBebe.xml");
+            oUpoBebe.altaCliente(new Cliente(dni, nombre, apellidos, direccion, correo, tlf));
+        }
+        //Datos talleres
+        let oTalleres = oXML.querySelectorAll("taller");
+        for(let i = 0 ; i < oTalleres.length ; i++){
+            let nombre = oTalleres[i].querySelector("nombre").textContent;
+            let nif = oTalleres[i].querySelector("nif").textContent;
+            let direccion = oTalleres[i].querySelector("direccion").textContent;
+
+            oUpoBebe.altaTaller(new Taller(nombre, nif, direccion));
+        }
     }
 // fin de datos INICIALES
+// Función para cargar el ficheroXML
+function loadXMLDoc(filename) {
+    let xhttp = null;
+
+    if (window.XMLHttpRequest) {
+        xhttp = new XMLHttpRequest();
+    }
+    else // code for IE5 and IE6
+    {
+        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET", filename, false);
+
+    xhttp.send();
+
+    return xhttp.responseXML;
+}
 
 // mostrar y ocultar formularios cuando hacemos click:
 function fOcultarFormularios(){
