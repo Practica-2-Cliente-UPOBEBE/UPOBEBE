@@ -71,7 +71,7 @@
                   <a class="dropdown-item" href="#" id="mostrarListadoArticulo">Listar Artículos</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#" id="mostrarListadoPeriodoVendidos">Art. Vendidos por periodos</a>
-                  <a class="dropdown-item" href="#" id="mostrarListadoPeriodoComprados()">Art. Comprados por periodos</a>
+                  <a class="dropdown-item" href="#" id="mostrarListadoPeriodoComprados">Art. Comprados por periodos</a>
                 </div>
               </li>
             
@@ -130,7 +130,7 @@
           <input type="text" name="txtTlfEmpleado" id="txtTlfEmpleado" class="form-control" required="">
         </div>
         <input type="button" class="btn btn-primary" id="aceptarAltaEmpleado" name="aceptarAltaEmpleado"
-        onclick="fAltaEmpleado();" value="Dar de Alta" />
+         value="Dar de Alta" />
       </form>
     </div>
     <!--
@@ -204,7 +204,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="aceptar"></label>
               <div class="col-md-4">
-                <input type="button"  onclick="aceptarAltaCliente();" name="aceptar" class="btn btn-primary" value="Dar de alta"/>
+                <input type="button"  id="aceptarAltaCliente" name="aceptar" class="btn btn-primary" value="Dar de alta"/>
               </div>
             </div>
             
@@ -250,7 +250,7 @@
               <input type="text" name="txtPrecioArticulo" id="txtPrecioArticulo" class="form-control" required="">
             </div>
             <input type="button" class="btn btn-dark" id="aceptarAltaArticulo" name="aceptarAltaArticulo"
-            onclick="altaArticulo();" value="Dar de Alta" />
+             value="Dar de Alta" />
           </form>
         </div>
         <!--
@@ -275,7 +275,7 @@
               <input type="text" name="txtDireccionTaller" id="txtDireccionTaller" class="form-control" required="">
             </div>
             <input type="button" class="btn btn-dark" id="aceptarAltaTaller" name="aceptarAltaTaller"
-            onclick="altaTaller();" value="Dar de Alta" />
+             value="Dar de Alta" />
           </form>
         </div>
         <!-- Fin Alta Taller -->

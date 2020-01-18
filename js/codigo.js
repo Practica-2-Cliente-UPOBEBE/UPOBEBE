@@ -18,9 +18,14 @@ document.getElementById("mostrarListadoTaller").addEventListener("click",fMostra
 document.getElementById("mostrarListadoArticulo").addEventListener("click",fMostrarListadoArticulo,false);
 document.getElementById("mostrarListadoPeriodoVendidos").addEventListener("click",fMostrarListadoPeriodoVendidos,false);
 document.getElementById("mostrarListadoPeriodoComprados").addEventListener("click",fMostrarListadoPeriodoComprados,false);
-
 //evento - mostrar carrito:
 document.getElementById("mostrarCarrito").addEventListener("click",fMostrarCarrito,false);
+
+//eventos - botones Dar de ALTA:
+document.getElementById("aceptarAltaEmpleado").addEventListener("click",fAltaEmpleado,false);
+document.getElementById("aceptarAltaCliente").addEventListener("click",aceptarAltaCliente,false);
+document.getElementById("aceptarAltaArticulo").addEventListener("click",altaArticulo,false);
+document.getElementById("aceptarAltaTaller").addEventListener("click",altaTaller,false);
 
 
 // DATOS INICIALES EN LOS LISTADOS:
@@ -146,6 +151,22 @@ function fMostrarListadoCliente(){
 
     }
 // fin taller
+
+// mostrar ventas
+function fMostrarListadoVentas(){
+
+}
+
+// mostar listados periodo vendidos
+function fMostrarListadoPeriodoVendidos(){
+
+}
+
+// mostrar listados periodo compras
+function fMostrarListadoPeriodoComprados(){
+
+}
+
 
 // FIN mostrar y ocultar formularios
 
