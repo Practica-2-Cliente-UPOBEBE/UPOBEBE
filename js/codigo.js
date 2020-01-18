@@ -3,7 +3,7 @@ var oUpoBebe = new UpoBebe();
 fDatosIniciales();
 fOcultarFormularios();
 fOcultarTablasListado();
-document.addEventListener(onload, f, false);
+
 //mostrar pagina principal - evento:
 document.getElementById("mostrarPaginaPrincipal").addEventListener("click",fMostrarPaginaPrincipal,false);
 
