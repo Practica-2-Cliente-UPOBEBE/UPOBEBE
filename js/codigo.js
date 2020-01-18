@@ -198,7 +198,11 @@ function fMostrarListadoCliente(){
     }
 
     function fMostrarListadoTaller(){
-
+        fOcultarFormularios();
+        document.getElementById("tabla").style.display = "table";
+        fVaciarTabla();
+        let tablaAMostrar = oUpoBebe.listadoTaller();
+        document.getElementById("tabla").append(tablaAMostrar);
     }
 // fin taller
 
@@ -490,6 +494,60 @@ function altaArticulo() {
 
 }
 //Fin alta artículo
+
+
+//Alta taller
+function altaTaller() {
+    let sNombreTaller = frmAltaTaller.txtNombreTaller.value.trim();
+    let sNifTaller = frmAltaTaller.txtNIFTaller.value.trim();
+    let sDireccionTaller = frmAltaTaller.txtDireccionTaller.value.trim();
+    let mensaje = "ERROR:";
+    let bValido = true;
+    limpiarErrores();
+
+
+    let oExpRegNombre = /[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}/;
+    if(oExpRegNombre.test(sNombreTaller)==false)
+    {
+        bValido = false;
+        mensaje += "\nEl nombre es incorrecto.";
+        frmAltaTaller.txtNombreTaller.classList.add("error");
+        frmAltaTaller.txtNombreTaller.focus();
+    }
+
+    let oExpRegNif = /^(X(-|\.)?0?\d{7}(-|\.)?[A-Z]|[A-Z](-|\.)?\d{7}(-|\.)? [0-9A-Z]|\d{8}(-|\.)?[A-Z])$/;
+
+    if(oExpRegNif.test(sNifTaller)==false){
+       bValido = false;
+       mensaje += "\nEl nif es incorrecto.";
+       frmAltaTaller.txtNIFTaller.classList.add("error");
+       frmAltaTaller.txtNIFTaller.focus();
+    }
+
+    let oExpRegDireccion= /^[a-zA-Z\s0-9]{5,40}$/;
+    if(oExpRegDireccion.test(sDireccionTaller)==false)
+    {
+        bValido = false;
+        mensaje += "\nEl campo direccion es erróneo";
+        frmAltaTaller.txtDireccionTaller.classList.add("error");
+        frmAltaTaller.txtDireccionTaller.focus();
+    }
+
+    if (!bValido) {
+        alert(mensaje);
+    } else {
+        alert(oUpoBebe.altaTaller(new Taller(sNombreTaller, sNifTaller, sDireccionTaller)));
+    }
+
+    function limpiarErrores() {
+        frmAltaTaller.txtNombreArticulo.classList.remove("error");
+        frmAltaTaller.txtNIFTaller.classList.remove("error");
+        frmAltaTaller.txtDireccionTaller.classList.remove("error");
+
+    }
+
+}
+//Fin alta taller
 
 //** fin ALTAS */
 ///////////////////////// Mostrar carrito /////////////////////////

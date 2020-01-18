@@ -50,14 +50,16 @@ UpoBebe.prototype.altaEmpleado = function(oEmpleado){
     return añadido;
 }
 
-UpoBebe.prototype.altaTaller = function(oTaller){
-    if(this._buscarTaller(oTaller) == null){
+UpoBebe.prototype.altaTalleres = function(oTaller){
+    let mensaje;
+    if (this._buscarTaller(oTaller.nifTaller) != null){
+        mensaje = "ERROR: El taller ya existe";
+        console.log(this._buscarTaller(oTaller.sNifTaller))
+    }else{
         this.tTalleres.push(oTaller);
-        return true;
+        mensaje = "Taller añadido"
     }
-    else
-        return false;
-    
+    return mensaje;
 }
 
 //****FIN ALTAS */
@@ -110,10 +112,10 @@ UpoBebe.prototype.buscarCliente = function(dni){
     });
     return oCliente;
 }
-UpoBebe.prototype._buscarTaller = function(nif){
+UpoBebe.prototype._buscarTaller = function(sNifTaller){
     let oTaller = null;
     this.tTalleres.forEach(function(value){
-        if(value.nif == nif) {
+        if(value.nifTaller == sNifTaller) {
             oTaller=value;
         } 
     });
@@ -222,6 +224,27 @@ UpoBebe.prototype.listadoArticulo = function(){
     
     for(var i=0; i< this.tArticulos.length; i++){
        cuerpo.append(this.tArticulos[i].toHTMLrow());
+    }
+    return cuerpo;
+}
+
+
+UpoBebe.prototype.listadoTaller = function(){
+    
+    let tabla = document.getElementById("tabla");
+    let cabecera = tabla.createTHead();
+    let fila= cabecera.insertRow(-1);
+    let celda = fila.insertCell(-1);
+    celda.textContent = "Nombre";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nif";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Direccion";
+
+    let cuerpo = document.createElement("tbody");
+    
+    for(var i=0; i< this.tTalleres.length; i++){
+       cuerpo.append(this.tTalleres[i].toHTMLrow());
     }
     return cuerpo;
 }
@@ -457,3 +480,31 @@ class Articulo{
     }
 }
 //Fin clase artículo
+
+
+//clase Taller
+class Taller{
+
+    constructor(sNombreTaller,sNifTaller,sDireccionTaller){
+        this.nombreTaller = sNombreTaller;
+        this.nifTaller = sNifTaller;
+        this.direccionTaller = sDireccionTaller;
+    }
+        toHTMLrow(){
+        let linea = document.createElement("tr"); 
+        let celda = linea.insertCell(-1);
+        celda.textContent=this.nombreTaller;
+
+        celda = linea.insertCell(-1);
+        celda.textContent=this.nifTaller;
+
+        celda = linea.insertCell(-1);
+        celda.textContent=this.direccionTaller;
+
+
+
+        return linea;
+       
+    }
+}
+//Fin clase taller
