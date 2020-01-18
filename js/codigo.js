@@ -3,6 +3,32 @@ var oUpoBebe = new UpoBebe();
 fDatosIniciales();
 fOcultarFormularios();
 fOcultarTablasListado();
+document.addEventListener(onload, f, false);
+//mostrar pagina principal - evento:
+document.getElementById("mostrarPaginaPrincipal").addEventListener("click",fMostrarPaginaPrincipal,false);
+
+//mostrar formularios:
+document.getElementById("altaArticulo").addEventListener("click",fMostrarAltaArticulo,false);
+document.getElementById("altaCliente").addEventListener("click",fMostarAltaCliente,false);
+document.getElementById("altaEmpleado").addEventListener("click",fMostarAltaEmpleado,false);
+document.getElementById("altaTaller").addEventListener("click",fMostrarAltaTaller,false);
+
+//evento - mostrar listado
+document.getElementById("mostrarListadoVentas").addEventListener("click",fMostrarListadoVentas,false);
+document.getElementById("mostrarListadoEmpleados").addEventListener("click",fMostrarListadoEmpleados,false);
+document.getElementById("mostrarListadoCliente").addEventListener("click",fMostrarListadoCliente,false);
+document.getElementById("mostrarListadoTaller").addEventListener("click",fMostrarListadoTaller,false);
+document.getElementById("mostrarListadoArticulo").addEventListener("click",fMostrarListadoArticulo,false);
+document.getElementById("mostrarListadoPeriodoVendidos").addEventListener("click",fMostrarListadoPeriodoVendidos,false);
+document.getElementById("mostrarListadoPeriodoComprados").addEventListener("click",fMostrarListadoPeriodoComprados,false);
+//evento - mostrar carrito:
+document.getElementById("mostrarCarrito").addEventListener("click",fMostrarCarrito,false);
+
+//eventos - botones Dar de ALTA:
+document.getElementById("aceptarAltaEmpleado").addEventListener("click",fAltaEmpleado,false);
+document.getElementById("aceptarAltaCliente").addEventListener("click",aceptarAltaCliente,false);
+document.getElementById("aceptarAltaArticulo").addEventListener("click",altaArticulo,false);
+document.getElementById("aceptarAltaTaller").addEventListener("click",altaTaller,false);
 
 
 // DATOS INICIALES EN LOS LISTADOS:
@@ -14,7 +40,7 @@ fOcultarTablasListado();
         //oUpoBebe.altaEmpleado(new Empleado ("333A","Ana","Pérez Ramona",1200,"Calle 3","ana@email.com","Jefa",777777777));
 
         // intento de carga de XML:
-        let oXML = loadXMLDoc("datosUpoBebe.xml");
+        //let oXML = loadXMLDoc("datosUpoBebe.xml");
     }
 // fin de datos INICIALES
 
@@ -62,11 +88,12 @@ function fVaciarTabla(){
 }
 
 // Articulo
-function fMostrarAltaArticulo()
+function fMostrarAltaArticulo(oEvento)
 {
+    var oE = oEvento || window.event;
     fOcultarFormularios();
     fOcultarTablasListado();
-    frmAltaArticulo.style.display = "block";
+   frmAltaArticulo.style.display = "block";
     frmAltaArticulo.reset();
 }
 
@@ -127,6 +154,22 @@ function fMostrarListadoCliente(){
 
     }
 // fin taller
+
+// mostrar ventas
+function fMostrarListadoVentas(){
+
+}
+
+// mostar listados periodo vendidos
+function fMostrarListadoPeriodoVendidos(){
+
+}
+
+// mostrar listados periodo compras
+function fMostrarListadoPeriodoComprados(){
+
+}
+
 
 // FIN mostrar y ocultar formularios
 

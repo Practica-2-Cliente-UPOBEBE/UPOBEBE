@@ -33,3 +33,62 @@
         <telefono>777777777</telefono>
     </empleado>
 </empleados>
+
+<clientes>
+    <cliente>
+        <dni>444C</dni>
+        <nombre>Cliente Primero</nombre>
+        <apellidos>Apellidos Cliente Primero</apellidos>
+        <direccion>Calle Cliente 1</direccion>
+        <correo>cliente1@email.com</correo>
+        <telefono>888888888</telefono>
+    </cliente>
+
+    <cliente>
+        <dni>555C</dni>
+        <nombre>Cliente Segundo</nombre>
+        <apellidos>Apellidos Cliente Segundo</apellidos>
+        <direccion>Calle Cliente 2</direccion>
+        <correo>cliente2@email.com</correo>
+        <telefono>999999998</telefono>
+    </cliente>
+
+    <cliente>
+        <dni>666C</dni>
+        <nombre>Cliente Tercero</nombre>
+        <apellidos>Apellidos Clientes Tercero</apellidos>
+        <direccion>Calle cliente 3</direccion>
+        <correo>cliente3@email.com</correo>
+        <telefono>999998888</telefono>
+    </cliente>
+</clientes>
+
+<talleres>
+    <taller>
+        <nombre>Taller A</nombre>
+        <nif>777T</nif>
+        <direccion>tallerA@email.com</direccion>
+    </taller>
+
+    <taller>
+        <nombre>Taller B</nombre>
+        <nif>888T</nif>
+        <direccion>tallerB@email.com</direccion>
+    </taller>
+</talleres>
+
+<articulos>
+    <articulo id="art1">
+        <nombre></nombre>
+        <descripcion></descripcion>
+        <categoria></categoria>
+        <precio></precio>
+    </articulo>
+
+    <articulo categoria="juguete">
+        <id></id>
+        <nombre></nombre>
+        <descripcion></descripcion>
+        <precio></precio>
+    </articulo>
+</articulos>
