@@ -3,7 +3,7 @@ var oUpoBebe = new UpoBebe();
 fDatosIniciales();
 fOcultarFormularios();
 fOcultarTablasListado();
-document.addEventListener(onload, f, false);
+
 
 // DATOS INICIALES EN LOS LISTADOS:
     function fDatosIniciales(){
@@ -407,11 +407,16 @@ function altaArticulo() {
 function fMostrarCarrito(){
     fOcultarFormularios();
     fOcultarTablasListado();
-    console.log(oUpoBebe.tLineaArticulo.length);
-    let contenedorLineas = document.getElementById("body").appendChild(document.createElement("DIV"));
-    //Si hay alguna linea que aun no se le ha asignado a una venta es porque esta en el carrito, entonces se pinta en pantalla:
-    if( oUpoBebe.tLineaArticulo.length == 0 || oUpoBebe.tLineaArticulo[(oUpoBebe.tLineaArticulo.length-1)].oVenta != null){
+    /*if()){
+        let contenedorLineas = document.getElementById("body").appendChild(document.createElement("DIV"));
+        contenedorLineas.id = "divMensajeCarrito";
         contenedorLineas.appendChild(document.createElement("P")).appendChild(document.createTextNode("El carrito está vacío"));
+    }*/
+    
+    
+    //Si hay alguna linea que aun no se le ha asignado a una venta es porque esta en el carrito, entonces se pinta en pantalla:
+    if(oUpoBebe.tLineaArticulo.length == 0 || oUpoBebe.tLineaArticulo[(oUpoBebe.tLineaArticulo.length-1)].oVenta != null){
+        alert("Carrito vacío");
     }else{
         let contadorTotalLineas = 0;
         let tablaLineas = document.createElement("TABLE");
@@ -439,12 +444,4 @@ function fMostrarCarrito(){
         });
 
     }
-}
-
-function f(){
-    let oL = new LineaDeArticulo(1, null, null, 2, 3);
-    let oU = new UpoBebe(); 
-    oU.tLineaArticulo.push(oL);
-    oU.tLineaArticulo.push(oL);
-    oU.tLineaArticulo.push(oL);
 }
