@@ -41,11 +41,11 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                   Altas
                 </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#" onclick="fMostrarAltaArticulo()">Artículo</a>
-                  <a class="dropdown-item" href="#" onclick="fMostarAltaCliente()">Cliente</a>
-                  <a class="dropdown-item" href="#" onclick="fMostarAltaEmpleado()">Empleado</a>
-                  <a class="dropdown-item" href="#" onclick="fMostrarAltaTaller()">Taller</a>
+                <div class="dropdown-menu" name="divAltas">
+                  <a class="dropdown-item" href="#" id="altaArticulo">Artículo</a>
+                  <a class="dropdown-item" href="#" id="altaCliente">Cliente</a>
+                  <a class="dropdown-item" href="#" id="altaEmpleado">Empleado</a>
+                  <a class="dropdown-item" href="#" id="altaTaller">Taller</a>
                 </div>
               </li>
 
@@ -54,7 +54,7 @@
                   Bajas / Modificar
                 </a>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#" onclick="fMostrarBajaModificarCliente()">Cliente</a>
+                  <a class="dropdown-item" href="#" id="fMostrarBajaModificarCliente">Cliente</a>
                 </div>
               </li>
 
@@ -64,20 +64,20 @@
                 </a>
                 <div class="dropdown-menu">
                    
-                  <a class="dropdown-item" href="#" onclick="fMostrarListadoVentas()">Listar Ventas</a>
-                  <a class="dropdown-item" href="#" onclick="fMostrarListadoEmpleados()">Listar Empleados</a>
-                  <a class="dropdown-item" href="#" onclick="fMostrarListadoCliente()">Listar Clientes</a>
-                  <a class="dropdown-item" href="#" onclick="fMostrarListadoTaller()">Listar Talleres</a>
-                  <a class="dropdown-item" href="#" onclick="fMostrarListadoArticulo()">Listar Artículos</a>
+                  <a class="dropdown-item" href="#" id="mostrarListadoVentas">Listar Ventas</a>
+                  <a class="dropdown-item" href="#" id="mostrarListadoEmpleados">Listar Empleados</a>
+                  <a class="dropdown-item" href="#" id="mostrarListadoCliente">Listar Clientes</a>
+                  <a class="dropdown-item" href="#" id="mostrarListadoTaller">Listar Talleres</a>
+                  <a class="dropdown-item" href="#" id="mostrarListadoArticulo">Listar Artículos</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#" onclick="fMostrarListadoPeriodoVendidos()">Art. Vendidos por periodos</a>
-                  <a class="dropdown-item" href="#" onclick="fMostrarListadoPeriodoComprados()">Art. Comprados por periodos</a>
+                  <a class="dropdown-item" href="#" id="mostrarListadoPeriodoVendidos">Art. Vendidos por periodos</a>
+                  <a class="dropdown-item" href="#" id="mostrarListadoPeriodoComprados()">Art. Comprados por periodos</a>
                 </div>
               </li>
             
               
               <li class="nav-item" >
-                <a class="nav-link" href="#" onclick="fMostrarCarrito()">Carrito</a>
+                <a class="nav-link" href="#" id="mostrarCarrito">Carrito</a>
               </li>
               
             

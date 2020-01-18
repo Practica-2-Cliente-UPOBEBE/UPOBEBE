@@ -4,6 +4,24 @@ fDatosIniciales();
 fOcultarFormularios();
 fOcultarTablasListado();
 document.addEventListener(onload, f, false);
+//mostrar formularios:
+document.getElementById("altaArticulo").addEventListener("click",fMostrarAltaArticulo,false);
+document.getElementById("altaCliente").addEventListener("click",fMostarAltaCliente,false);
+document.getElementById("altaEmpleado").addEventListener("click",fMostarAltaEmpleado,false);
+document.getElementById("altaTaller").addEventListener("click",fMostrarAltaTaller,false);
+
+//evento - mostrar listado
+document.getElementById("mostrarListadoVentas").addEventListener("click",fMostrarListadoVentas,false);
+document.getElementById("mostrarListadoEmpleados").addEventListener("click",fMostrarListadoEmpleados,false);
+document.getElementById("mostrarListadoCliente").addEventListener("click",fMostrarListadoCliente,false);
+document.getElementById("mostrarListadoTaller").addEventListener("click",fMostrarListadoTaller,false);
+document.getElementById("mostrarListadoArticulo").addEventListener("click",fMostrarListadoArticulo,false);
+document.getElementById("mostrarListadoPeriodoVendidos").addEventListener("click",fMostrarListadoPeriodoVendidos,false);
+document.getElementById("mostrarListadoPeriodoComprados").addEventListener("click",fMostrarListadoPeriodoComprados,false);
+
+//evento - mostrar carrito:
+document.getElementById("mostrarCarrito").addEventListener("click",fMostrarCarrito,false);
+
 
 // DATOS INICIALES EN LOS LISTADOS:
     function fDatosIniciales(){
@@ -62,11 +80,12 @@ function fVaciarTabla(){
 }
 
 // Articulo
-function fMostrarAltaArticulo()
+function fMostrarAltaArticulo(oEvento)
 {
+    var oE = oEvento || window.event;
     fOcultarFormularios();
     fOcultarTablasListado();
-    frmAltaArticulo.style.display = "block";
+   frmAltaArticulo.style.display = "block";
     frmAltaArticulo.reset();
 }
 
