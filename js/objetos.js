@@ -51,7 +51,13 @@ UpoBebe.prototype.altaEmpleado = function(oEmpleado){
 }
 
 UpoBebe.prototype.altaTaller = function(oTaller){
-
+    if(this._buscarTaller(oTaller) == null){
+        this.tTalleres.push(oTaller);
+        return true;
+    }
+    else
+        return false;
+    
 }
 
 //****FIN ALTAS */
@@ -103,6 +109,15 @@ UpoBebe.prototype.buscarCliente = function(dni){
         } 
     });
     return oCliente;
+}
+UpoBebe.prototype._buscarTaller = function(nif){
+    let oTaller = null;
+    this.tTalleres.forEach(function(value){
+        if(value.nif == nif) {
+            oTaller=value;
+        } 
+    });
+    return oTaller;
 }
 
 UpoBebe.prototype._buscarArticulo = function(sIdArticulo){
