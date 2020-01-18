@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empleados>
+    <empleado>
+        <dni>111A</dni>
+        <nombre>Lola</nombre>
+        <apellidos>Lorenzo Lomas</apellidos>
+        <salario>1004.02</salario>
+        <direccion>Calle 1</direccion>
+        <correo>lola@email.com</correo>
+        <rol>Encargada</rol>
+        <telefono>999999999</telefono>
+    </empleado>
+
+    <empleado>
+        <dni>222A</dni>
+        <nombre>Juan</nombre>
+        <apellidos>Rodríguez Tomás</apellidos>
+        <salario>960.02</salario>
+        <direccion>Calle 2</direccion>
+        <correo>juan@email.com</correo>
+        <rol>Dependiente</rol>
+        <telefono>888888888</telefono>
+    </empleado>
+
+    <empleado>
+        <dni>333A</dni>
+        <nombre>Ana</nombre>
+        <apellidos>Pérez Ramona</apellidos>
+        <salario>1200</salario>
+        <direccion>Calle 3</direccion>
+        <correo>ana@email.com</correo>
+        <rol>Jefa</rol>
+        <telefono>777777777</telefono>
+    </empleado>
+</empleados>
