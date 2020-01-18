@@ -4,6 +4,9 @@ fDatosIniciales();
 fOcultarFormularios();
 fOcultarTablasListado();
 document.addEventListener(onload, f, false);
+//mostrar pagina principal - evento:
+document.getElementById("mostrarPaginaPrincipal").addEventListener("click",fMostrarPaginaPrincipal,false);
+
 //mostrar formularios:
 document.getElementById("altaArticulo").addEventListener("click",fMostrarAltaArticulo,false);
 document.getElementById("altaCliente").addEventListener("click",fMostarAltaCliente,false);
