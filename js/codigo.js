@@ -217,6 +217,20 @@ function buscarDniCliente(){
     }
     
 }
+
+function darDeBajaCliente(){
+    let dni = frmModCliente.dni2.value.trim();
+    let oCliente = oUpoBebe.buscarCliente(dni);
+    frmModCliente.dni2.classList.remove("error");
+    if(oCliente == null){
+        alert("No existe ningún cliente con ese DNI");
+        frmModCliente.dni2.classList.add("error");
+        frmModCliente.dni2.focus();
+    }else{
+        alert(oUpoBebe.darDeBajaCliente(oCliente));
+        frmModCliente.reset();
+    }
+}
 // fin cliente
 
 //taller
