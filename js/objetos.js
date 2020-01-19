@@ -63,6 +63,8 @@ UpoBebe.prototype.altaTalleres = function(oTaller){
 }
 
 //****FIN ALTAS */
+// MODIFICAR/BORRAR CLIENTE:
+
 
 //****BUSQUEDAS ***métodos de búsquedas:
 UpoBebe.prototype._buscarEmpleado = function(sDNI){
