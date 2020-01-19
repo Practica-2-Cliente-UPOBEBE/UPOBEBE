@@ -231,6 +231,78 @@ function darDeBajaCliente(){
         frmModCliente.reset();
     }
 }
+function modificarCliente(){
+    let dni2 = frmModCliente.dni2.value.trim();
+    let nombre2 = frmModCliente.nombre2.value.trim();
+    let apellidos2 = frmModCliente.apellidos2.value.trim();
+    let direccion2 = frmModCliente.direccion2.value.trim();
+    let correo2 = frmModCliente.correo2.value.trim();
+    let tlf2 = frmModCliente.tlf2.value.trim();
+    let mensaje = "ERROR:";
+    let bValido = true;
+    limpiarErrores();
+    if(/^(X(-|\.)?0?\d{7}(-|\.)?[A-Z]|[A-Z](-|\.)?\d{7}(-|\.)? [0-9A-Z]|\d{8}(-|\.)?[A-Z])$/.test(dni2) == false){
+        bValido = false;
+        mensaje += "\nEl DNI es incorrecto";
+        frmModCliente.dni2.classList.add("error");
+        frmModCliente.dni2.focus();
+    }
+    if(/[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}/.test(nombre2) == false){
+        if(bValido){
+            bValido = false;
+            frmModCliente.nombre2.focus();
+        }
+        frmModCliente.nombre2.classList.add("error");
+        mensaje += "\nEl nombre es incorrecto";
+    }
+    if(/[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,64}/.test(apellidos2) == false){
+        if(bValido){
+            bValido = false;
+            frmModCliente.apellidos2.focus();
+        }
+        mensaje += "\nLos apellidos son incorrectos";
+        frmModCliente.apellidos2.classList.add("error");
+    }
+    if(/^[a-zA-Z\s0-9]{2,20}$/.test(direccion2) == false){
+        if(bValido){
+            bValido = false;
+            frmModCliente.direccion2.focus();
+        }
+        mensaje += "\nLa dirección es incorrecta";
+        frmModCliente.direccion2.classList.add("error");
+    }
+    if(/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/.test(correo2) == false){
+        if(bValido){
+            bValido = false;
+            frmModCliente.correo2.focus();
+        }
+        mensaje += "\nEl correo es incorrecto";
+        frmModCliente.correo2.classList.add("error");
+    }
+    if(/^[9678]\d{8}$/.test(tlf2) == false){
+        if(bValido){
+            bValido = false;
+            frmModCliente.tlf2.focus();
+        }
+        mensaje += "\nEl teléfono es incorrecto";
+        frmModCliente.tlf2.classList.add("error");
+    }
+    if(!bValido){
+        alert(mensaje);
+    }else{
+        alert(oUpoBebe.modificarCliente(new Cliente(dni2, nombre2, apellidos2, direccion2, correo2, tlf2)));
+        frmModCliente.reset();
+    }
+
+    function limpiarErrores(){
+        frmModCliente.dni2.classList.remove("error");
+        frmModCliente.nombre2.classList.remove("error");
+        frmModCliente.apellidos2.classList.remove("error");
+        frmModCliente.direccion2.classList.remove("error");
+        frmModCliente.correo2.classList.remove("error");
+        frmModCliente.tlf2.classList.remove("error");
+    }
+}
 // fin cliente
 
 //taller
