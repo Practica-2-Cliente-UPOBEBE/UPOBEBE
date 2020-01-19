@@ -68,7 +68,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
 
             oUpoBebe.altaCliente(new Cliente(dni, nombre, apellidos, direccion, correo, tlf));
         }
-        //Datos talleres
+      /*  //Datos talleres
         let oTalleres = oXML.querySelectorAll("taller");
         for(let i = 0 ; i < oTalleres.length ; i++){
             let nombre = oTalleres[i].querySelector("nombre").textContent;
@@ -77,6 +77,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
 
             oUpoBebe.altaTaller(new Taller(nombre, nif, direccion));
         }
+        */
     }
 // fin de datos INICIALES
 // Función para cargar el ficheroXML
@@ -657,7 +658,7 @@ function altaTaller() {
     }
 
     function limpiarErrores() {
-        frmAltaTaller.txtNombreArticulo.classList.remove("error");
+        frmAltaTaller.txtNombreTaller.classList.remove("error");
         frmAltaTaller.txtNIFTaller.classList.remove("error");
         frmAltaTaller.txtDireccionTaller.classList.remove("error");
 

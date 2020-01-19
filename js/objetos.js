@@ -50,7 +50,7 @@ UpoBebe.prototype.altaEmpleado = function(oEmpleado){
     return añadido;
 }
 
-UpoBebe.prototype.altaTalleres = function(oTaller){
+UpoBebe.prototype.altaTaller = function(oTaller){
     let mensaje;
     if (this._buscarTaller(oTaller.nifTaller) != null){
         mensaje = "ERROR: El taller ya existe";
