@@ -1,6 +1,6 @@
 "use strict";
 var oUpoBebe = new UpoBebe();
-fDatosIniciales();
+//fDatosIniciales();
 fOcultarFormularios();
 fOcultarTablasListado();
 
@@ -12,6 +12,7 @@ document.getElementById("altaArticulo").addEventListener("click",fMostrarAltaArt
 document.getElementById("altaCliente").addEventListener("click",fMostarAltaCliente,false);
 document.getElementById("altaEmpleado").addEventListener("click",fMostarAltaEmpleado,false);
 document.getElementById("altaTaller").addEventListener("click",fMostrarAltaTaller,false);
+document.getElementById("fMostrarBajaModificarCliente").addEventListener("click", fMostrarBajaModificarCliente, false);
 
 //evento - mostrar listado
 document.getElementById("mostrarListadoVentas").addEventListener("click",fMostrarListadoVentas,false);
@@ -32,9 +33,9 @@ document.getElementById("aceptarAltaTaller").addEventListener("click",altaTaller
 
 
 // DATOS INICIALES:
-    function fDatosIniciales(){
+    /*function fDatosIniciales(){
         // Cargar XML
-        let oXML = loadXMLDoc("../datosUpoBebe.xml");
+        let oXML = loadXMLDoc("datosUpoBebe.xml");
 
         //Datos empleados
         let oEmpleados = oXML.querySelectorAll("empleado");
@@ -71,10 +72,10 @@ document.getElementById("aceptarAltaTaller").addEventListener("click",altaTaller
 
             oUpoBebe.altaTaller(new Taller(nombre, nif, direccion));
         }
-    }
+    }*/
 // fin de datos INICIALES
 // Función para cargar el ficheroXML
-function loadXMLDoc(filename) {
+/*function loadXMLDoc(filename) {
     let xhttp = null;
 
     if (window.XMLHttpRequest) {
@@ -90,7 +91,7 @@ function loadXMLDoc(filename) {
 
     return xhttp.responseXML;
 }
-
+*/
 // mostrar y ocultar formularios cuando hacemos click:
 function fOcultarFormularios(){
     frmAltaEmpleado.style.display = "none";
