@@ -64,7 +64,13 @@ UpoBebe.prototype.altaTalleres = function(oTaller){
 
 //****FIN ALTAS */
 // MODIFICAR/BORRAR CLIENTE:
-
+UpoBebe.prototype.darDeBajaCliente = function(oCliente){
+    let indiceABorrar = this.tClientes.findIndex(function(valor){
+        return valor.dniCliente == oCliente.dniCliente;
+    })
+    this.tClientes.splice(indiceABorrar, 1);
+    return "Cliente borrado con éxito";
+} 
 
 //****BUSQUEDAS ***métodos de búsquedas:
 UpoBebe.prototype._buscarEmpleado = function(sDNI){
