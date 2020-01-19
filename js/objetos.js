@@ -71,7 +71,22 @@ UpoBebe.prototype.darDeBajaCliente = function(oCliente){
     this.tClientes.splice(indiceABorrar, 1);
     return "Cliente borrado con éxito";
 } 
-
+UpoBebe.prototype.modificarCliente = function(oCliente){
+    if(this.buscarCliente(oCliente.dniCliente) == null){
+        return "No hay ningún cliente con ese DNI";
+    }else{
+        let indiceAModificar = this.tClientes.findIndex(function(valor){
+            return valor.dniCliente == oCliente.dniCliente;
+        })
+        this.tClientes[indiceAModificar].nombreCliente = oCliente.nombreCliente;
+        this.tClientes[indiceAModificar].apellidosCliente = oCliente.apellidosCliente;
+        this.tClientes[indiceAModificar].direccionCliente = oCliente.direccionCliente;
+        this.tClientes[indiceAModificar].correoCliente = oCliente.correoCliente;
+        this.tClientes[indiceAModificar].tlfCliente = oCliente.tlfCliente;
+        return "Cliente modificado con éxito";
+    }
+    
+} 
 //****BUSQUEDAS ***métodos de búsquedas:
 UpoBebe.prototype._buscarEmpleado = function(sDNI){
     var oEmpleado = null;
