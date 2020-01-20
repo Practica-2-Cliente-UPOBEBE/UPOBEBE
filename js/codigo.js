@@ -671,8 +671,7 @@ function altaTaller() {
 ///////////////////////// Mostrar carrito /////////////////////////
 
 function fMostrarCarrito(){
-    fOcultarFormularios();
-    fOcultarTablasListado();
+
     /*if()){
         let contenedorLineas = document.getElementById("body").appendChild(document.createElement("DIV"));
         contenedorLineas.id = "divMensajeCarrito";
@@ -684,6 +683,8 @@ function fMostrarCarrito(){
     if(oUpoBebe.tLineaArticulo.length == 0 || oUpoBebe.tLineaArticulo[(oUpoBebe.tLineaArticulo.length-1)].oVenta != null){
         alert("Carrito vacío");
     }else{
+        fOcultarFormularios();
+        fOcultarTablasListado();
         let contadorTotalLineas = 0;
         let tablaLineas = document.createElement("TABLE");
         let filaCabecera = tablaLineas.createTHead().insertRow(-1);
