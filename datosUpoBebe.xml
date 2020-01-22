@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<datos>
 <empleados>
     <empleado>
         <dni>111A</dni>
@@ -92,3 +93,4 @@
         <precio></precio>
     </articulo>
 </articulos>
+</datos>

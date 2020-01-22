@@ -1,6 +1,6 @@
 "use strict";
 var oUpoBebe = new UpoBebe();
-//fDatosIniciales();
+fDatosIniciales();
 fOcultarFormularios();
 fOcultarTablasListado();
 
@@ -40,7 +40,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
 // DATOS INICIALES:
     function fDatosIniciales(){
         // Cargar XML
-        let oXML = loadXMLDoc("../datosUpoBebe.xml");
+        let oXML = loadXMLDoc("datosUpoBebe.xml");
 
         //Datos empleados
         let oEmpleados = oXML.querySelectorAll("empleado");
@@ -57,7 +57,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
             oUpoBebe.altaEmpleado(new Empleado(dni, nombre, apellidos, salario, direccion, correo, rol, tlf));
         }
         //Datos clientes
-        let oClientes = oXML.querySelectorAll("cliente");
+        let oCLientes = oXML.querySelectorAll("cliente");
         for(let i=0;i < oCLientes.length ; i++){
             let dni = oCLientes[i].querySelector("dni").textContent;
             let nombre = oCLientes[i].querySelector("nombre").textContent;

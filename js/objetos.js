@@ -1,7 +1,7 @@
 "use strict";
 //CLASE UPOBEBE
 function UpoBebe(){
-    this.tLineaArticulo = new Array();
+    this.tLineaArticulo = [ ];
     this.tClientes = new Array();
     this.tEmpleados = new Array();
     this.tVentas = new Array();
