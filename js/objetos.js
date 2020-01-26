@@ -1,13 +1,13 @@
 "use strict";
 //CLASE UPOBEBE
 function UpoBebe(){
-    this.tLineaArticulo = [ ];
-    this.tClientes = new Array();
-    this.tEmpleados = new Array();
-    this.tVentas = new Array();
-    this.tArticulos = new Array();
-    this.tTalleres = new Array();
-    this.tReparaciones = new Array();
+    this.tLineaArticulo = [];
+    this.tClientes = [];
+    this.tEmpleados = [];
+    this.tVentas = [];
+    this.tArticulos = [];
+    this.tTalleres = [];
+    this.tReparaciones = [];
     
 }
 
