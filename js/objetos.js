@@ -431,7 +431,6 @@ class Cliente{
         let td5 = document.createElement("TD");
         let td6 = document.createElement("TD");
         
-        
         td1.appendChild(document.createTextNode(this.dniCliente));
         td2.appendChild(document.createTextNode(this.nombreCliente));
         td3.appendChild(document.createTextNode(this.apellidosCliente));
