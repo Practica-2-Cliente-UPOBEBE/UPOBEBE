@@ -697,6 +697,7 @@ function fMostrarCarrito(){
         fOcultarTablasListado();
         let contadorTotalLineas = 0;
         let tablaLineas = document.createElement("TABLE");
+        tablaLineas.className = "table table-striped table-hover";
         let cabecera = tablaLineas.createTHead();
         let filaCabecera = cabecera.insertRow(-1);
         filaCabecera.insertCell(-1).textContent = "ARTÍCULO";
@@ -706,27 +707,43 @@ function fMostrarCarrito(){
         let cuerpoTabla = tablaLineas.createTBody();
         oUpoBebe.tLineaArticulo.forEach(elemento =>{
             if(elemento.oVenta == null){
-                let botonMasUno = createElement("INPUT");
+                let botonMasUno = document.createElement("INPUT");
                 botonMasUno.setAttribute("type", "button");
                 botonMasUno.setAttribute("value", "+");
-                let botonMenosUno = createElement("INPUT");
-                let botonEliminar = createElement("INPUT");
+                botonMasUno.addEventListener("click", añadirUnProducto, false);
+                let botonMenosUno = document.createElement("INPUT");
+                botonMenosUno.setAttribute("type", "button");
+                botonMenosUno.setAttribute("value", "-");
+                botonMenosUno.addEventListener("click", quitarUnProducto, false);
+                let botonEliminar = document.createElement("INPUT");
+                botonEliminar.setAttribute("type", "button");
+                botonEliminar.setAttribute("value", "X");
+                botonEliminar.addEventListener("click", eliminarProducto, false);
+
+                let td = document.createElement("TD");
+                td.appendChild(botonMasUno);
+                td.appendChild(botonMenosUno);
+                td.appendChild(botonEliminar);
+
                 let fila = cuerpoTabla.insertRow(-1);
                 fila.insertCell(-1).textContent = elemento.oArt.nombreArticulo;
                 fila.insertCell(-1).textContent = elemento.unidades;
                 fila.insertCell(-1).textContent = elemento.oArt.precioArticulo;
                 fila.insertCell(-1).textContent = elemento.totalLinea();
-                fila.insertCell(-1)
+                fila.appendChild(td);
                 contadorTotalLineas += elemento.totalLinea();
             }
-            let fila = cuerpoTabla.insertRow(-1);
-            let celda = fila.insertCell(-1);
-            celda.textContent("TOTAL PEDIDO");
-            celda.setAttribute("rowspan", "3");
-            fila.insertCell(-1).textContent = contadorTotalLineas;
-            //QUEDA AÑADIR LOS BOTONES
+            
+            
         });
-
+        let fila = cuerpoTabla.insertRow(-1);
+        let celda = fila.insertCell(-1);
+        celda.textContent("TOTAL PEDIDO");
+        celda.setAttribute("rowspan", "3");
+        fila.insertCell(-1).textContent = contadorTotalLineas;
+        //Borro la tabla antigua y meto esta
+        document.getElementById("body").removeChild(document.getElementById("body").lastChild);
+        document.getElementById("body").appendChild(tablaLineas);
     }
 }
 
