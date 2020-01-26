@@ -692,7 +692,8 @@ function fMostrarCarrito(){
         fOcultarTablasListado();
         let contadorTotalLineas = 0;
         let tablaLineas = document.createElement("TABLE");
-        let filaCabecera = tablaLineas.createTHead().insertRow(-1);
+        let cabecera = tablaLineas.createTHead();
+        let filaCabecera = cabecera.insertRow(-1);
         filaCabecera.insertCell(-1).textContent = "ARTÍCULO";
         filaCabecera.insertCell(-1).textContent = "UNIDADES";
         filaCabecera.insertCell(-1).textContent = "PRECIO";
@@ -700,11 +701,15 @@ function fMostrarCarrito(){
         let cuerpoTabla = tablaLineas.createTBody();
         oUpoBebe.tLineaArticulo.forEach(elemento =>{
             if(elemento.oVenta == null){
+                let botonMasUno = createElement()
+                let botonMenosUno
+                let botonEliminar
                 let fila = cuerpoTabla.insertRow(-1);
                 fila.insertCell(-1).textContent = elemento.oArt.nombreArticulo;
                 fila.insertCell(-1).textContent = elemento.unidades;
                 fila.insertCell(-1).textContent = elemento.oArt.precioArticulo;
                 fila.insertCell(-1).textContent = elemento.totalLinea();
+                fila.insertCell(-1)
                 contadorTotalLineas += elemento.totalLinea();
             }
             let fila = cuerpoTabla.insertRow(-1);
