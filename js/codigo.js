@@ -111,6 +111,7 @@ function fOcultarFormularios(){
     frmAltaCliente.style.display = "none";
     frmAltaTaller.style.display = "none";
     frmModCliente.style.display = "none";
+    frmAltaReparacion.style.display = "none";
 }
 function fMostrarPaginaPrincipal(){
     //le damos al LOGO/HOME:
