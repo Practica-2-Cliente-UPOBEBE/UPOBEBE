@@ -707,9 +707,11 @@ function fMostrarCarrito(){
         let cuerpoTabla = tablaLineas.createTBody();
         oUpoBebe.tLineaArticulo.forEach(elemento =>{
             if(elemento.oVenta == null){
-                let botonMasUno = createElement()
-                let botonMenosUno
-                let botonEliminar
+                let botonMasUno = createElement("INPUT");
+                botonMasUno.setAttribute("type", "button");
+                botonMasUno.setAttribute("value", "+");
+                let botonMenosUno = createElement("INPUT");
+                let botonEliminar = createElement("INPUT");
                 let fila = cuerpoTabla.insertRow(-1);
                 fila.insertCell(-1).textContent = elemento.oArt.nombreArticulo;
                 fila.insertCell(-1).textContent = elemento.unidades;
