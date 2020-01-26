@@ -743,7 +743,7 @@ function fMostrarAltaReparacion()
 document.getElementById("btnBuscarVenta").addEventListener("click", fBuscarVenta,false);
 
 function fBuscarVenta(){
-    fBuscaDatos();
+    //fBuscaDatos();
     fMostarDesplegables();
 }
 
