@@ -765,14 +765,30 @@ function fMostarDesplegables(){
         //Agregar option en el último lugar
         taller.appendChild(oOption);
     }
-
+    //articulos segun el idVentas:
 }
 
 
 
 //cuando click boton AceptarReparacion:
 function faceptarReparacion(){
+    let idVenta = frmAltaReparacion.txtIdVenta.value.trim();
+    let articulo = document.getElementById("comboBoxArticulos").value;
+    let taller = document.getElementById("comboBoxTaller").value;
+    let descripcion = document.getElementById("areaObservaciones").value;
+    let fecha = document.getElementById("fechaReparacion").value;
+    limpiarError();
+    if(idVenta = ""){
+        alert("Debe introducir un ID de venta");
+        frmAltaReparacion.txtIdVenta.classList.add("error");
+        frmAltaReparacion.txtIdVenta.focus();
+    }else{
+
+    }
     
 }
-
+function limpiarError() {
+    frmAltaReparacion.txtIdVenta.classList.remove("error");
+    
+}
 // fin alta reparacion
