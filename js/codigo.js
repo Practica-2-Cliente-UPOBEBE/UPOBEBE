@@ -747,6 +747,14 @@ function fMostrarCarrito(){
         document.getElementById("body").appendChild(tablaLineas);
     }
 }
+//Boton +
+function añadirUnProducto(oEvento){
+    let oE = oEvento || window.event;
+    //Buscar esa linea de pedido y sumarle una unidad al producto
+    oUpoBebe.tLineaArticulo.forEach();
+    if(oE.target)
+}
+
 
 // mostrar alta reparacion
 function fMostrarAltaReparacion()
