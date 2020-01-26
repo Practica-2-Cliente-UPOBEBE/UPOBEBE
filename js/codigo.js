@@ -17,6 +17,7 @@ document.getElementById("altaCliente").addEventListener("click",fMostarAltaClien
 document.getElementById("altaEmpleado").addEventListener("click",fMostarAltaEmpleado,false);
 document.getElementById("altaTaller").addEventListener("click",fMostrarAltaTaller,false);
 document.getElementById("fMostrarBajaModificarCliente").addEventListener("click", fMostrarBajaModificarCliente, false);
+document.getElementById("altaReparacion").addEventListener("click", fMostrarAltaReparacion, false);
 
 //evento - mostrar listado
 document.getElementById("mostrarListadoVentas").addEventListener("click",fMostrarListadoVentas,false);
@@ -330,17 +331,20 @@ function modificarCliente(){
 
 // mostrar ventas
 function fMostrarListadoVentas(){
-
+    fOcultarFormularios();
+    fOcultarTablasListado();
 }
 
 // mostar listados periodo vendidos
 function fMostrarListadoPeriodoVendidos(){
-
+    fOcultarFormularios();
+    fOcultarTablasListado();
 }
 
 // mostrar listados periodo compras
 function fMostrarListadoPeriodoComprados(){
-
+    fOcultarFormularios();
+    fOcultarTablasListado();
 }
 
 
@@ -722,3 +726,13 @@ function fMostrarCarrito(){
 
     }
 }
+
+// mostrar alta reparacion
+function fMostrarAltaReparacion()
+{
+    fOcultarFormularios();
+    fOcultarTablasListado();
+    frmAltaReparacion.reset();
+    frmAltaReparacion.style.display = "block";
+}
+// fin alta reparacion

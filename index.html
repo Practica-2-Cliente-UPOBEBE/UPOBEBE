@@ -351,7 +351,7 @@
         -->
     
 
-   <!--Frm Alta Articulo -->
+   <!--Frm Alta Taller -->
         <div id="divFrmAltaTaller" class="container col-6">
           <form action="" name="frmAltaTaller" class="m-2" id="frmAltaTaller">
             <h3>Alta Taller:</h3>
@@ -373,6 +373,37 @@
         </div>
         <!-- Fin Alta Taller -->
 
+                <!--
+      Frm Alta reparacion
+    -->
+    <div id="divFrmAltaReparacion" class="container col-6">
+      <form action="" name="frmAltaReparacion" class="m-2" id="frmAltaReparacion">
+        <h3>Alta Reparación:</h3>
+        <div class="form-group">
+          <label class="mb-0">Venta:</label>
+          <input type="text" name="txtIdVenta" id="txtIdVenta" class="form-control" required="">
+          <input type="button" value="Buscar" id="btnBuscarVenta">
+        </div>
+        <div class="form-group">
+          <label  class="mb-0">Articulos:</label>
+          <select name="comboBoxArticulos" id="comboBoxArticulos"></select>
+        </div>
+        <div class="form-group">
+          <label class="mb-0">Taller:</label>
+          <select name="comboBoxTaller" id="comboBoxTaller"></select>
+        </div>
+        <div class="form-group">
+          <label class="mb-0">Observaciones:</label>
+          <br>
+          <textarea name="areaObservaciones" id="areaObservaciones" cols="60" rows="10"></textarea> 
+        </div>
+        <input type="submit" class="btn btn-primary" id="aceptarAltaReparacion" name="aceptarAltaReparacion"
+         value="Aceptar" />
+      </form>
+    </div>
+    <!--
+      Fin frm Alta reparacion
+    -->
 
 
     <!--  FIN DE FORMULARIOS ALTAS-->

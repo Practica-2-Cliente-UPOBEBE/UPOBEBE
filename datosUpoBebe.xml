@@ -79,18 +79,25 @@
 </talleres>
 
 <articulos>
-    <articulo id="art1">
-        <nombre></nombre>
-        <descripcion></descripcion>
-        <categoria></categoria>
-        <precio></precio>
+      <articulo categoria="carrito">
+        <id>art1C</id>
+        <nombre>Carrito Azul</nombre>
+        <descripcion>Carrito para bebe con soporte para mochila</descripcion>
+        <precio>200</precio>
     </articulo>
 
-    <articulo categoria="juguete">
-        <id></id>
-        <nombre></nombre>
-        <descripcion></descripcion>
-        <precio></precio>
+    <articulo categoria="biberon">
+        <id>art2B</id>
+        <nombre>Biberon-PepaPig</nombre>
+        <descripcion>Biberón con diseño de los dibujos animados PepePig</descripcion>
+        <precio>40</precio>
+    </articulo>
+
+    <articulo categoria="pañal">
+        <id>art3P</id>
+        <nombre>Pañales DOMBEBE</nombre>
+        <descripcion>Pack de pañales para bebes de 0-2 años</descripcion>
+        <precio>60</precio>
     </articulo>
 </articulos>
 </datos>
