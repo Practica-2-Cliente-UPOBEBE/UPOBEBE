@@ -1,9 +1,13 @@
 "use strict";
 var oUpoBebe = new UpoBebe();
 fDatosIniciales();
+
 fOcultarFormularios();
 fOcultarTablasListado();
 
+
+//Mostrar listado de artículos por defecto
+window.addEventListener("load", fMostrarListadoArticulo);
 //mostrar pagina principal - evento:
 document.getElementById("mostrarPaginaPrincipal").addEventListener("click",fMostrarPaginaPrincipal,false);
 
@@ -39,6 +43,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
 
 // DATOS INICIALES:
     function fDatosIniciales(){
+        
         // Cargar XML
         let oXML = loadXMLDoc("datosUpoBebe.xml");
 
