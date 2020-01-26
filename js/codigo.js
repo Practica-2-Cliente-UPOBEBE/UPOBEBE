@@ -161,6 +161,7 @@ function fMostrarAltaArticulo(oEvento)
 
 function fMostrarListadoArticulo(){
     fOcultarFormularios();
+    fOcultarTablasListado();
     document.getElementById("tabla").style.display = "table";
     fVaciarTabla();
     let tablaAMostrar = oUpoBebe.listadoArticulo();
@@ -735,5 +736,24 @@ function fMostrarAltaReparacion()
     fOcultarTablasListado();
     frmAltaReparacion.reset();
     frmAltaReparacion.style.display = "block";
+}
+// cuando le damos al boton buscar:
+document.getElementById("btnBuscarVenta").addEventListener("click", fBuscarVenta,false);
+
+function fBuscarVenta(){
+    fBuscaDatos();
+    fMostarDesplegables();
+}
+
+function fMostarDesplegables(){
+    //talleres:
+    let arrayTaller = UpoBebe.tTalleres;
+    let taller = document.getElementById("comboBoxArticulos");
+    let opcion = document.createElement("option");
+    
+    for(let i=0; i<arrayTaller.length;i++){
+        opcion.value=arrayTaller[i].toString;
+        taller.append(opcion);
+    }
 }
 // fin alta reparacion
