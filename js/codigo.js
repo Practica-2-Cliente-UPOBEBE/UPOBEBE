@@ -751,10 +751,49 @@ function fMostrarCarrito(){
 function añadirUnProducto(oEvento){
     let oE = oEvento || window.event;
     //Buscar esa linea de pedido y sumarle una unidad al producto
-    oUpoBebe.tLineaArticulo.forEach();
-    if(oE.target)
+    var oLinea = null;
+    oUpoBebe.tLineaArticulo.forEach(linea =>{
+        if(linea.oVenta == null && linea.oArt.nombreArticulo == oE.target.parentNode.parentNode.firstChild.textContent){
+            linea.unidades = linea.unidades+1;
+            oLinea = linea;
+        }
+        
+    });
+    oE.target.parentNode.firstChild.nextSibling.textContent = oLinea.unidades;
+    oE.target.parentNode.firstChild.nextSibling.nextSibling.nextSibling.textContent = oLinea.totalLinea();
 }
-
+//Boton -
+function quitarUnProducto(oEvento){
+    let oE = oEvento || window.event;
+    //Buscar esa linea de pedido y restarle una unidad al producto
+    var oLinea = null;
+    oUpoBebe.tLineaArticulo.forEach(linea =>{
+        if(linea.oVenta == null && linea.oArt.nombreArticulo == oE.target.parentNode.parentNode.firstChild.textContent){
+            if(linea.unidades == 1){
+                oE.target.parentNode.parentNode.remove();
+            }else{
+                linea.unidades = linea.unidades-1;
+                oLinea = linea;
+            }
+        }
+    });
+    if(oLinea != null){
+        oE.target.parentNode.firstChild.nextSibling.textContent = oLinea.unidades;
+        oE.target.parentNode.firstChild.nextSibling.nextSibling.nextSibling.textContent = oLinea.totalLinea();
+    }
+    
+}
+//Boton X
+function eliminarProducto(oEvento){
+    let oE = oEvento || window.event;
+    //Buscar esa linea de pedido y eliminarla
+    
+        let indiceABorrar = oUpoBebe.tLineaArticulo.findIndex(function(valor){
+            return valor.oArt.nombreArticulo == oE.target.parentNode.parentNode.firstChild.textContent && valor.oVenta == null;
+        });
+        oUpoBebe.tLineaArticulo.splice(indiceABorrar, 1);
+        oE.target.parentNode.parentNode.remove();
+}
 
 // mostrar alta reparacion
 function fMostrarAltaReparacion()
