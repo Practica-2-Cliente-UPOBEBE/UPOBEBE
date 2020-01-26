@@ -387,16 +387,24 @@
         </div>
         <div class="form-group">
           <label  class="mb-0">Articulos:</label>
-          <select name="comboBoxArticulos" id="comboBoxArticulos"></select>
+          <select name="comboBoxArticulos" id="comboBoxArticulos">
+            
+          </select>
         </div>
         <div class="form-group">
           <label class="mb-0">Taller:</label>
-          <select name="comboBoxTaller" id="comboBoxTaller"></select>
+          <select name="comboBoxTaller" id="comboBoxTaller">
+            
+          </select>
         </div>
         <div class="form-group">
           <label class="mb-0">Observaciones:</label>
           <br>
           <textarea name="areaObservaciones" id="areaObservaciones" cols="60" rows="10"></textarea> 
+          <br>
+          <label for="start">Fecha:</label>
+
+            <input type="date" id="start" name="trip-start" value="2019-01-01" min="2019-01-01" max="2020-12-31">
         </div>
         <input type="submit" class="btn btn-primary" id="aceptarAltaReparacion" name="aceptarAltaReparacion"
          value="Aceptar" />

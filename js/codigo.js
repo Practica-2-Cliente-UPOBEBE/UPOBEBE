@@ -74,7 +74,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
 
             oUpoBebe.altaCliente(new Cliente(dni, nombre, apellidos, direccion, correo, tlf));
         }
-      /*  //Datos talleres
+       //Datos talleres
         let oTalleres = oXML.querySelectorAll("taller");
         for(let i = 0 ; i < oTalleres.length ; i++){
             let nombre = oTalleres[i].querySelector("nombre").textContent;
@@ -83,7 +83,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
 
             oUpoBebe.altaTaller(new Taller(nombre, nif, direccion));
         }
-        */
+        
     }
 // fin de datos INICIALES
 // Función para cargar el ficheroXML
@@ -161,6 +161,7 @@ function fMostrarAltaArticulo(oEvento)
 
 function fMostrarListadoArticulo(){
     fOcultarFormularios();
+    fOcultarTablasListado();
     document.getElementById("tabla").style.display = "table";
     fVaciarTabla();
     let tablaAMostrar = oUpoBebe.listadoArticulo();
@@ -755,4 +756,40 @@ function fMostrarAltaReparacion()
     frmAltaReparacion.reset();
     frmAltaReparacion.style.display = "block";
 }
+// cuando le damos al boton buscar:
+document.getElementById("btnBuscarVenta").addEventListener("click", fBuscarVenta,false);
+// cuando le damos al boton AceptarReparacion:
+document.getElementById("aceptarAltaReparacion").addEventListener("click", faceptarReparacion,false);
+
+
+function fBuscarVenta(){
+    //fBuscaDatos();
+    fMostarDesplegables();
+}
+
+function fMostarDesplegables(){
+    //talleres:
+    let arrayTaller = oUpoBebe.tTalleres;
+    let taller = document.getElementById("comboBoxTaller");
+    //let oTalleres = oXML.querySelectorAll("taller");
+    
+    for (var i = 0; i < arrayTaller.length; i++) {
+        //Crear option
+         var oOption = document.createElement("option");
+         oOption.value = arrayTaller[i].nombreTaller;
+         oOption.textContent = arrayTaller[i].nombreTaller;
+
+        //Agregar option en el último lugar
+        taller.appendChild(oOption);
+    }
+
+}
+
+
+
+//cuando click boton AceptarReparacion:
+function faceptarReparacion(){
+    
+}
+
 // fin alta reparacion
