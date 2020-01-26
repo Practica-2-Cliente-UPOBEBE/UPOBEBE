@@ -2,7 +2,7 @@
 <datos>
 <empleados>
     <empleado>
-        <dni>111A</dni>
+        <dni>11111111A</dni>
         <nombre>Lola</nombre>
         <apellidos>Lorenzo Lomas</apellidos>
         <salario>1004.02</salario>
@@ -13,7 +13,7 @@
     </empleado>
 
     <empleado>
-        <dni>222A</dni>
+        <dni>22222222A</dni>
         <nombre>Juan</nombre>
         <apellidos>Rodríguez Tomás</apellidos>
         <salario>960.02</salario>
@@ -24,7 +24,7 @@
     </empleado>
 
     <empleado>
-        <dni>333A</dni>
+        <dni>33333333A</dni>
         <nombre>Ana</nombre>
         <apellidos>Pérez Ramona</apellidos>
         <salario>1200</salario>
@@ -37,7 +37,7 @@
 
 <clientes>
     <cliente>
-        <dni>444C</dni>
+        <dni>44444444C</dni>
         <nombre>Cliente Primero</nombre>
         <apellidos>Apellidos Cliente Primero</apellidos>
         <direccion>Calle Cliente 1</direccion>
@@ -46,7 +46,7 @@
     </cliente>
 
     <cliente>
-        <dni>555C</dni>
+        <dni>55555555C</dni>
         <nombre>Cliente Segundo</nombre>
         <apellidos>Apellidos Cliente Segundo</apellidos>
         <direccion>Calle Cliente 2</direccion>
@@ -55,7 +55,7 @@
     </cliente>
 
     <cliente>
-        <dni>666C</dni>
+        <dni>666666666C</dni>
         <nombre>Cliente Tercero</nombre>
         <apellidos>Apellidos Clientes Tercero</apellidos>
         <direccion>Calle cliente 3</direccion>
