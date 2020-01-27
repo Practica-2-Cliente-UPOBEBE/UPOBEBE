@@ -27,7 +27,9 @@ UpoBebe.prototype.altaCliente = function(oCliente){
         
     return mensaje;
 }
-
+UpoBebe.prototype.altaCategoria = function(oCategoria){
+    this.tCategorias.push(oCategoria);
+}
 UpoBebe.prototype.altaArticulo = function(oArticulo){
     let mensaje;
     if (this._buscarArticulo(oArticulo.idArticulo) != null){
