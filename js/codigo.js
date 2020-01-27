@@ -83,6 +83,33 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
 
             oUpoBebe.altaTaller(new Taller(nombre, nif, direccion));
         }
+        //Datos categorías
+        let oCategorias = oXML.querySelectorAll("categoria");
+        for(let i = 0 ; i < oCategorias.length ; i++){
+            let nombre = oCategorias[i].querySelector("nombre").textContent;
+            let id = oCategorias[i].querySelector("id").textContent;
+            let descripcion = oCategorias[i].querySelector("descripcion").textContent;
+
+            oUpoBebe.altaCategoria(new Categoria(id, nombre, descripcion));
+        }
+        //Datos artículos
+        let oArticulos = oXML.querySelectorAll("articulo");
+        for(let i = 0 ; i < oArticulos.length ; i++){
+            
+            let id = oArticulos[i].querySelector("id").textContent;
+            let nombre = oArticulos[i].querySelector("nombre").textContent;
+            let descripcion = oArticulos[i].querySelector("descripcion").textContent;
+            let categoria = oArticulos[i].getAttribute("categoria");
+            let precio = parseInt(oArticulos[i].querySelector("precio").textContent, 10);
+            let oCategoria = null;
+            oUpoBebe.tCategorias.forEach(valor => {
+                if(categoria == valor.nombre){
+                    oCategoria = valor;
+                }
+            });
+
+            oUpoBebe.altaArticulo(new Articulo(id, nombre, descripcion, oCategoria, precio));
+        }
         
     }
 // fin de datos INICIALES
