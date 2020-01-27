@@ -8,6 +8,7 @@ function UpoBebe(){
     this.tArticulos = [];
     this.tTalleres = [];
     this.tReparaciones = [];
+    this.tCategorias = [];
     
 }
 
@@ -462,11 +463,11 @@ class Cliente{
 //clase Articulo
 class Articulo{
 
-    constructor(sIdArticulo,sNombreArticulo,sDescripcionArticulo,sCategoria,fPrecioArticulo){
+    constructor(sIdArticulo,sNombreArticulo,sDescripcionArticulo,oCategoria,fPrecioArticulo){
         this.idArticulo = sIdArticulo;
         this.nombreArticulo = sNombreArticulo;
         this.descripcionArticulo = sDescripcionArticulo;
-        this.categoria = sCategoria;
+        this.categoria = oCategoria;
         this.precioArticulo = parseFloat(fPrecioArticulo);
 
 
@@ -530,3 +531,12 @@ class Taller{
     }
 }
 //Fin clase taller
+//Clase categoría
+class Categoria{
+    constructor(id, nombre, descripcion){
+        this.idCategoria = id;
+        this.nombreCategoria = nombre;
+        this.descripcionCategoria = descripcion;
+    }
+}
+//Fin clase categoría
