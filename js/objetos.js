@@ -22,6 +22,7 @@ UpoBebe.prototype.añadirLineaArticulo = function(oLinea){
     if(!existeYa){
         this.tLineaArticulo.push(oLinea);
         return true;
+ 
     }else
         return false;
 }
@@ -156,10 +157,10 @@ UpoBebe.prototype._buscarTaller = function(sNifTaller){
 UpoBebe.prototype._buscarArticulo = function(sIdArticulo){
     var oArticulo = null;
     this.tArticulos.forEach(function(value){
-    if(value.idArticulo == sIdArticulo){
-        oArticulo=value;
-    }
-});
+        if(value.idArticulo == sIdArticulo){
+            oArticulo=value;
+        }
+    });
     return oArticulo;
 }
 
@@ -379,12 +380,6 @@ class LineaDeArticulo{
     constructor(idLinea, oArt, oVenta, unid){
         this.idLinea = idLinea;
         this.oArt = oArt;
-        // Carlos:
-        //poner el objeto.  En objeto venta, crear LINEAS y que sea nulo en el constructo de objeto Venta
-        //boton aceptar -> inserta todas las líneas en el objeto venta
-        //en el propio método del objeto venta , agregamos la linea
-        //oVenta -> método -> agregarlínea()
-        //oVenta tendrá una array
         this.oVenta = oVenta;
         this.unidades = unid;
     }
