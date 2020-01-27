@@ -736,6 +736,7 @@ function fMostrarCarrito(){
         let cuerpoTabla = tablaLineas.createTBody();
         oUpoBebe.tLineaArticulo.forEach(elemento =>{
             if(elemento.oVenta == null){
+                console.log(elemento);
                 let botonMasUno = document.createElement("INPUT");
                 botonMasUno.setAttribute("type", "button");
                 botonMasUno.setAttribute("value", "+");
@@ -767,7 +768,7 @@ function fMostrarCarrito(){
         });
         let fila = cuerpoTabla.insertRow(-1);
         let celda = fila.insertCell(-1);
-        celda.textContent("TOTAL PEDIDO");
+        celda.textContent ="TOTAL PEDIDO";
         celda.setAttribute("rowspan", "3");
         fila.insertCell(-1).textContent = contadorTotalLineas;
         //Borro la tabla antigua y meto esta
@@ -828,18 +829,21 @@ function añadirArticuloACarrito(oEvento){
     let oE = oEvento || window.event;
     //Cogemos el objeto artículo y lo añadimos a la linea de artículo ----- idLinea, oArt, oVenta, unid
     let oArticulo = oUpoBebe._buscarArticulo(oE.target.parentNode.parentNode.dataset.id);
-
-    //Buscar esa linea de pedido y sumarle una unidad al producto si ya existia
-    oUpoBebe.tLineaArticulo.forEach(linea =>{
-        if(linea.oVenta == null && linea.oArt.nombreArticulo == oArticulo.nombreArticulo){
-            linea.unidades = linea.unidades+1;
-        }
-    });
     
-    if(oUpoBebe.añadirLineaArticulo(idLinea, oArticulo, null, 1)){
-        idLinea++;
-        alert("Artículo añadido al carrito");
-    }
+        if(oUpoBebe.añadirLineaArticulo(new LineaDeArticulo(idLinea, oArticulo, null, 1))){
+            idLinea++;
+            alert("Artículo añadido al carrito");
+        }
+        //Buscar esa linea de pedido y sumarle una unidad al producto si ya existia
+        /*oUpoBebe.tLineaArticulo.forEach(linea =>{
+            if(linea.oVenta == null && linea.oArt.nombreArticulo == oArticulo.nombreArticulo){
+                linea.unidades = linea.unidades+1;
+            }
+        });*/
+    
+    
+    
+    
 }
 
 // mostrar alta reparacion
