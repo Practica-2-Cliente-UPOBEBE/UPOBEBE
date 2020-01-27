@@ -1,5 +1,6 @@
 "use strict";
 var oUpoBebe = new UpoBebe();
+var idLinea = 0;
 fDatosIniciales();
 
 fOcultarFormularios();
@@ -820,6 +821,12 @@ function eliminarProducto(oEvento){
         });
         oUpoBebe.tLineaArticulo.splice(indiceABorrar, 1);
         oE.target.parentNode.parentNode.remove();
+}
+
+function añadirArticuloACarrito(oEvento){
+    let oE = oEvento || window.event;
+    //Cogemos el objeto artículo y lo añadimos a la linea de artículo ----- idLinea, oArt, oVenta, unid
+    let oArticulo = oUpoBebe._buscarArticulo(oE.target.parentNode.parentNode.firstChild.textContent);
 }
 
 // mostrar alta reparacion
