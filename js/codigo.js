@@ -103,7 +103,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
             let precio = parseInt(oArticulos[i].querySelector("precio").textContent, 10);
             let oCategoria = null;
             oUpoBebe.tCategorias.forEach(valor => {
-                if(categoria == valor.nombre){
+                if(categoria == valor.nombreCategoria){
                     oCategoria = valor;
                 }
             });
