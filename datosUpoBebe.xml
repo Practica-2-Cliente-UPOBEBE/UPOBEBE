@@ -77,26 +77,66 @@
         <direccion>tallerB@email.com</direccion>
     </taller>
 </talleres>
-
+<categorias>
+    <categoria>
+        <id>1</id>
+        <nombre>Juguetes</nombre>
+        <descripcion>Los mejores pasatiempos de los bebés</descripcion>
+    </categoria>
+    <categoria>
+        <id>2</id>
+        <nombre>Cunas</nombre>
+        <descripcion>Lo mejor para una buena siestecita</descripcion>
+    </categoria>
+    <categoria>
+        <id>3</id>
+        <nombre>Alimentacion</nombre>
+        <descripcion>Comida de todo tipo y muy nutritiva</descripcion>
+    </categoria>
+    <categoria>
+        <id>4</id>
+        <nombre>Textil</nombre>
+        <descripcion>La ropita mas comoda y mas económica</descripcion>
+    </categoria>
+    <categoria>
+        <id>5</id>
+        <nombre>Carros</nombre>
+        <descripcion>Todo bebé necesita tomar el aire con la comodidad y el resguardo de un buen carrito</descripcion>
+    </categoria>
+</categorias>
 <articulos>
-      <articulo categoria="carrito">
-        <id>art1C</id>
+      <articulo categoria="Carros">
+        <id>art1</id>
         <nombre>Carrito Azul</nombre>
         <descripcion>Carrito para bebe con soporte para mochila</descripcion>
         <precio>200</precio>
     </articulo>
 
-    <articulo categoria="biberon">
-        <id>art2B</id>
+    <articulo categoria="Alimentacion">
+        <id>art2</id>
         <nombre>Biberon-PepaPig</nombre>
         <descripcion>Biberón con diseño de los dibujos animados PepePig</descripcion>
         <precio>40</precio>
     </articulo>
 
-    <articulo categoria="pañal">
-        <id>art3P</id>
+    <articulo categoria="Textil">
+        <id>art3</id>
         <nombre>Pañales DOMBEBE</nombre>
         <descripcion>Pack de pañales para bebes de 0-2 años</descripcion>
+        <precio>60</precio>
+    </articulo>
+
+    <articulo categoria="Juguetes">
+        <id>art4</id>
+        <nombre>Sonajero</nombre>
+        <descripcion>El mejor pasatiempo para un bebé</descripcion>
+        <precio>60</precio>
+    </articulo>
+
+    <articulo categoria="Cunas">
+        <id>art5</id>
+        <nombre>Cuna</nombre>
+        <descripcion>Cuna de madera, muy segura</descripcion>
         <precio>60</precio>
     </articulo>
 </articulos>
