@@ -152,23 +152,34 @@ UpoBebe.prototype._buscarArticulo = function(sIdArticulo){
 });
     return oArticulo;
 }
+
+UpoBebe.prototype._buscarVenta = function(sIDventa){
+    let oVenta = null;
+    this.tVentas.forEach(function(value){
+        if(value.idVenta == sIDventa){
+            oVenta = value;
+        }
+    });
+    return oVenta;
+}
+// LO VEEES???????
 //******fin métodos de búsquedas
 
 //*** Método reparar */
+    /*
     UpoBebe.prototype.reparar = function(sNifTaller,sIDventas,sNombreReparacion,sDescripcionRep,fCosteRep,dcFechaRep){
         var cReparado = false;
         var oTaller = this._buscarTaller(sNifTaller);
         var oVenta = this._buscarVenta(sIDventas);
         var oReparacion = this._buscarReparacion(sNombreReparacion);
         var oReparacionHecha = null;
-
-        
-
-
-
         return cReparado;
 
+    }*/
+    UpoBebe.prototype.reparar =function(sI){
+
     }
+
 //** fin método REPARAR */
 
 // *********LISTADOS ******
