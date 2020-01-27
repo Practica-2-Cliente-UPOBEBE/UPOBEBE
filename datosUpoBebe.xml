@@ -130,14 +130,14 @@
         <id>art4</id>
         <nombre>Sonajero</nombre>
         <descripcion>El mejor pasatiempo para un bebé</descripcion>
-        <precio>60</precio>
+        <precio>5</precio>
     </articulo>
 
     <articulo categoria="Cunas">
         <id>art5</id>
         <nombre>Cuna</nombre>
         <descripcion>Cuna de madera, muy segura</descripcion>
-        <precio>60</precio>
+        <precio>105</precio>
     </articulo>
 </articulos>
 </datos>
