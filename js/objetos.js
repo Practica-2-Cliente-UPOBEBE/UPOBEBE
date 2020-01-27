@@ -116,17 +116,12 @@ UpoBebe.prototype._buscarEmpleado = function(sDNI){
 UpoBebe.prototype._buscarReparacion = function(sNombre){
     var oReparacion = null;
     var i = 0;
-    
     while(i < this.tReparaciones.length && oReparacion == null){
-        
         if(this.tEmpleados[i].nombre == sNombre){
             oEmpleado = this.tEmpleados[i];
         }
         i++;
     }
-
-    
-
     return oReparacion;
 }
 UpoBebe.prototype.buscarCliente = function(dni){
@@ -486,7 +481,7 @@ class Articulo{
         celda.textContent=this.descripcionArticulo;
 
         celda = linea.insertCell(-1);
-        celda.textContent=this.categoria;
+        celda.textContent=this.categoria.nombreCategoria;
 
         celda = linea.insertCell(-1);
         celda.textContent=this.precioArticulo;
