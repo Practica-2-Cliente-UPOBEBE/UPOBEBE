@@ -823,10 +823,23 @@ function eliminarProducto(oEvento){
         oE.target.parentNode.parentNode.remove();
 }
 
+//Boton de añadir articulo al carrito
 function añadirArticuloACarrito(oEvento){
     let oE = oEvento || window.event;
     //Cogemos el objeto artículo y lo añadimos a la linea de artículo ----- idLinea, oArt, oVenta, unid
-    let oArticulo = oUpoBebe._buscarArticulo(oE.target.parentNode.parentNode.firstChild.textContent);
+    let oArticulo = oUpoBebe._buscarArticulo(oE.target.parentNode.parentNode.dataset.id);
+
+    //Buscar esa linea de pedido y sumarle una unidad al producto si ya existia
+    oUpoBebe.tLineaArticulo.forEach(linea =>{
+        if(linea.oVenta == null && linea.oArt.nombreArticulo == oArticulo.nombreArticulo){
+            linea.unidades = linea.unidades+1;
+        }
+    });
+    
+    if(oUpoBebe.añadirLineaArticulo(idLinea, oArticulo, null, 1)){
+        idLinea++;
+        alert("Artículo añadido al carrito");
+    }
 }
 
 // mostrar alta reparacion

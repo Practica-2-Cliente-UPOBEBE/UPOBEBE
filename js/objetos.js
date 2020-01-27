@@ -15,6 +15,16 @@ function UpoBebe(){
 //métodos de la clase UPOBEBE
 
 ///*****ALTAS  */
+UpoBebe.prototype.añadirLineaArticulo = function(oLinea){
+    let existeYa = this.tLineaArticulo.some(function(e){
+        return e.idLinea == oLinea.idLinea;
+    });
+    if(!existeYa){
+        this.tLineaArticulo.push(oLinea);
+        return true;
+    }else
+        return false;
+}
 UpoBebe.prototype.altaCliente = function(oCliente){
     let mensaje;
     if(this.buscarCliente(oCliente.dniCliente) != null){
@@ -243,8 +253,6 @@ UpoBebe.prototype.listadoArticulo = function(){
     let cabecera = tabla.createTHead();
     let fila= cabecera.insertRow(-1);
     let celda = fila.insertCell(-1);
-    celda.textContent = "ID";
-    celda = fila.insertCell(-1);
     celda.textContent = "Nombre";
     celda = fila.insertCell(-1);
     celda.textContent = "Descripcion";
@@ -482,10 +490,8 @@ class Articulo{
     }
         toHTMLrow(){
         let linea = document.createElement("tr"); 
+        linea.dataset.id = this.idArticulo;
         let celda = linea.insertCell(-1);
-        celda.textContent=this.idArticulo;
-
-        celda = linea.insertCell(-1);
         celda.textContent=this.nombreArticulo;
 
         celda = linea.insertCell(-1);
