@@ -486,6 +486,14 @@ class Articulo{
         celda = linea.insertCell(-1);
         celda.textContent=this.precioArticulo;
 
+        celda = linea.insertCell(-1);
+        let botonCarrito = document.createElement("img");
+        botonCarrito.setAttribute("src", "img/carro.png");
+        botonCarrito.setAttribute("width", "100%");
+        celda.setAttribute("style", "width:5%;")
+        botonCarrito.addEventListener("click", añadirArticuloACarrito, false);
+        celda.appendChild(botonCarrito);
+
         return linea;
         /*/*
     toHTMLrow(){
