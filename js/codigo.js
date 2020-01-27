@@ -789,7 +789,7 @@ function añadirUnProducto(oEvento){
         
     });
     oE.target.parentNode.firstChild.nextSibling.textContent = oLinea.unidades;
-    oE.target.parentNode.firstChild.nextSibling.nextSibling.nextSibling.textContent = oLinea.totalLinea();
+    oE.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.nextSibling.textContent = oLinea.totalLinea();
 }
 //Boton -
 function quitarUnProducto(oEvento){
@@ -808,7 +808,7 @@ function quitarUnProducto(oEvento){
     });
     if(oLinea != null){
         oE.target.parentNode.firstChild.nextSibling.textContent = oLinea.unidades;
-        oE.target.parentNode.firstChild.nextSibling.nextSibling.nextSibling.textContent = oLinea.totalLinea();
+        oE.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.nextSibling.textContent = oLinea.totalLinea();
     }
     
 }
