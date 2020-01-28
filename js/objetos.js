@@ -99,7 +99,19 @@ UpoBebe.prototype.modificarCliente = function(oCliente){
         return "Cliente modificado con éxito";
     }
     
-} 
+}
+UpoBebe.prototype.altaVenta = function(oVenta){
+    //Si el dni del cliente y del empleado y la fecha son las mismas supondremos que es la misma compra y no se podrá realizar
+    let existeYa = this.tVentas.some(function(e){
+        return e.oCliente.dniCliente == oVenta.oCliente.dniCliente && e.oEmpleado.dniEmpleado == oVenta.oEmpleado.dniEmpleado && e.fVenta == oVenta.fVenta;
+    });
+    if(!existeYa){
+        this.tVentas.push(oVenta);
+        return true;
+    }else
+        return false;
+
+}
 //****BUSQUEDAS ***métodos de búsquedas:
 UpoBebe.prototype._buscarEmpleado = function(sDNI){
     var oEmpleado = null;
