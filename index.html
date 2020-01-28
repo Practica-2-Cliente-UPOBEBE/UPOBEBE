@@ -425,6 +425,37 @@
     <!--Para los listados:-->
     <div class="container col-8" id="body">
       <table class='table table-striped table-hover' id="tabla" ></table>
+      <form id="formularioCompra" class="form-horizontal" style="visibility:hidden;">
+            <fieldset>
+            
+            <!-- Form Name -->
+            <legend>Confirmar la compra</legend>
+            
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="dni">Introducir DNI del cliente</label>  
+              <div class="col-md-4">
+              <input id="dniCliente" name="dni2" type="text" placeholder="DNI cliente" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="dni">Introducir DNI del vendedor</label>  
+              <div class="col-md-4">
+              <input id="dniEmpleado" name="dni2" type="text" placeholder="DNI empleado" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="aceptar"></label>
+              <div class="col-md-4">
+                <input type="button"  id="aceptarCompra" name="aceptar" class="btn btn-primary" value="Aceptar compra"/>
+              </div>
+            </div>
+            </fieldset>
+        </form>
     </div>
     
 <script type="text/javascript" src="js/objetos.js"></script>
