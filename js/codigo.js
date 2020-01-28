@@ -1,6 +1,7 @@
 "use strict";
 var oUpoBebe = new UpoBebe();
 var idLinea = 0;
+var idVenta = 0;
 var contadorTotalLineas;
 fDatosIniciales();
 
@@ -151,8 +152,13 @@ function fMostrarPaginaPrincipal(){
 }
 function fOcultarTablasListado(){
     document.getElementById("tabla").style.display = "none";
-    if(document.getElementById("tablaCarrito"))
+    if(document.getElementById("tablaCarrito")){
         document.getElementById("tablaCarrito").style.display = "none";
+    }
+    if(document.getElementById("formularioCompra")){
+        document.getElementById("formularioCompra").style.visibility = "hidden";
+    }
+    
 }
 // EMPLEADO
 function fMostarAltaEmpleado(){
@@ -778,6 +784,52 @@ function fMostrarCarrito(){
         //Borro la tabla antigua y meto esta
         document.getElementById("body").removeChild(document.getElementById("body").lastChild);
         document.getElementById("body").appendChild(tablaLineas);
+        //Muestro el formulario para insertar los dni de cliente y empleado
+        let formu = document.getElementById("formularioCompra");
+        if(formu){
+            formu.style.visibility = "visible";
+        }
+        
+        document.getElementById("aceptarCompra").addEventListener("click", darAltaCompra, false);
+    }
+}
+//Pulsar el botón de comprar
+function darAltaCompra(){
+    //Recoger en variables los dni de cliente y vendedor
+    let dniCliente = document.getElementById("dniCliente").value.trim();
+    let dniEmpleado = document.getElementById("dniEmpleado").value.trim();
+    //Comprobar que existan
+    
+    let oCliente = oUpoBebe.buscarCliente(dniCliente);
+    let oEmpleado = oUpoBebe._buscarEmpleado(dniEmpleado);
+    if(oCliente == null){
+        alert("No hay ningún cliente con ese DNI");
+        document.getElementById("dniCliente").classList.add("error");
+        document.getElementById("dniCliente").focus();
+    }else if(oEmpleado == null){
+        alert("No hay ningún empleado con ese DNI");
+        document.getElementById("dniEmpleado").classList.add("error");
+        document.getElementById("dniEmpleado").focus();
+        document.getElementById("dniCliente").classList.remove("error");
+    }else{
+        let arrayLineas = oUpoBebe.tLineaArticulo.filter(linea => linea.oVenta == null);
+        let fecha = new Date().getDate + "/" + (new Date().getMonth() +1) + "/" + new Date().getFullYear();
+        let nuevaVenta = oUpoBebe.altaVenta(new Venta(idVenta, oCliente, oEmpleado, arrayLineas, fecha));
+        if(nuevaVenta){
+            //Añadir el objeto venta a las lineas correspondientes
+            arrayLineas.forEach(linea => {
+                linea.oVenta = nuevaVenta;
+            });
+
+            idVenta++;
+            alert("Venta realizada con éxito");
+            document.getElementById("dniCliente").classList.remove("error");
+            document.getElementById("dniEmpleado").classList.remove("error");
+            document.getElementById("formularioCompra").reset();
+            
+        }else{
+            alert("Venta ya efectuada");
+        }
     }
 }
 //Boton +
@@ -846,13 +898,6 @@ function añadirArticuloACarrito(oEvento){
     let oE = oEvento || window.event;
     //Cogemos el objeto artículo y lo añadimos a la linea de artículo ----- idLinea, oArt, oVenta, unid
     let oArticulo = oUpoBebe._buscarArticulo(oE.target.parentNode.parentNode.dataset.id);
-    /*let existeYa = oUpoBebe.tLineaArticulo.some(function(e){
-        return e.idLinea == oLinea.idLinea;
-    });
-    if(existeYa){
-
-    }*/
-
     
         if(oUpoBebe.añadirLineaArticulo(new LineaDeArticulo(idLinea, oArticulo, null, 1))){
             //Si no existe aún lo añade como una nueva linea
@@ -867,11 +912,6 @@ function añadirArticuloACarrito(oEvento){
                 }
             });
         }
-        
-    
-    
-    
-    
 }
 
 // mostrar alta reparacion
