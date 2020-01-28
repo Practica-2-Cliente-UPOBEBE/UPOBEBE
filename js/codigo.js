@@ -377,6 +377,10 @@ function modificarCliente(){
 function fMostrarListadoVentas(){
     fOcultarFormularios();
     fOcultarTablasListado();
+    document.getElementById("tabla").style.display = "table";
+    fVaciarTabla();
+    let tablaAMostrar = oUpoBebe.listadoVentas();
+    document.getElementById("tabla").append(tablaAMostrar);
 }
 
 // mostar listados periodo vendidos
