@@ -17,12 +17,11 @@ function UpoBebe(){
 ///*****ALTAS  */
 UpoBebe.prototype.añadirLineaArticulo = function(oLinea){
     let existeYa = this.tLineaArticulo.some(function(e){
-        return e.idLinea == oLinea.idLinea;
+        return e.oArt.nombreArticulo == oLinea.oArt.nombreArticulo && e.oVenta == null;
     });
     if(!existeYa){
         this.tLineaArticulo.push(oLinea);
         return true;
- 
     }else
         return false;
 }
