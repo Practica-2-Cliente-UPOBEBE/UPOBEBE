@@ -1,10 +1,12 @@
 "use strict";
 var oUpoBebe = new UpoBebe();
 var idLinea = 0;
+var contadorTotalLineas;
 fDatosIniciales();
 
 fOcultarFormularios();
 fOcultarTablasListado();
+
 
 
 //Mostrar listado de artículos por defecto
@@ -149,6 +151,8 @@ function fMostrarPaginaPrincipal(){
 }
 function fOcultarTablasListado(){
     document.getElementById("tabla").style.display = "none";
+    if(document.getElementById("tablaCarrito"))
+        document.getElementById("tablaCarrito").style.display = "none";
 }
 // EMPLEADO
 function fMostarAltaEmpleado(){
@@ -724,9 +728,10 @@ function fMostrarCarrito(){
     }else{
         fOcultarFormularios();
         fOcultarTablasListado();
-        let contadorTotalLineas = 0;
+        contadorTotalLineas = 0;
         let tablaLineas = document.createElement("TABLE");
         tablaLineas.className = "table table-striped table-hover";
+        tablaLineas.id = "tablaCarrito";
         let cabecera = tablaLineas.createTHead();
         let filaCabecera = cabecera.insertRow(-1);
         filaCabecera.insertCell(-1).textContent = "ARTÍCULO";
@@ -736,7 +741,6 @@ function fMostrarCarrito(){
         let cuerpoTabla = tablaLineas.createTBody();
         oUpoBebe.tLineaArticulo.forEach(elemento =>{
             if(elemento.oVenta == null){
-                console.log(elemento);
                 let botonMasUno = document.createElement("INPUT");
                 botonMasUno.setAttribute("type", "button");
                 botonMasUno.setAttribute("value", "+");
@@ -785,30 +789,37 @@ function añadirUnProducto(oEvento){
         if(linea.oVenta == null && linea.oArt.nombreArticulo == oE.target.parentNode.parentNode.firstChild.textContent){
             linea.unidades = linea.unidades+1;
             oLinea = linea;
+            contadorTotalLineas = contadorTotalLineas + linea.oArt.precioArticulo;
         }
         
     });
-    oE.target.parentNode.firstChild.nextSibling.textContent = oLinea.unidades;
+    //Modificar la tabla con los nuevos datos
+    oE.target.parentNode.parentNode.firstChild.nextSibling.textContent = oLinea.unidades;
     oE.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.nextSibling.textContent = oLinea.totalLinea();
+    document.querySelector("#body table:last-child tbody tr:last-child td:last-child").textContent = contadorTotalLineas;
 }
 //Boton -
 function quitarUnProducto(oEvento){
     let oE = oEvento || window.event;
     //Buscar esa linea de pedido y restarle una unidad al producto
     var oLinea = null;
-    oUpoBebe.tLineaArticulo.forEach(linea =>{
+    oUpoBebe.tLineaArticulo.forEach(function(linea, indice){
         if(linea.oVenta == null && linea.oArt.nombreArticulo == oE.target.parentNode.parentNode.firstChild.textContent){
             if(linea.unidades == 1){
                 oE.target.parentNode.parentNode.remove();
+                oUpoBebe.tLineaArticulo.splice(indice, 1);
             }else{
                 linea.unidades = linea.unidades-1;
+                contadorTotalLineas = contadorTotalLineas - linea.oArt.precioArticulo;
                 oLinea = linea;
             }
         }
     });
     if(oLinea != null){
-        oE.target.parentNode.firstChild.nextSibling.textContent = oLinea.unidades;
+        //Modificar la tabla con los nuevos datos
+        oE.target.parentNode.parentNode.firstChild.nextSibling.textContent = oLinea.unidades;
         oE.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.nextSibling.textContent = oLinea.totalLinea();
+        document.querySelector("#body table:last-child tbody tr:last-child td:last-child").textContent = contadorTotalLineas;
     }
     
 }
@@ -822,6 +833,12 @@ function eliminarProducto(oEvento){
         });
         oUpoBebe.tLineaArticulo.splice(indiceABorrar, 1);
         oE.target.parentNode.parentNode.remove();
+        contadorTotalLineas = contadorTotalLineas - oE.target.parentNode.parentNode.firstChild.nextSibling.nextSibling.nextSibling.textContent;
+        document.querySelector("#body table:last-child tbody tr:last-child td:last-child").textContent = contadorTotalLineas;
+        if(contadorTotalLineas == 0){
+            document.querySelector("#body table:last-child tbody tr:last-child").remove();
+        }
+
 }
 
 //Boton de añadir articulo al carrito
@@ -829,17 +846,28 @@ function añadirArticuloACarrito(oEvento){
     let oE = oEvento || window.event;
     //Cogemos el objeto artículo y lo añadimos a la linea de artículo ----- idLinea, oArt, oVenta, unid
     let oArticulo = oUpoBebe._buscarArticulo(oE.target.parentNode.parentNode.dataset.id);
+    /*let existeYa = oUpoBebe.tLineaArticulo.some(function(e){
+        return e.idLinea == oLinea.idLinea;
+    });
+    if(existeYa){
+
+    }*/
+
     
         if(oUpoBebe.añadirLineaArticulo(new LineaDeArticulo(idLinea, oArticulo, null, 1))){
+            //Si no existe aún lo añade como una nueva linea
             idLinea++;
             alert("Artículo añadido al carrito");
+
+        }else{
+            //Buscar esa linea de pedido y sumarle una unidad al producto si ya existia
+            oUpoBebe.tLineaArticulo.forEach(linea =>{
+                if(linea.oVenta == null && linea.oArt.nombreArticulo == oArticulo.nombreArticulo){
+                    linea.unidades = linea.unidades+1;
+                }
+            });
         }
-        //Buscar esa linea de pedido y sumarle una unidad al producto si ya existia
-        /*oUpoBebe.tLineaArticulo.forEach(linea =>{
-            if(linea.oVenta == null && linea.oArt.nombreArticulo == oArticulo.nombreArticulo){
-                linea.unidades = linea.unidades+1;
-            }
-        });*/
+        
     
     
     
