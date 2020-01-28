@@ -206,7 +206,28 @@ UpoBebe.prototype._buscarVenta = function(sIDventa){
 //** fin método REPARAR */
 
 // *********LISTADOS ******
+UpoBebe.prototype.listadoVentas = function(){
+    let tabla = document.getElementById("tabla");
+    let cabecera = tabla.createTHead();
+    let fila= cabecera.insertRow(-1);
+    let celda = fila.insertCell(-1);
+    celda.textContent = "ID";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre del cliente";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre del empleado";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Lineas de los artículos";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Fecha";
+    let cuerpito = document.createElement("tbody");
+    this.tVentas.forEach(x =>{
+        cuerpito.appendChild(x.toString());
+    });
+    tabla.appendChild(cuerpito);
+    return tabla;
 
+}
 UpoBebe.prototype.listadoEmpleados = function(){
     
     //let tabla = document.createElement("table");
@@ -399,12 +420,24 @@ class LineaDeArticulo{
         return this.unidades * this.oArt.precioArticulo;
     }
     toString(){
-        let sFila = "<tr><td>"+ this.aLineaArticulo.idArticulo +"</td>";
-        sFila += "<td>"+ this.aLineaArticulo.idVenta +"</td>";
-        sFila += "<td>"+ this.aLineaArticulo.unidades +"</td>";
-        sFila += "<td>"+ this.aLineaArticulo.precioArticulo +"</td>";
-        sFila += "<td>"+ this.aLineaArticulo.totalLinea() +"</td></tr>";
-        return sFila;
+        
+        let fila= document.createElement("TR");
+        let celda = fila.insertCell(-1);
+        celda.textContent = this.oArt.nombreArticulo;
+
+        celda = fila.insertCell(-1);
+        celda.textContent = this.oArt.nombreArticulo;
+
+        celda = fila.insertCell(-1);
+        celda.textContent = this.oArt.precioArticulo;
+        
+        celda = fila.insertCell(-1);
+        celda.textContent = this.unidades;
+
+        celda = fila.insertCell(-1);
+        celda.textContent = this.totalLinea();
+
+        return fila;
     }
 }
 //Fin clase LineaDeArticulo
@@ -425,13 +458,28 @@ class Venta{
     }
     toString(){
         let nFilas = this.aLineaArticulo.length;
-        let sFila="<tr>";
-        sFila+="<td rowspan='"+ nFilas +"'>"+ this.idVenta +"</td>";
+        let fila= document.createElement("TR");
+        let celda = fila.insertCell(-1);
+        celda.rowspan = nFilas;
+        celda.textContent = this.idVenta;
+
+        celda = fila.insertCell(-1);
+        celda.rowspan = nFilas;
+        celda.textContent = this.oCliente.nombreCliente;
+        
+        celda = fila.insertCell(-1);
+        celda.rowspan = nFilas;
+        celda.textContent = this.oEmpleado.nombreEmpleado;
+
+        
         for(let i = 0; i < nFilas ; i++){
-            sFila += this.aLineaArticulo[i].toString();
+            celda = fila.insertCell(-1);
+            celda.textContent= this.aLineaArticulo[i].toString();
         }
-	    sFila+="<td rowspan='"+ nFilas +"'>"+ this.fVenta +"</td>";
-	    return sFila;
+	    celda = fila.insertCell(-1);
+        celda.rowspan = nFilas;
+        celda.textContent = this.fVenta;
+	    return fila;
     }
 }
 //Fin clase Venta
