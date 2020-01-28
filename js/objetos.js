@@ -74,7 +74,19 @@ UpoBebe.prototype.altaTaller = function(oTaller){
     }
     return mensaje;
 }
+UpoBebe.prototype.altaVenta = function(oVenta){
+    //Si el dni del cliente y del empleado y la fecha son las mismas supondremos que es la misma compra y no se podrá realizar
+    let existeYa = this.tVentas.some(function(e){
+        return e.oCliente.dniCliente == oVenta.oCliente.dniCliente && e.oEmpleado.dniEmpleado == oVenta.oEmpleado.dniEmpleado && e.fVenta == oVenta.fVenta;
+    });
+    //Si el array de lineas esta vacío también da fallo
+    if(!existeYa && oVenta.aLineaArticulo.length != 0){
+        this.tVentas.push(oVenta);
+        return true;
+    }else
+        return false;
 
+}
 //****FIN ALTAS */
 // MODIFICAR/BORRAR CLIENTE:
 UpoBebe.prototype.darDeBajaCliente = function(oCliente){
@@ -100,18 +112,7 @@ UpoBebe.prototype.modificarCliente = function(oCliente){
     }
     
 }
-UpoBebe.prototype.altaVenta = function(oVenta){
-    //Si el dni del cliente y del empleado y la fecha son las mismas supondremos que es la misma compra y no se podrá realizar
-    let existeYa = this.tVentas.some(function(e){
-        return e.oCliente.dniCliente == oVenta.oCliente.dniCliente && e.oEmpleado.dniEmpleado == oVenta.oEmpleado.dniEmpleado && e.fVenta == oVenta.fVenta;
-    });
-    if(!existeYa){
-        this.tVentas.push(oVenta);
-        return true;
-    }else
-        return false;
 
-}
 //****BUSQUEDAS ***métodos de búsquedas:
 UpoBebe.prototype._buscarEmpleado = function(sDNI){
     var oEmpleado = null;
