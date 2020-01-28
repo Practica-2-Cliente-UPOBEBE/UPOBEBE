@@ -143,6 +143,10 @@ function fOcultarFormularios(){
     frmAltaTaller.style.display = "none";
     frmModCliente.style.display = "none";
     frmAltaReparacion.style.display = "none";
+    document.getElementById("formularioCompra").style.visibility = "hidden";
+    if(document.getElementById("tablaCarrito")){
+        document.getElementById("tablaCarrito").style.display = "none";
+    }
 }
 function fMostrarPaginaPrincipal(){
     //le damos al LOGO/HOME:
@@ -828,7 +832,7 @@ function darAltaCompra(){
             document.getElementById("formularioCompra").reset();
             
         }else{
-            alert("Venta ya efectuada");
+            alert("Error en la venta");
         }
     }
 }
