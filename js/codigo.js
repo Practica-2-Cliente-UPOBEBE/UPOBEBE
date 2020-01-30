@@ -379,8 +379,8 @@ function fMostrarListadoVentas(){
     fOcultarTablasListado();
     document.getElementById("tabla").style.display = "table";
     fVaciarTabla();
-    let tablaAMostrar = oUpoBebe.listadoVentas();
-    document.getElementById("tabla").append(tablaAMostrar);
+    oUpoBebe.listadoVentas();
+    //document.getElementById("body").append(tablaAMostrar);
 }
 
 // mostar listados periodo vendidos
@@ -821,7 +821,8 @@ function darAltaCompra(){
         document.getElementById("dniCliente").classList.remove("error");
     }else{
         let arrayLineas = oUpoBebe.tLineaArticulo.filter(linea => linea.oVenta == null);
-        let fecha = new Date().getDate + "/" + (new Date().getMonth() +1) + "/" + new Date().getFullYear();
+        let f = new Date();
+        let fecha = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
         let nuevaVenta = oUpoBebe.altaVenta(new Venta(idVenta, oCliente, oEmpleado, arrayLineas, fecha));
         if(nuevaVenta){
             //Añadir el objeto venta a las lineas correspondientes
