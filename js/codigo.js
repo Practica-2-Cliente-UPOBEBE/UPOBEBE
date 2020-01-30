@@ -939,7 +939,7 @@ document.getElementById("aceptarAltaReparacion").addEventListener("click", facep
 
 function fBuscarVenta(){
     //fBuscaDatos();
-    
+    fBorrarDesplegableArticulo();
     let idVenta = frmAltaReparacion.txtIdVenta.value.trim();
 
     let busquedaVenta = oUpoBebe._buscarVenta(idVenta);
@@ -951,6 +951,7 @@ function fBuscarVenta(){
 }
 
 function fMostarDesplegables(venta){
+    fBorrarDesplegableArticulo();
     //talleres:
     let arrayTaller = oUpoBebe.tTalleres;
     let taller = document.getElementById("comboBoxTaller");
@@ -981,6 +982,9 @@ function fMostarDesplegables(venta){
     
 }
 
+function fBorrarDesplegableArticulo(){
+    document.querySelectorAll("comboBoxArticulos").forEach(option=>option.remove());
+}
 
 
 //cuando click boton AceptarReparacion:
