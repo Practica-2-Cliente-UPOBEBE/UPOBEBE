@@ -928,6 +928,8 @@ function fMostrarAltaReparacion()
 {
     fOcultarFormularios();
     fOcultarTablasListado();
+    fBorrarDesplegableArticulo();
+    fBorrarDesplegableTaller();
     frmAltaReparacion.reset();
     frmAltaReparacion.style.display = "block";
 }
@@ -952,7 +954,7 @@ function fBuscarVenta(){
 }
 
 function fMostarDesplegables(venta){
-    //fBorrarDesplegableArticulo();
+    fBorrarDesplegableArticulo();
     //talleres:
     let arrayTaller = oUpoBebe.tTalleres;
     let taller = document.getElementById("comboBoxTaller");
@@ -985,9 +987,11 @@ function fMostarDesplegables(venta){
 }
 
 function fBorrarDesplegableArticulo(){
-    document.querySelectorAll("#comboBoxArticulos").forEach(option=>option.remove());
+    document.querySelectorAll("#comboBoxArticulos option").forEach(option=>option.remove());
 }
-
+function fBorrarDesplegableTaller(){
+    document.querySelectorAll("#comboBoxTaller option").forEach(option=>option.remove());
+}
 
 //cuando click boton AceptarReparacion:
 function faceptarReparacion(){
