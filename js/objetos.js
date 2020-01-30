@@ -219,6 +219,8 @@ UpoBebe.prototype.listadoVentas = function(){
     celda = fila.insertCell(-1);
     celda.textContent = "Lineas de los artículos";
     celda = fila.insertCell(-1);
+    celda.textContent = "Total del pedido";
+    celda = fila.insertCell(-1);
     celda.textContent = "Fecha";
     let cuerpito = document.createElement("tbody");
     this.tVentas.forEach(x =>{
@@ -417,25 +419,22 @@ class LineaDeArticulo{
         this.unidades = unid;
     }
     totalLinea(){
-        return this.unidades * this.oArt.precioArticulo;
+        return parseInt(this.unidades * this.oArt.precioArticulo);
     }
     toString(){
         
-        let fila= document.createElement("TR");
-        let celda = fila.insertCell(-1);
-        celda.textContent = this.oArt.nombreArticulo;
+        let fila= document.createElement("P");
+        //let celda = fila.insertCell(-1);
+        fila.textContent = this.oArt.nombreArticulo + " - ";
 
-        celda = fila.insertCell(-1);
-        celda.textContent = this.oArt.nombreArticulo;
-
-        celda = fila.insertCell(-1);
-        celda.textContent = this.oArt.precioArticulo;
+        //celda = fila.insertCell(-1);
+        fila.textContent += this.oArt.precioArticulo + " - ";
         
-        celda = fila.insertCell(-1);
-        celda.textContent = this.unidades;
+        //celda = fila.insertCell(-1);
+        fila.textContent += this.unidades + " - ";
 
-        celda = fila.insertCell(-1);
-        celda.textContent = this.totalLinea();
+        //celda = fila.insertCell(-1);
+        fila.textContent += this.totalLinea() + "\n";
 
         return fila;
     }
@@ -452,32 +451,40 @@ class Venta{
         this.fVenta = fecha;
     }
     importe(){
-        this.aLineaArticulo.reduce(function(total, valor){
-            return total + valor.totalLinea();
-        });
+        let devolver = 0;
+        for(let i = 0; i < this.aLineaArticulo.length ; i++){
+            devolver += this.aLineaArticulo[i].totalLinea();
+        }
+        //this.aLineaArticulo.reduce(function(total, valor){
+            return devolver;
+        //});
     }
     toString(){
         let nFilas = this.aLineaArticulo.length;
         let fila= document.createElement("TR");
         let celda = fila.insertCell(-1);
-        celda.rowspan = nFilas;
+        //celda.rowSpan = nFilas;
         celda.textContent = this.idVenta;
 
         celda = fila.insertCell(-1);
-        celda.rowspan = nFilas;
+        //celda.rowSpan = nFilas;
         celda.textContent = this.oCliente.nombreCliente;
         
         celda = fila.insertCell(-1);
-        celda.rowspan = nFilas;
+        //celda.rowSpan = nFilas;
         celda.textContent = this.oEmpleado.nombreEmpleado;
 
-        
+        celda = fila.insertCell(-1);
         for(let i = 0; i < nFilas ; i++){
-            celda = fila.insertCell(-1);
-            celda.textContent= this.aLineaArticulo[i].toString();
+            celda.appendChild(this.aLineaArticulo[i].toString());
+            //let fila= ;
         }
+        celda = fila.insertCell(-1);
+        //celda.rowSpan = nFilas;
+        celda.textContent = this.importe();
+
 	    celda = fila.insertCell(-1);
-        celda.rowspan = nFilas;
+        //celda.rowSpan = nFilas;
         celda.textContent = this.fVenta;
 	    return fila;
     }
