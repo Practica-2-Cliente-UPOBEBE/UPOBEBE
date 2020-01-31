@@ -30,8 +30,9 @@ document.getElementById("mostrarListadoEmpleados").addEventListener("click",fMos
 document.getElementById("mostrarListadoCliente").addEventListener("click",fMostrarListadoCliente,false);
 document.getElementById("mostrarListadoTaller").addEventListener("click",fMostrarListadoTaller,false);
 document.getElementById("mostrarListadoArticulo").addEventListener("click",fMostrarListadoArticulo,false);
-document.getElementById("mostrarListadoPeriodoVendidos").addEventListener("click",fMostrarListadoPeriodoVendidos,false);
-document.getElementById("mostrarListadoPeriodoComprados").addEventListener("click",fMostrarListadoPeriodoComprados,false);
+//document.getElementById("mostrarListadoPeriodoVendidos").addEventListener("click",fMostrarListadoPeriodoVendidos,false);
+document.getElementById("mostrarFormularioVentasPeriodo").addEventListener("click",fMostrarFormularioVentasPeriodos,false);
+document.getElementById("aceptarListarVentasPeriodo").addEventListener("click",fMostrarListadoVentasPeriodo,false);
 //evento - mostrar carrito:
 document.getElementById("mostrarCarrito").addEventListener("click",fMostrarCarrito,false);
 
@@ -145,6 +146,7 @@ function fOcultarFormularios(){
     frmAltaTaller.style.display = "none";
     frmModCliente.style.display = "none";
     frmAltaReparacion.style.display = "none";
+    document.getElementById("divFrmListaVentasPeriodo").style.display = "none";
     document.getElementById("formularioCompra").style.visibility = "hidden";
     if(document.getElementById("tablaCarrito")){
         document.getElementById("tablaCarrito").style.display = "none";
@@ -166,6 +168,23 @@ function fOcultarTablasListado(){
     }
     
 }
+// Ventas periodo
+function fMostrarFormularioVentasPeriodos(){
+    fOcultarFormularios();
+    fOcultarTablasListado();
+    document.getElementById("divFrmListaVentasPeriodo").style.display = "block";
+    frmVentasPeriodo.reset();
+}
+function fMostrarListadoVentasPeriodo(){
+    fOcultarFormularios();
+    document.getElementById("tabla").style.display = "table";
+    fVaciarTabla();
+    let dtInicio = (new Date(frmVentasPeriodo.fechaVentaInicio.value));
+    let dtFin = (new Date(frmVentasPeriodo.fechaVentaFin.value));
+    oUpoBebe.listadoVentasPeriodo(dtInicio,dtFin);
+    
+}
+//fin ventas periodo
 // EMPLEADO
 function fMostarAltaEmpleado(){
     fOcultarFormularios();
