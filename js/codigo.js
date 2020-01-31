@@ -1100,6 +1100,8 @@ function fFiltrarPorNombre(){
 function fLimpiarFiltros(){
     document.getElementById("filtrarPorNombre").value = "";
     fMostrarListadoArticulo();
+
+}
 // Convierte una fecha DD/MM/AAAA a Date
 function fechaToDate(fecha){
     let dia = fecha.split("/")[0];
