@@ -18,7 +18,19 @@
       font-size: 19px;
       font-weight: bold;
     }
-
+    .agrandar{
+      width:200px ;
+    }
+    div #body, #divIzquierdo{
+      float: left;
+    }
+    #divIzquierdo{
+      
+      margin-top: -600px;
+      width:20% ;
+      height: 250px;
+      margin-left: 5px;
+    }
     </style>
 </head>
 <body>
@@ -474,6 +486,36 @@
             </fieldset>
         </form>
     </div>
+    <!-- Div de filtro de articulo -->
+    <div class="container col-4" id="divIzquierdo">
+     
+     <form>
+      
+        
+          <input type="text" class="form-control agrandar" placeholder="Nombre articulo">
+          <br>
+        
+          <button type="button" class="btn btn-primary">Buscar nombre</button>
+        
+      
+      <br>
+      <div class="form-row align-items-center">
+        <div class="col-auto my-1">
+          
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>Seleccionar categoría</option>
+            
+          </select>
+        </div>
+        <br><br><br><br>
+        <div class="col-auto my-1">
+          <button type="button" class="btn btn-primary">Limpiar búsqueda</button>
+        </div>
+      </div>
+    </form>
+    </div>
+      
+    
     
 <script type="text/javascript" src="js/objetos.js"></script>
 <script type="text/javascript" src="js/codigo.js"></script>

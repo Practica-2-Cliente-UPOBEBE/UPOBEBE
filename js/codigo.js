@@ -992,7 +992,7 @@ function fMostarDesplegables(venta){
     }
 
     //articulos segun el idVentas:
-    console.log(venta.aLineaArticulo);
+    //console.log(venta.aLineaArticulo);
     let articulo = document.getElementById("comboBoxArticulos");
     for(let i=0; i<venta.aLineaArticulo.length; i++){
         let nombresArticulos =venta.aLineaArticulo[i].oArt.nombreArticulo;

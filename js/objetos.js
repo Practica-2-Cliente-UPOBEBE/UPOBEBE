@@ -221,6 +221,7 @@ UpoBebe.prototype._buscarVenta = function(sIDventa){
             return false;
         }else{
             this.tReparaciones.push(oReparacion);
+            return true;
         }
 
         /*if (this.tReparaciones.indexOf(articulo) == -1) {
