@@ -332,7 +332,7 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         */
        fila= cuerpito.insertRow(-1);
         celda = fila.insertCell(-1);
-        celda.textContent = idVenta.id;
+        celda.textContent = idVenta.idVenta;
 
         celda =fila.insertCell(-1);
         celda.textContent = oCliente.nombreCliente;
@@ -341,7 +341,7 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         celda.textContent = oEmpleado.nombreEmpleado;
 
         celda =fila.insertCell(-1);
-        celda.textContent = lineaArticulos.aLineaArticulo;
+        celda.textContent = lineaArticulos.linea;
 
         celda =fila.insertCell(-1);
         celda.textContent = fTotalPedido.importe;
