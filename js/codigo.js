@@ -1062,3 +1062,11 @@ function limpiarError() {
     
 }
 // fin alta reparacion
+
+// Convierte una fecha DD/MM/AAAA a Date
+function fechaToDate(fecha){
+    let dia = fecha.split("/")[0];
+    let mes = fecha.split("/")[1];
+    let año = fecha.split("/")[2];
+    return new Date(año + "/" + mes + "/" + dia);
+}
