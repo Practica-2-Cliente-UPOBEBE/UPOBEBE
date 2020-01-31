@@ -296,7 +296,7 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
 
     let arrayVentasPeriodo = [];
     for(let i=0; i<this.tVentas.length;i++){
-        let fVenta = fechaToDate(this.tVentas[i].fVenta)
+        let fVenta = fechaToDate(this.tVentas[i].fVenta);
         if(fVenta>dtInicio && fVenta<dtFin){
             arrayVentasPeriodo.push(this.tVentas[i]);
         }
@@ -313,7 +313,7 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         let idVenta = arrayVentasPeriodo[i].idVenta;
         let oCliente = arrayVentasPeriodo[i].oCliente;
         let oEmpleado = arrayVentasPeriodo[i].oEmpleado;
-        let lineaArticulos = arrayVentasPeriodo[i].oLinea;
+        let lineaArticulos = arrayVentasPeriodo[i].aLineaArticulo;
         let fTotalPedido = arrayVentasPeriodo[i].importe();
        /*
         cuerpito = fila.insertCell(-1);
