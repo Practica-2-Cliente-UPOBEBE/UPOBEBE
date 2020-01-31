@@ -172,7 +172,7 @@ function fMostrarFormularioVentasPeriodos(){
     fOcultarFormularios();
     fOcultarTablasListado();
     document.getElementById("divFrmListaVentasPeriodo").style.display = "block";
-    document.getElementById("divFrmListaVentasPeriodo").reset();
+    frmVentasPeriodo.reset();
 }
 function fMostrarListadoVentasPeriodo(){
     fOcultarFormularios();

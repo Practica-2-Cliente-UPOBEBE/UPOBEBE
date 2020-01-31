@@ -308,8 +308,18 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
     }
 
     for(let i=0; i<arrayVentasPeriodo.length; i++){
-        let oArticulo = arrayVentasPeriodo[i].oArt;
-        let oVenta = this._buscarVenta(oArticulo);
+        let idVenta = arrayVentasPeriodo[i].idVenta;
+        let oCliente = arrayVentasPeriodo[i].oCliente;
+        let oEmpleado = arrayVentasPeriodo[i].oEmpleado
+        let lineaArticulos = arrayVentasPeriodo[i].oLinea;
+        let fTotalPedido = arrayVentasPeriodo[i].importe();
+
+        cuerpito +=cuerpito.appendChild(idVenta.id);
+        cuerpito +=cuerpito.appendChild(oCliente.nombreCliente);
+        cuerpito += cuerpito.appendChild(oEmpleado.nombreEmpleado);
+        cuerpito += cuerpito.appendChild(lineaArticulos.aLineaArticulo);
+        cuerpito += cuerpito.appendChild(fTotalPedido.importe);
+        cuerpito += cuerpito.appendChild(arrayVentasPeriodo[i].fecha.toLocaleDateString());
     }
 
     tabla.appendChild(cuerpito);
