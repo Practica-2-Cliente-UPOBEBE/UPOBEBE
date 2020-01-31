@@ -200,20 +200,29 @@ UpoBebe.prototype._buscarVenta = function(sIDventa){
 
     }*/
     UpoBebe.prototype.reparar =function(idVenta,oArticulo,oTaller,sDescripcion,dtFecha){
-        let oReparacionHecha = null;
+        let reparar = false;
+        let contador = 0;
         let oVenta = this._buscarVenta(idVenta);
         let articulo = this._buscarArticulo(oArticulo);
         let taller = this._buscarTaller(oTaller);
-        let descripcion = this.sDescripcion;
-        let fecha = this.dtFecha;
+        let descripcion = sDescripcion;
+        let fecha = dtFecha;
+        let oReparacion = null;
 
-        this.tReparaciones.forEach(function(value){
-                if(value.idArticulo == articulo)
-                {
-                    oReparacionHecha = value;
-                }
-        });
-
+        if (this.tReparaciones.indexOf(articulo) === -1) {
+            tReparaciones.push(articulo);
+            reparar = true;
+            contador++;
+        } else if (this.tReparaciones.indexOf(articulo) > -1) {
+           reparar = false;
+        }
+        if(reparar == true){
+            oReparacion = new Reparacion(contador,articulo,taller,descripcion,fecha);
+            return oReparacion;
+        }
+        else{
+            return oReparacion;
+        }
     }
 
 //** fin método REPARAR */
