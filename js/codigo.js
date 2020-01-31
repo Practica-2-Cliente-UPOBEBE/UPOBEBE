@@ -157,6 +157,7 @@ function fMostrarPaginaPrincipal(){
     //le damos al LOGO/HOME:
     fOcultarFormularios();
     fOcultarTablasListado();
+    fMostrarListadoArticulo();
     // Mostrar por defecto la lista de los artículos
 }
 function fOcultarTablasListado(){
