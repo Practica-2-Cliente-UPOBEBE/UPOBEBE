@@ -2,6 +2,7 @@
 var oUpoBebe = new UpoBebe();
 var idLinea = 0;
 var idVenta = 0;
+var idReparacion = 0;
 var contadorTotalLineas;
 fDatosIniciales();
 
@@ -1002,19 +1003,37 @@ function faceptarReparacion(){
     let descripcion = document.getElementById("areaObservaciones").value;
     let fecha = document.getElementById("fechaReparacion").value;
     limpiarError();
-    if(idVenta = ""){
-        alert("Debe introducir un ID de venta");
+    let oVenta = oUpoBebe._buscarVenta(idVenta);
+    if(idVenta == "" || oVenta == null){
+        alert("Debe introducir un ID de venta válido");
         frmAltaReparacion.txtIdVenta.classList.add("error");
         frmAltaReparacion.txtIdVenta.focus();
     }else{
-      
-        if(descripcion = ""){
+        //Buscar el oArticulo
+        let oArticulo;
+       oVenta.aLineaArticulo.forEach(function(lineaArt){
+           if(lineaArt.oArt.nombreArticulo == articulo){
+               oArticulo = lineaArt.oArt;
+           }
+       });
+       //Buscar oTaller
+       let oTaller;
+       oUpoBebe.tTalleres.forEach(t => {
+           if(t.nombreTaller == taller){
+               oTaller = t;
+           }
+       })
+        if(descripcion == ""){
             alert("\nEscriba en observaciones, el error del articulo");
             frmAltaReparacion.areaObservaciones.classList.add("error");
             frmAltaReparacion.areaObservaciones.focus();
-        }
-        else{
-            oUpoBebe.reparar(articulo,taller,descripcion,fecha);
+        }else{
+            if(oUpoBebe.reparar(new Reparacion(idReparacion, oVenta, oArticulo,oTaller,descripcion,fecha))){
+                idReparacion++;
+                alert("Reparación realizada con éxito");
+            }else{
+                alert("Esta reparación ya está registrada");
+            }
         }
     }
     
