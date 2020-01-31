@@ -199,17 +199,31 @@ UpoBebe.prototype._buscarVenta = function(sIDventa){
         return cReparado;
 
     }*/
-    UpoBebe.prototype.reparar =function(oArticulo,oTaller,sDescripcion,dtFecha){
-        let reparar = false;
+    UpoBebe.prototype.reparar =function(oReparacion){
+        /*let reparar = false;
         let contador = 0;
-        //let oVenta = this._buscarVenta(idVenta);
-        let articulo = this._buscarArticulo(oArticulo);
-        let taller = this._buscarTaller(oTaller);
+        let oVenta = this._buscarVenta(idVenta);
+        let articulo = this._buscarArticulo(idArticulo);
+        let taller = this._buscarTaller(idTaller);
         let descripcion = sDescripcion;
         let fecha = dtFecha;
         let oReparacion = null;
+        */
 
-        if (this.tReparaciones.indexOf(articulo) === -1) {
+
+
+        //Si ya hay una reparación con ese id(lo cual es imposible que pase si los valores introducidos 
+        //estan bién porque siempre le vamos a sumar uno al id despues de haberlo añadido..(pero lo comprobamos igualmente..)), 
+        //entonces no lo añadimos:
+        if(this.tReparaciones.some(function(valor){
+            return valor.IDReparacion == oReparacion.IDReparacion;
+        })){
+            return false;
+        }else{
+            this.tReparaciones.push(oReparacion);
+        }
+
+        /*if (this.tReparaciones.indexOf(articulo) == -1) {
             this.tReparaciones.push(articulo);
             reparar = true;
             contador++;
@@ -217,12 +231,12 @@ UpoBebe.prototype._buscarVenta = function(sIDventa){
            reparar = false;
         }
         if(reparar == true){
-            oReparacion = new Reparacion(contador,articulo,taller,descripcion,fecha);
+            oReparacion = new Reparacion(idReparacion,oVenta, articulo,taller,descripcion,fecha);
             return oReparacion;
         }
         else{
             return oReparacion;
-        }
+        }*/
     }
 
 //** fin método REPARAR */
@@ -420,10 +434,11 @@ class Reparacion{
         this.oVent = oVenta;
         this.fechaReparacion = dtFechaReparacion;
         */
-       constructor(sIdReparacion,idArticulo,idTaller,sDescripcion,dtFechaReparacion){
+       constructor(sIdReparacion,venta, idArticulo,idTaller,sDescripcion,dtFechaReparacion){
         this.IDReparacion = sIdReparacion;
-        this.idArticulo = idArticulo;
-        this.idTaller = idTaller
+        this.oVenta = venta;
+        this.oArticulo = idArticulo;
+        this.oTaller = idTaller
         this.sDescripcion = sDescripcion;
         this.dtFechaReparacion = dtFechaReparacion;
 
