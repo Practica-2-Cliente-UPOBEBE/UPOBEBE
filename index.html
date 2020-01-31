@@ -25,7 +25,7 @@
       float: left;
     }
     #divIzquierdo{
-      
+      position: fixed;
       margin-top: -600px;
       width:20% ;
       height: 250px;
@@ -492,24 +492,24 @@
      <form>
       
         
-          <input type="text" class="form-control agrandar" placeholder="Nombre articulo">
+          <input type="text" class="form-control agrandar" id="filtrarPorNombre" placeholder="Filtrar por nombre">
           <br>
         
-          <button type="button" class="btn btn-primary">Buscar nombre</button>
+          <button type="button" class="btn btn-primary" id="buscarPorNombre">Buscar nombre</button>
         
       
       <br>
       <div class="form-row align-items-center">
         <div class="col-auto my-1">
           
-          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-            <option selected>Seleccionar categoría</option>
+          <select class="custom-select mr-sm-2" id="selectCat">
+            <option value="0" selected>Seleccionar categoría</option>
             
           </select>
         </div>
-        <br><br><br><br>
+        <br><br><br><br><br>
         <div class="col-auto my-1">
-          <button type="button" class="btn btn-primary">Limpiar búsqueda</button>
+          <button type="button" class="btn btn-primary" id="limpiarBusqueda">Limpiar búsqueda</button>
         </div>
       </div>
     </form>
