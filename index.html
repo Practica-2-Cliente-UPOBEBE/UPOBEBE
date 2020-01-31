@@ -74,7 +74,7 @@
                   <a class="dropdown-item" href="#" id="mostrarListadoTaller">Listar Talleres</a>
                   <a class="dropdown-item" href="#" id="mostrarListadoArticulo">Listar Artículos</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#" id="mostrarListadoPeriodoVendidos">Art. Vendidos por periodos</a>
+                  <a class="dropdown-item" href="#" id="mostrarFormularioVentasPeriodo">Ventas por periodos</a>
                 </div>
               </li>
             
@@ -419,7 +419,26 @@
 
     <!--  FIN DE FORMULARIOS ALTAS-->
 
+    <!-- 
+      FORMULARIO LISTADO VENTA POR PERIODO
+    -->
+    <div id="divFrmListaVentasPeriodo" class="container col-8">
+      
+      <form name="frmVentasPeriodo" id="frmVentasPeriodo">
+        <h3>Ventas por periodos</h3>
+        <div class="form-group">
+          <label for="fechaVentaInicio" class="mb-0">Desde:</label>
+          <input type="date" class="form-control" id="fechaVentaInicio" name="fechaVentaInicio">
+        </div>
+        <div class="form-group">
+          <label for="fechaVentaFin" class="mb-0">Hasta:</label>
+          <input type="date" class="form-control" id="fechaVentaFin" name="fechaVentaFin">
+        </div>
+        <input type="button" class="btn btn-primary" id="aceptarListarVentasPeriodo" name="aceptarListarVentasPeriodo" value="Aceptar"/>
+      </form>
+    </div>
 
+    <!--Fin de formulario Ventas por periodo-->
 
     <!--Para los listados:-->
     <div class="container col-8" id="body">
