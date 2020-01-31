@@ -32,6 +32,7 @@ document.getElementById("mostrarListadoTaller").addEventListener("click",fMostra
 document.getElementById("mostrarListadoArticulo").addEventListener("click",fMostrarListadoArticulo,false);
 //document.getElementById("mostrarListadoPeriodoVendidos").addEventListener("click",fMostrarListadoPeriodoVendidos,false);
 document.getElementById("mostrarFormularioVentasPeriodo").addEventListener("click",fMostrarFormularioVentasPeriodos,false);
+document.getElementById("aceptarListarVentasPeriodo").addEventListener("click",fMostrarListadoVentasPeriodo,false);
 //evento - mostrar carrito:
 document.getElementById("mostrarCarrito").addEventListener("click",fMostrarCarrito,false);
 
@@ -180,7 +181,8 @@ function fMostrarListadoVentasPeriodo(){
     fVaciarTabla();
     let dtInicio = (new Date(frmVentasPeriodo.fechaVentaInicio.value)).toLocaleDateString();
     let dtFin = (new Date(frmVentasPeriodo.fechaVentaFin.value)).toLocaleDateString();
-    let tablaAMostrar = oUpoBebe.listadoVentasPeriodo(dtInicio,dtFin);
+    oUpoBebe.listadoVentasPeriodo(dtInicio,dtFin);
+    
 }
 //fin ventas periodo
 // EMPLEADO
