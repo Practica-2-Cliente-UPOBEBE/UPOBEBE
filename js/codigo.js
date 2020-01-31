@@ -180,7 +180,7 @@ function fMostrarListadoVentasPeriodo(){
     fVaciarTabla();
     let dtInicio = (new Date(frmVentasPeriodo.fechaVentaInicio.value)).toLocaleDateString();
     let dtFin = (new Date(frmVentasPeriodo.fechaVentaFin.value)).toLocaleDateString();
-    let tablaAMostrar = oUpoBebe.listadoVentas();
+    let tablaAMostrar = oUpoBebe.listadoVentasPeriodo(dtInicio,dtFin);
 }
 //fin ventas periodo
 // EMPLEADO
