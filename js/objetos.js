@@ -296,18 +296,19 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
 
     let arrayVentasPeriodo = [];
     for(let i=0; i<this.tVentas.length;i++){
-        if(this.tVentas[i].fecha>dtInicio && this.tVentas[i].fecha<dtFin){
+        let fVenta = fechaToDate(this.tVentas[i].fecha)
+        if(fVenta>dtInicio && fVenta<dtFin){
             arrayVentasPeriodo.push(this.tVentas[i]);
         }
     }
-
+/*
     for(let i=0;i<(arrayVentasPeriodo.length-1);i++){
         for(let j=i+1;j<arrayVentasPeriodo.length;j++){
             if(arrayVentasPeriodo[i].fecha>arrayVentasPeriodo[j].fecha)
                 arrayVentasPeriodo.swap(i,j);
         }
     }
-
+*/
     for(let i=0; i<arrayVentasPeriodo.length; i++){
         let idVenta = arrayVentasPeriodo[i].idVenta;
         let oCliente = arrayVentasPeriodo[i].oCliente;
