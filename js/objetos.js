@@ -309,13 +309,19 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         }
     }
 */
+    arrayVentasPeriodo.forEach(x =>{
+        
+    cuerpito.appendChild(fila.toString());
+});
+/*
     for(let i=0; i<arrayVentasPeriodo.length; i++){
         let idVenta = arrayVentasPeriodo[i].idVenta;
         let oCliente = arrayVentasPeriodo[i].oCliente;
         let oEmpleado = arrayVentasPeriodo[i].oEmpleado;
         let lineaArticulos = arrayVentasPeriodo[i].aLineaArticulo;
         let fTotalPedido = arrayVentasPeriodo[i].importe();
-       /*
+        
+        
         cuerpito = fila.insertCell(-1);
 
         cuerpito.textContent +=cuerpito.appendChild(idVenta.id);
@@ -330,8 +336,9 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         cuerpito.textContent  = fila.insertCell(-1);
         cuerpito.textContent  += cuerpito.appendChild(arrayVentasPeriodo[i].fVenta);
         */
-       fila= cuerpito.insertRow(-1);
-        celda = fila.insertCell(-1);
+       /*
+       
+        
         celda.textContent = idVenta.idVenta;
 
         celda =fila.insertCell(-1);
@@ -350,7 +357,8 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         celda.textContent = arrayVentasPeriodo[i].fVenta;
 
         cuerpito.append(fila);
-    }
+        
+    }*/
 
     tabla.appendChild(cuerpito);
     return tabla;
