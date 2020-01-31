@@ -31,7 +31,7 @@ document.getElementById("mostrarListadoCliente").addEventListener("click",fMostr
 document.getElementById("mostrarListadoTaller").addEventListener("click",fMostrarListadoTaller,false);
 document.getElementById("mostrarListadoArticulo").addEventListener("click",fMostrarListadoArticulo,false);
 document.getElementById("mostrarListadoPeriodoVendidos").addEventListener("click",fMostrarListadoPeriodoVendidos,false);
-document.getElementById("mostrarListadoPeriodoComprados").addEventListener("click",fMostrarListadoPeriodoComprados,false);
+
 //evento - mostrar carrito:
 document.getElementById("mostrarCarrito").addEventListener("click",fMostrarCarrito,false);
 
