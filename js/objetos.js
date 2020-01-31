@@ -317,12 +317,17 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         let fTotalPedido = arrayVentasPeriodo[i].importe();
         cuerpito = fila.insertCell(-1);
 
-        cuerpito +=cuerpito.appendChild(idVenta.id);
-        cuerpito +=cuerpito.appendChild(oCliente.nombreCliente);
-        cuerpito += cuerpito.appendChild(oEmpleado.nombreEmpleado);
-        cuerpito += cuerpito.appendChild(lineaArticulos.aLineaArticulo);
-        cuerpito += cuerpito.appendChild(fTotalPedido.importe);
-        cuerpito += cuerpito.appendChild(arrayVentasPeriodo[i].fVenta);
+        cuerpito.textContent +=cuerpito.appendChild(idVenta.id);
+        cuerpito.textContent  = fila.insertCell(-1);
+        cuerpito.textContent  +=cuerpito.appendChild(oCliente.nombreCliente);
+        cuerpito.textContent  = fila.insertCell(-1);
+        cuerpito.textContent  += cuerpito.appendChild(oEmpleado.nombreEmpleado);
+        cuerpito.textContent  = fila.insertCell(-1);
+        cuerpito.textContent  += cuerpito.appendChild(lineaArticulos.aLineaArticulo);
+        cuerpito.textContent  = fila.insertCell(-1);
+        cuerpito.textContent  += cuerpito.appendChild(fTotalPedido.importe);
+        cuerpito.textContent  = fila.insertCell(-1);
+        cuerpito.textContent  += cuerpito.appendChild(arrayVentasPeriodo[i].fVenta);
     }
 
     tabla.appendChild(cuerpito);
