@@ -1069,12 +1069,13 @@ function limpiarError() {
 //Filtardo de la tabla artículos:
 document.getElementById("buscarPorNombre").addEventListener("click", fFiltrarPorNombre, false);
 document.getElementById("limpiarBusqueda").addEventListener("click", fLimpiarFiltros, false);
+document.getElementById("selectCat").addEventListener("change", fCategoria, false);
 
 function fFiltrarPorNombre(){
     let nombreABuscar = document.getElementById("filtrarPorNombre").value.trim();
 
-    let tablaArticulos = document.getElementById("tabla");
-    let tdNombres = tablaArticulos.querySelectorAll("tbody tr td:first-child");
+    
+    let tdNombres = document.querySelectorAll("#tabla tbody tr td:first-child");
     let check = false;
     if(nombreABuscar == ""){
         alert("No ha introducido ninguna cadena de texto");
@@ -1095,6 +1096,33 @@ function fFiltrarPorNombre(){
         }
     }
     
+}
+window.addEventListener("load", function(){let oXML = loadXMLDoc("datosUpoBebe.xml");
+    
+//Datos categorías
+let oCategorias = oXML.querySelectorAll("categoria");
+for(let i = 0 ; i < oCategorias.length ; i++){
+    let nombre = oCategorias[i].querySelector("nombre").textContent;
+    let option = document.createElement("option");
+    option.textContent = nombre;
+    option.value = nombre;
+    document.getElementById("selectCat").appendChild(option);
+}});
+
+function fCategoria(oEvento){
+    let oE = oEvento || window.event;
+
+    if(oE.target.value == 0){
+        fMostrarListadoArticulo();
+    }else{
+        let categoria = oE.target.value;
+        let tdCategorias = document.querySelectorAll("#tabla tbody tr td:nth-child(3)");
+        for(let i = 0; i<tdCategorias.length ; i++){
+            if(tdCategorias[i].textContent.indexOf(categoria) == -1){
+                tdCategorias[i].parentNode.remove();
+            }
+        }
+    }
 }
 
 function fLimpiarFiltros(){
