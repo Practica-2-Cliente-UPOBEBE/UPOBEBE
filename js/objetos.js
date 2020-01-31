@@ -296,22 +296,23 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
 
     let arrayVentasPeriodo = [];
     for(let i=0; i<this.tVentas.length;i++){
-        if(this.tVentas[i].fecha>dtInicio && this.tVentas[i].fecha<dtFin){
+        let fVenta = fechaToDate(this.tVentas[i].fecha)
+        if(fVenta>dtInicio && fVenta<dtFin){
             arrayVentasPeriodo.push(this.tVentas[i]);
         }
     }
-
+/*
     for(let i=0;i<(arrayVentasPeriodo.length-1);i++){
         for(let j=i+1;j<arrayVentasPeriodo.length;j++){
             if(arrayVentasPeriodo[i].fecha>arrayVentasPeriodo[j].fecha)
                 arrayVentasPeriodo.swap(i,j);
         }
     }
-
+*/
     for(let i=0; i<arrayVentasPeriodo.length; i++){
         let idVenta = arrayVentasPeriodo[i].idVenta;
         let oCliente = arrayVentasPeriodo[i].oCliente;
-        let oEmpleado = arrayVentasPeriodo[i].oEmpleado
+        let oEmpleado = arrayVentasPeriodo[i].oEmpleado;
         let lineaArticulos = arrayVentasPeriodo[i].oLinea;
         let fTotalPedido = arrayVentasPeriodo[i].importe();
 
@@ -320,7 +321,7 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         cuerpito += cuerpito.appendChild(oEmpleado.nombreEmpleado);
         cuerpito += cuerpito.appendChild(lineaArticulos.aLineaArticulo);
         cuerpito += cuerpito.appendChild(fTotalPedido.importe);
-        cuerpito += cuerpito.appendChild(arrayVentasPeriodo[i].fecha.toLocaleDateString());
+        cuerpito += cuerpito.appendChild(arrayVentasPeriodo[i].fecha);
     }
 
     tabla.appendChild(cuerpito);
