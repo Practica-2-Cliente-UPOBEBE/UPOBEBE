@@ -30,7 +30,7 @@ document.getElementById("mostrarListadoEmpleados").addEventListener("click",fMos
 document.getElementById("mostrarListadoCliente").addEventListener("click",fMostrarListadoCliente,false);
 document.getElementById("mostrarListadoTaller").addEventListener("click",fMostrarListadoTaller,false);
 document.getElementById("mostrarListadoArticulo").addEventListener("click",fMostrarListadoArticulo,false);
-//document.getElementById("mostrarListadoPeriodoVendidos").addEventListener("click",fMostrarListadoPeriodoVendidos,false);
+
 document.getElementById("mostrarFormularioVentasPeriodo").addEventListener("click",fMostrarFormularioVentasPeriodos,false);
 document.getElementById("aceptarListarVentasPeriodo").addEventListener("click",fMostrarListadoVentasPeriodo,false);
 //evento - mostrar carrito:
@@ -197,7 +197,7 @@ function fMostrarListadoEmpleados(){
     fOcultarFormularios();
     document.getElementById("tabla").style.display = "table";
     fVaciarTabla();
-    //document.getElementById("tabla").innerHTML = oUpoBebe.listadoEmpleados();
+    
     let tablaAMostrar = oUpoBebe.listadoEmpleados();
     document.getElementById("tabla").append(tablaAMostrar);
     
@@ -438,19 +438,6 @@ function fMostrarListadoPeriodoComprados(){
         let iTlfEmpleado = frmAltaEmpleado.txtTlfEmpleado.value.trim();
         let oEmpleado = new Empleado(sNifEmpleado,sNombreEmpleado,sApellidosEmpleado,fSalarioEmpleado,sDireccionEmpleado,sCorreoEmpleado,sRolEmpleado,iTlfEmpleado);
 
-        /*
-        let oEmpleado = new Empleado(sNifEmpleado,sNombreEmpleado,sApellidosEmpleado,fSalarioEmpleado,sDireccionEmpleado,sCorreoEmpleado,sRolEmpleado,iTlfEmpleado);
-
-
-        if(oUpoBebe.altaEmpleado(oEmpleado))
-        {
-            alert("Dado de alta");
-            frmAltaEmpleado.reset();
-        }else{
-            alert("El empleado YA EXISTE con ese DNI");
-            
-        }
-        */
         let bValido = true;
         let sError = "";
         limpiarErroresAltaEmpleado();
@@ -527,7 +514,7 @@ function fMostrarListadoPeriodoComprados(){
             alert(sError);
         }else{
             
-            //let oEmpleado = new Empleado(sNifEmpleado,sNombreEmpleado,sApellidosEmpleado,fSalarioEmpleado,sDireccionEmpleado,sCorreoEmpleado,sRolEmpleado,iTlfEmpleado);
+            
             if(oUpoBebe.altaEmpleado(oEmpleado))
             {
                 alert("Dado de alta");
@@ -752,13 +739,6 @@ function altaTaller() {
 
 function fMostrarCarrito(){
 
-    /*if()){
-        let contenedorLineas = document.getElementById("body").appendChild(document.createElement("DIV"));
-        contenedorLineas.id = "divMensajeCarrito";
-        contenedorLineas.appendChild(document.createElement("P")).appendChild(document.createTextNode("El carrito está vacío"));
-    }*/
-    
-    
     //Si hay alguna linea que aun no se le ha asignado a una venta es porque esta en el carrito, entonces se pinta en pantalla:
     if(oUpoBebe.tLineaArticulo.length == 0 || oUpoBebe.tLineaArticulo[(oUpoBebe.tLineaArticulo.length-1)].oVenta != null){
         alert("Carrito vacío");
@@ -993,8 +973,7 @@ function fMostarDesplegables(venta){
         taller.appendChild(oOption);
     }
 
-    //articulos segun el idVentas:
-    //console.log(venta.aLineaArticulo);
+    
     let articulo = document.getElementById("comboBoxArticulos");
     for(let i=0; i<venta.aLineaArticulo.length; i++){
         let nombresArticulos =venta.aLineaArticulo[i].oArt.nombreArticulo;
@@ -1005,7 +984,7 @@ function fMostarDesplegables(venta){
         articulo.appendChild(oOption);
 
     }
-    //fBorrarDesplegableArticulo();
+    
     
 }
 

@@ -121,19 +121,7 @@ UpoBebe.prototype._buscarEmpleado = function(sDNI){
         oEmpleado=array[0];
     }
     return oEmpleado;
-    /*
-    var i = 0;
-
-    while(i < this.tEmpleados.length && oEmpleado == null){
-        
-        if(this.tEmpleados[i].dni == sDNI){
-            oEmpleado = this.tEmpleados[i];
-        }
-        i++;
-    }
-
-    return oEmpleado;
-    */
+  
 }
 
 UpoBebe.prototype._buscarReparacion = function(sNombre){
@@ -185,32 +173,12 @@ UpoBebe.prototype._buscarVenta = function(sIDventa){
     });
     return oVenta;
 }
-// LO VEEES???????
+
 //******fin métodos de búsquedas
 
 //*** Método reparar */
-    /*
-    UpoBebe.prototype.reparar = function(sNifTaller,sIDventas,sNombreReparacion,sDescripcionRep,fCosteRep,dcFechaRep){
-        var cReparado = false;
-        var oTaller = this._buscarTaller(sNifTaller);
-        var oVenta = this._buscarVenta(sIDventas);
-        var oReparacion = this._buscarReparacion(sNombreReparacion);
-        var oReparacionHecha = null;
-        return cReparado;
-
-    }*/
+   
     UpoBebe.prototype.reparar =function(oReparacion){
-        /*let reparar = false;
-        let contador = 0;
-        let oVenta = this._buscarVenta(idVenta);
-        let articulo = this._buscarArticulo(idArticulo);
-        let taller = this._buscarTaller(idTaller);
-        let descripcion = sDescripcion;
-        let fecha = dtFecha;
-        let oReparacion = null;
-        */
-
-
 
         //Si ya hay una reparación con ese id(lo cual es imposible que pase si los valores introducidos 
         //estan bién porque siempre le vamos a sumar uno al id despues de haberlo añadido..(pero lo comprobamos igualmente..)), 
@@ -223,21 +191,6 @@ UpoBebe.prototype._buscarVenta = function(sIDventa){
             this.tReparaciones.push(oReparacion);
             return true;
         }
-
-        /*if (this.tReparaciones.indexOf(articulo) == -1) {
-            this.tReparaciones.push(articulo);
-            reparar = true;
-            contador++;
-        } else if (this.tReparaciones.indexOf(articulo) > -1) {
-           reparar = false;
-        }
-        if(reparar == true){
-            oReparacion = new Reparacion(idReparacion,oVenta, articulo,taller,descripcion,fecha);
-            return oReparacion;
-        }
-        else{
-            return oReparacion;
-        }*/
     }
 
 //** fin método REPARAR */
@@ -301,64 +254,11 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
             arrayVentasPeriodo.push(this.tVentas[i]);
         }
     }
-/*
-    for(let i=0;i<(arrayVentasPeriodo.length-1);i++){
-        for(let j=i+1;j<arrayVentasPeriodo.length;j++){
-            if(arrayVentasPeriodo[i].fecha>arrayVentasPeriodo[j].fecha)
-                arrayVentasPeriodo.swap(i,j);
-        }
-    }
-*/
+
     arrayVentasPeriodo.forEach(x =>{
         
         cuerpito.appendChild(x.toString());
-});
-/*
-    for(let i=0; i<arrayVentasPeriodo.length; i++){
-        let idVenta = arrayVentasPeriodo[i].idVenta;
-        let oCliente = arrayVentasPeriodo[i].oCliente;
-        let oEmpleado = arrayVentasPeriodo[i].oEmpleado;
-        let lineaArticulos = arrayVentasPeriodo[i].aLineaArticulo;
-        let fTotalPedido = arrayVentasPeriodo[i].importe();
-        
-        
-        cuerpito = fila.insertCell(-1);
-
-        cuerpito.textContent +=cuerpito.appendChild(idVenta.id);
-        cuerpito.textContent  = fila.insertCell(-1);
-        cuerpito.textContent  +=cuerpito.appendChild(oCliente.nombreCliente);
-        cuerpito.textContent  = fila.insertCell(-1);
-        cuerpito.textContent  += cuerpito.appendChild(oEmpleado.nombreEmpleado);
-        cuerpito.textContent  = fila.insertCell(-1);
-        cuerpito.textContent  += cuerpito.appendChild(lineaArticulos.aLineaArticulo);
-        cuerpito.textContent  = fila.insertCell(-1);
-        cuerpito.textContent  += cuerpito.appendChild(fTotalPedido.importe);
-        cuerpito.textContent  = fila.insertCell(-1);
-        cuerpito.textContent  += cuerpito.appendChild(arrayVentasPeriodo[i].fVenta);
-        */
-       /*
-       
-        
-        celda.textContent = idVenta.idVenta;
-
-        celda =fila.insertCell(-1);
-        celda.textContent = oCliente.nombreCliente;
-
-        celda =fila.insertCell(-1);
-        celda.textContent = oEmpleado.nombreEmpleado;
-
-        celda =fila.insertCell(-1);
-        celda.textContent = lineaArticulos.aLineaArticulo;
-
-        celda =fila.insertCell(-1);
-        celda.textContent = fTotalPedido.importe;
-
-        celda =fila.insertCell(-1);
-        celda.textContent = arrayVentasPeriodo[i].fVenta;
-
-        cuerpito.append(fila);
-        
-    }*/
+    });
 
     tabla.appendChild(cuerpito);
     return tabla;
@@ -366,8 +266,6 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
 }
 UpoBebe.prototype.listadoEmpleados = function(){
     
-    //let tabla = document.createElement("table");
-    //tabla.id ="listadito";
     let tabla = document.getElementById("tabla");
     let cabecera = tabla.createTHead();
     let fila= cabecera.insertRow(-1);
@@ -394,15 +292,7 @@ UpoBebe.prototype.listadoEmpleados = function(){
     }
     return cuerpito;
 
-    /*
-    var tabla = "<table border='1'><thead><tr><th>DNI</th><th>Nombre</th><th>Apelldio</th><th>Salario</th><th>Dirección</th><th>Correo</th><th>Rol</th><th>Teléfono</th></tr></thead>";
 
-    for(var i=0; i< this.tEmpleados.length; i++){
-        tabla += this.tEmpleados[i].toHTMLrow();
-    }
-    tabla += "</table>";
-
-    return tabla;*/
 }
 
 UpoBebe.prototype.listadoClientes = function(){
@@ -504,34 +394,14 @@ class Empleado{
         celda = linea.insertCell(-1);
         celda.textContent=this.telefonoEmpleado;
         return linea;
-        /*
-        var sFila="<tr>";
-	    sFila+="<td>"+this.dniEmpleado+"</td>";
-	    sFila+="<td>"+this.nombreEmpleado+"</td>";
-	    sFila+="<td>"+this.apellidosEmpleado+"</td>";
-        sFila+="<td>"+this.salarioEmpleado+"</td>";
-        sFila+="<td>"+this.direccionEmpleado+"</td>";
-        sFila+="<td>"+this.correoEmpleado+"</td>";
-        sFila+="<td>"+this.rolEmpleado+"</td>";
-        sFila+="<td>"+this.telefonoEmpleado+"</td>";
-	    sFila+="</tr>";
-        return sFila;
-        */
-     
-
+  
     }
 }
 // fin clase EMPLEADO
 
 // Clase Reparación:
 class Reparacion{
-    /*
-    constructor(sIdReparacion,oArticulo,oVenta,dtFechaReparacion){
-        this.IDReparacion = sIdReparacion;
-        this.oArt = oArticulo;
-        this.oVent = oVenta;
-        this.fechaReparacion = dtFechaReparacion;
-        */
+    
        constructor(sIdReparacion,venta, idArticulo,idTaller,sDescripcion,dtFechaReparacion){
         this.IDReparacion = sIdReparacion;
         this.oVenta = venta;
@@ -668,15 +538,6 @@ class Cliente{
         tr.appendChild(td6);
         return tr;
 
-
-	    /*sFila+="<td>"+this.dniCliente+"</td>";
-	    sFila+="<td>"+this.nombreCliente+"</td>";
-	    sFila+="<td>"+this.apellidosCliente+"</td>";
-        sFila+="<td>"+this.direccionCliente+"</td>";
-        sFila+="<td>"+this.correoCliente+"</td>";
-        sFila+="<td>"+this.tlfCliente+"</td>";
-	    sFila+="</tr>";
-	    return sFila;*/
     }
 }
 //Fin clase Cliente
@@ -717,16 +578,7 @@ class Articulo{
         celda.appendChild(botonCarrito);
 
         return linea;
-        /*/*
-    toHTMLrow(){
-        var sFila="<tr>";
-	    sFila+="<td>"+this.idArticulo+"</td>";
-	    sFila+="<td>"+this.nombreArticulo+"</td>";
-	    sFila+="<td>"+this.descripcionArticulo+"</td>";
-        sFila+="<td>"+this.categoria+"</td>";
-        sFila+="<td>"+this.precioArticulo+"</td>";
-	    sFila+="</tr>";
-	    return sFila;*/
+   
     }
 }
 //Fin clase artículo
