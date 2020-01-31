@@ -296,7 +296,7 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
 
     let arrayVentasPeriodo = [];
     for(let i=0; i<this.tVentas.length;i++){
-        let fVenta = fechaToDate(this.tVentas[i].fecha)
+        let fVenta = fechaToDate(this.tVentas[i].fVenta)
         if(fVenta>dtInicio && fVenta<dtFin){
             arrayVentasPeriodo.push(this.tVentas[i]);
         }
@@ -315,13 +315,41 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         let oEmpleado = arrayVentasPeriodo[i].oEmpleado;
         let lineaArticulos = arrayVentasPeriodo[i].oLinea;
         let fTotalPedido = arrayVentasPeriodo[i].importe();
+       /*
+        cuerpito = fila.insertCell(-1);
 
-        cuerpito +=cuerpito.appendChild(idVenta.id);
-        cuerpito +=cuerpito.appendChild(oCliente.nombreCliente);
-        cuerpito += cuerpito.appendChild(oEmpleado.nombreEmpleado);
-        cuerpito += cuerpito.appendChild(lineaArticulos.aLineaArticulo);
-        cuerpito += cuerpito.appendChild(fTotalPedido.importe);
-        cuerpito += cuerpito.appendChild(arrayVentasPeriodo[i].fecha);
+        cuerpito.textContent +=cuerpito.appendChild(idVenta.id);
+        cuerpito.textContent  = fila.insertCell(-1);
+        cuerpito.textContent  +=cuerpito.appendChild(oCliente.nombreCliente);
+        cuerpito.textContent  = fila.insertCell(-1);
+        cuerpito.textContent  += cuerpito.appendChild(oEmpleado.nombreEmpleado);
+        cuerpito.textContent  = fila.insertCell(-1);
+        cuerpito.textContent  += cuerpito.appendChild(lineaArticulos.aLineaArticulo);
+        cuerpito.textContent  = fila.insertCell(-1);
+        cuerpito.textContent  += cuerpito.appendChild(fTotalPedido.importe);
+        cuerpito.textContent  = fila.insertCell(-1);
+        cuerpito.textContent  += cuerpito.appendChild(arrayVentasPeriodo[i].fVenta);
+        */
+       fila= cuerpito.insertRow(-1);
+        celda = fila.insertCell(-1);
+        celda.textContent = idVenta.idVenta;
+
+        celda =fila.insertCell(-1);
+        celda.textContent = oCliente.nombreCliente;
+
+        celda =fila.insertCell(-1);
+        celda.textContent = oEmpleado.nombreEmpleado;
+
+        celda =fila.insertCell(-1);
+        celda.textContent = lineaArticulos.linea;
+
+        celda =fila.insertCell(-1);
+        celda.textContent = fTotalPedido.importe;
+
+        celda =fila.insertCell(-1);
+        celda.textContent = arrayVentasPeriodo[i].fVenta;
+
+        cuerpito.append(fila);
     }
 
     tabla.appendChild(cuerpito);
