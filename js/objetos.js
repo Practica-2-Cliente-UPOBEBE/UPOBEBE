@@ -199,10 +199,10 @@ UpoBebe.prototype._buscarVenta = function(sIDventa){
         return cReparado;
 
     }*/
-    UpoBebe.prototype.reparar =function(idVenta,oArticulo,oTaller,sDescripcion,dtFecha){
+    UpoBebe.prototype.reparar =function(oArticulo,oTaller,sDescripcion,dtFecha){
         let reparar = false;
         let contador = 0;
-        let oVenta = this._buscarVenta(idVenta);
+        //let oVenta = this._buscarVenta(idVenta);
         let articulo = this._buscarArticulo(oArticulo);
         let taller = this._buscarTaller(oTaller);
         let descripcion = sDescripcion;
