@@ -341,7 +341,7 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         celda.textContent = oEmpleado.nombreEmpleado;
 
         celda =fila.insertCell(-1);
-        celda.textContent = lineaArticulos.linea;
+        celda.textContent = lineaArticulos.aLineaArticulo;
 
         celda =fila.insertCell(-1);
         celda.textContent = fTotalPedido.importe;
