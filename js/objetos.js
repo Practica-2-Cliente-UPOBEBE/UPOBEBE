@@ -266,6 +266,56 @@ UpoBebe.prototype.listadoVentas = function(){
     return tabla;
 
 }
+Array.prototype.swap = function (x,y) {
+	var b = this[x];
+	this[x] = this[y];
+	this[y] = b;
+	return this;
+  }
+UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
+    let dtInicio = new Date(fInicio);
+    let dtFin = new Date(fFin);
+    
+    let tabla = document.getElementById("tabla");
+    let cabecera = tabla.createTHead();
+    let fila= cabecera.insertRow(-1);
+    let celda = fila.insertCell(-1);
+    celda.textContent = "ID";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre del cliente";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre del empleado";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Lineas de los artículos";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Total del pedido";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Fecha";
+    let cuerpito = document.createElement("tbody");
+
+    let arrayVentasPeriodo = [];
+    for(let i=0; i<this.tVentas.length;i++){
+        if(this.tVentas[i].fecha>dtInicio && this.tVentas[i].fecha<dtFin){
+            arrayVentasPeriodo.push(this.tVentas[i]);
+        }
+    }
+
+    for(let i=0;i<(arrayVentasPeriodo.length-1);i++){
+        for(let j=i+1;j<arrayVentasPeriodo.length;j++){
+            if(arrayVentasPeriodo[i].fecha>arrayVentasPeriodo[j].fecha)
+                arrayVentasPeriodo.swap(i,j);
+        }
+    }
+
+    for(let i=0; i<arrayVentasPeriodo.length; i++){
+        let oArticulo = arrayVentasPeriodo[i].oArt;
+        let oVenta = this._buscarVenta(oArticulo);
+    }
+
+    tabla.appendChild(cuerpito);
+    return tabla;
+
+}
 UpoBebe.prototype.listadoEmpleados = function(){
     
     //let tabla = document.createElement("table");

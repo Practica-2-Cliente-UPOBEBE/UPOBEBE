@@ -172,6 +172,15 @@ function fMostrarFormularioVentasPeriodos(){
     fOcultarFormularios();
     fOcultarTablasListado();
     document.getElementById("divFrmListaVentasPeriodo").style.display = "block";
+    document.getElementById("divFrmListaVentasPeriodo").reset();
+}
+function fMostrarListadoVentasPeriodo(){
+    fOcultarFormularios();
+    document.getElementById("tabla").style.display = "table";
+    fVaciarTabla();
+    let dtInicio = (new Date(frmVentasPeriodo.fechaVentaInicio.value)).toLocaleDateString();
+    let dtFin = (new Date(frmVentasPeriodo.fechaVentaFin.value)).toLocaleDateString();
+    let tablaAMostrar = oUpoBebe.listadoVentas
 }
 //fin ventas periodo
 // EMPLEADO
