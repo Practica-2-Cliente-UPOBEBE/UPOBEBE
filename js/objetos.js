@@ -349,6 +349,7 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         celda =fila.insertCell(-1);
         celda.textContent = arrayVentasPeriodo[i].fVenta;
 
+        cuerpito.append(fila);
     }
 
     tabla.appendChild(cuerpito);
