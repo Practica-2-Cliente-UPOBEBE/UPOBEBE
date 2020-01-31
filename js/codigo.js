@@ -140,6 +140,7 @@ function loadXMLDoc(filename) {
 
 // mostrar y ocultar formularios cuando hacemos click:
 function fOcultarFormularios(){
+    document.getElementById("divIzquierdo").style.display = "none";
     frmAltaEmpleado.style.display = "none";
     frmAltaArticulo.style.display = "none";
     frmAltaCliente.style.display = "none";
@@ -225,6 +226,7 @@ function fMostrarAltaArticulo(oEvento)
 function fMostrarListadoArticulo(){
     fOcultarFormularios();
     fOcultarTablasListado();
+    document.getElementById("divIzquierdo").style.display = "block";
     document.getElementById("tabla").style.display = "table";
     fVaciarTabla();
     let tablaAMostrar = oUpoBebe.listadoArticulo();
@@ -1063,6 +1065,43 @@ function limpiarError() {
 }
 // fin alta reparacion
 
+
+//Filtardo de la tabla artículos:
+document.getElementById("buscarPorNombre").addEventListener("click", fFiltrarPorNombre, false);
+document.getElementById("limpiarBusqueda").addEventListener("click", fLimpiarFiltros, false);
+
+function fFiltrarPorNombre(){
+    let nombreABuscar = document.getElementById("filtrarPorNombre").value.trim();
+
+    let tablaArticulos = document.getElementById("tabla");
+    let tdNombres = tablaArticulos.querySelectorAll("tbody tr td:first-child");
+    let check = false;
+    if(nombreABuscar == ""){
+        alert("No ha introducido ninguna cadena de texto");
+    }else{
+        for(let i = 0; i<tdNombres.length ; i++){
+            if(tdNombres[i].textContent.indexOf(nombreABuscar) != -1){
+                check = true;
+            }
+        }
+        if(check){
+            for(let i = 0; i<tdNombres.length ; i++){
+                if(tdNombres[i].textContent.indexOf(nombreABuscar) == -1){
+                    tdNombres[i].parentNode.remove();
+                }
+            }
+        }else{
+            alert("No hay mingún producto que contenga esa cadena");
+        }
+    }
+    
+}
+
+function fLimpiarFiltros(){
+    document.getElementById("filtrarPorNombre").value = "";
+    fMostrarListadoArticulo();
+
+}
 // Convierte una fecha DD/MM/AAAA a Date
 function fechaToDate(fecha){
     let dia = fecha.split("/")[0];
