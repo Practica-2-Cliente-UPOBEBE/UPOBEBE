@@ -1014,7 +1014,7 @@ function faceptarReparacion(){
             frmAltaReparacion.areaObservaciones.focus();
         }
         else{
-            oUpoBebe.reparar(idVenta,articulo,taller,descripcion,fecha);
+            oUpoBebe.reparar(articulo,taller,descripcion,fecha);
         }
     }
     

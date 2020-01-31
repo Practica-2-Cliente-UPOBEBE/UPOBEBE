@@ -210,7 +210,7 @@ UpoBebe.prototype._buscarVenta = function(sIDventa){
         let oReparacion = null;
 
         if (this.tReparaciones.indexOf(articulo) === -1) {
-            tReparaciones.push(articulo);
+            this.tReparaciones.push(articulo);
             reparar = true;
             contador++;
         } else if (this.tReparaciones.indexOf(articulo) > -1) {
