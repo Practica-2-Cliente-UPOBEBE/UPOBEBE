@@ -310,7 +310,7 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
     for(let i=0; i<arrayVentasPeriodo.length; i++){
         let idVenta = arrayVentasPeriodo[i].idVenta;
         let oCliente = arrayVentasPeriodo[i].oCliente;
-        let oEmpleado = arrayVentasPeriodo[i].oEmpleado
+        let oEmpleado = arrayVentasPeriodo[i].oEmpleado;
         let lineaArticulos = arrayVentasPeriodo[i].oLinea;
         let fTotalPedido = arrayVentasPeriodo[i].importe();
 
@@ -319,7 +319,7 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
         cuerpito += cuerpito.appendChild(oEmpleado.nombreEmpleado);
         cuerpito += cuerpito.appendChild(lineaArticulos.aLineaArticulo);
         cuerpito += cuerpito.appendChild(fTotalPedido.importe);
-        cuerpito += cuerpito.appendChild(arrayVentasPeriodo[i].fecha.toLocaleDateString());
+        cuerpito += cuerpito.appendChild(arrayVentasPeriodo[i].fecha);
     }
 
     tabla.appendChild(cuerpito);
