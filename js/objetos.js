@@ -273,8 +273,8 @@ Array.prototype.swap = function (x,y) {
 	return this;
   }
 UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
-    let dtInicio = new Date(fInicio);
-    let dtFin = new Date(fFin);
+    let dtInicio =fInicio;
+    let dtFin = fFin;
     
     let tabla = document.getElementById("tabla");
     let cabecera = tabla.createTHead();

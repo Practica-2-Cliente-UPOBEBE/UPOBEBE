@@ -179,8 +179,8 @@ function fMostrarListadoVentasPeriodo(){
     fOcultarFormularios();
     document.getElementById("tabla").style.display = "table";
     fVaciarTabla();
-    let dtInicio = (new Date(frmVentasPeriodo.fechaVentaInicio.value)).toLocaleDateString();
-    let dtFin = (new Date(frmVentasPeriodo.fechaVentaFin.value)).toLocaleDateString();
+    let dtInicio = (new Date(frmVentasPeriodo.fechaVentaInicio.value));
+    let dtFin = (new Date(frmVentasPeriodo.fechaVentaFin.value));
     oUpoBebe.listadoVentasPeriodo(dtInicio,dtFin);
     
 }
