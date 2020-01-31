@@ -311,7 +311,7 @@ UpoBebe.prototype.listadoVentasPeriodo = function(fInicio,fFin){
 */
     arrayVentasPeriodo.forEach(x =>{
         
-    cuerpito.appendChild(fila.toString());
+        cuerpito.appendChild(x.toString());
 });
 /*
     for(let i=0; i<arrayVentasPeriodo.length; i++){
