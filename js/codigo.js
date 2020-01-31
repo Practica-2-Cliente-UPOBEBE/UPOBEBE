@@ -40,6 +40,7 @@ document.getElementById("aceptarAltaCliente").addEventListener("click",aceptarAl
 document.getElementById("aceptarAltaArticulo").addEventListener("click",altaArticulo,false);
 document.getElementById("aceptarAltaTaller").addEventListener("click",altaTaller,false);
 
+
 //eventos - botones mod/borrar cliente:
 document.getElementById("buscarDniCliente").addEventListener("click",buscarDniCliente,false);
 document.getElementById("modificarCliente").addEventListener("click",modificarCliente,false);
@@ -1007,7 +1008,14 @@ function faceptarReparacion(){
         frmAltaReparacion.txtIdVenta.focus();
     }else{
       
-
+        if(descripcion = ""){
+            alert("\nEscriba en observaciones, el error del articulo");
+            frmAltaReparacion.areaObservaciones.classList.add("error");
+            frmAltaReparacion.areaObservaciones.focus();
+        }
+        else{
+            oUpoBebe.reparar(new Reparacion(idVenta,articulo,taller,descripcion,fecha));
+        }
     }
     
 }

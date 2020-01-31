@@ -199,7 +199,20 @@ UpoBebe.prototype._buscarVenta = function(sIDventa){
         return cReparado;
 
     }*/
-    UpoBebe.prototype.reparar =function(sI){
+    UpoBebe.prototype.reparar =function(idVenta,oArticulo,oTaller,sDescripcion,dtFecha){
+        let oReparacionHecha = null;
+        let oVenta = this._buscarVenta(idVenta);
+        let articulo = this._buscarArticulo(oArticulo);
+        let taller = this._buscarTaller(oTaller);
+        let descripcion = this.sDescripcion;
+        let fecha = this.dtFecha;
+
+        this.tReparaciones.forEach(function(value){
+                if(value.idArticulo == articulo)
+                {
+                    oReparacionHecha = value;
+                }
+        });
 
     }
 
@@ -391,12 +404,15 @@ class Empleado{
 
 // Clase Reparación:
 class Reparacion{
-
+    /*
     constructor(sIdReparacion,oArticulo,oVenta,dtFechaReparacion){
         this.IDReparacion = sIdReparacion;
         this.oArt = oArticulo;
         this.oVent = oVenta;
         this.fechaReparacion = dtFechaReparacion;
+        */
+       constructor(sIdReparacion,idArticulo,idTaller,sDescripcion,dtFechaReparacion){
+        
 
     }
     toString(){
