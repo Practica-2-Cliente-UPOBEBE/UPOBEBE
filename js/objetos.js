@@ -412,15 +412,20 @@ class Reparacion{
         this.fechaReparacion = dtFechaReparacion;
         */
        constructor(sIdReparacion,idArticulo,idTaller,sDescripcion,dtFechaReparacion){
-        
+        this.IDReparacion = sIdReparacion;
+        this.idArticulo = idArticulo;
+        this.idTaller = idTaller
+        this.sDescripcion = sDescripcion;
+        this.dtFechaReparacion = dtFechaReparacion;
 
     }
     toString(){
         var sFila="<tr>";
 	    sFila+="<td>"+this.IDReparacion+"</td>";
-	    sFila+="<td>"+this.oArt+"</td>";
-	    sFila+="<td>"+this.oVent+"</td>";
-        sFila+="<td>"+this.fechaReparacion+"</td>";
+	    sFila+="<td>"+this.idArticulo+"</td>";
+	    sFila+="<td>"+this.idTaller+"</td>";
+        sFila+="<td>"+this.sDescripcion+"</td>";
+        sFila+="<td>"+this.dtFechaReparacion+"</td>";
 	    sFila+="</tr>";
 	    return sFila;
     }
