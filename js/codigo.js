@@ -17,7 +17,7 @@ window.addEventListener("load", fMostrarListadoArticulo);
 document.getElementById("mostrarPaginaPrincipal").addEventListener("click",fMostrarPaginaPrincipal,false);
 
 //mostrar formularios:
-document.getElementById("altaArticulo").addEventListener("click",fMostrarAltaArticulo,false);
+//document.getElementById("altaArticulo").addEventListener("click",fMostrarAltaArticulo,false);
 document.getElementById("altaCliente").addEventListener("click",fMostarAltaCliente,false);
 document.getElementById("altaEmpleado").addEventListener("click",fMostarAltaEmpleado,false);
 document.getElementById("altaTaller").addEventListener("click",fMostrarAltaTaller,false);
@@ -39,7 +39,7 @@ document.getElementById("mostrarCarrito").addEventListener("click",fMostrarCarri
 //eventos - botones Dar de ALTA:
 document.getElementById("aceptarAltaEmpleado").addEventListener("click",fAltaEmpleado,false);
 document.getElementById("aceptarAltaCliente").addEventListener("click",aceptarAltaCliente,false);
-document.getElementById("aceptarAltaArticulo").addEventListener("click",altaArticulo,false);
+//document.getElementById("aceptarAltaArticulo").addEventListener("click",altaArticulo,false);
 document.getElementById("aceptarAltaTaller").addEventListener("click",altaTaller,false);
 
 
@@ -142,7 +142,7 @@ function loadXMLDoc(filename) {
 function fOcultarFormularios(){
     document.getElementById("divIzquierdo").style.display = "none";
     frmAltaEmpleado.style.display = "none";
-    frmAltaArticulo.style.display = "none";
+    //frmAltaArticulo.style.display = "none";
     frmAltaCliente.style.display = "none";
     frmAltaTaller.style.display = "none";
     frmModCliente.style.display = "none";
