@@ -2,7 +2,6 @@
 //CLASE UPOBEBE
 function UpoBebe(){
     this.tLineaArticulo = [];
-    this.tClientes = [];
     this.tEmpleados = [];
     this.tVentas = [];
     this.tArticulos = [];
@@ -25,18 +24,7 @@ UpoBebe.prototype.añadirLineaArticulo = function(oLinea){
     }else
         return false;
 }
-UpoBebe.prototype.altaCliente = function(oCliente){
-    let mensaje;
-    if(this.buscarCliente(oCliente.dniCliente) != null){
-        mensaje = "ERROR: El cliente ya existe";
-        console.log(this.buscarCliente(oCliente.dni))
-    }else{
-        this.tClientes.push(oCliente);
-        mensaje = "Cliente añadido con éxito";
-    }
-        
-    return mensaje;
-}
+
 UpoBebe.prototype.altaCategoria = function(oCategoria){
     this.tCategorias.push(oCategoria);
 }
