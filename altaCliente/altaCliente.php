@@ -2,7 +2,7 @@
 
 // Configuración BASE DE DATOS MYSQL
 $servidor  = "localhost";
-$basedatos = "ruralia";
+$basedatos = "upobebe";
 $usuario   = "root";
 $password  = "";
 
@@ -17,7 +17,7 @@ mysqli_set_charset($conexion,"utf8");
 mysqli_query($conexion,"utf8");
 
 
-$sql = "INSERT INTO clientes (dni, nombre, apellidos, direccion, correo, telefono) VALUES ('$cliente->dni','$cliente->nombre','$cliente->apellidos','$cliente->direccion', '$cliente->piscina','$cliente->correo', '$cliente->tlf');";
+$sql = "INSERT INTO clientes (dni, nombre, apellidos, direccion, correo, telefono) VALUES ('$cliente->dni','$cliente->nombre','$cliente->apellidos','$cliente->direccion', '$cliente->correo', '$cliente->tlf');";
 $resultado = mysqli_query($conexion,$sql);
 
 if ($resultado){
