@@ -1,4 +1,5 @@
 //# sourceURL=altaCliente.js;
+
 $("#aceptarAltaCliente").click(aceptarAltaCliente);
 //Alta cliente
 function aceptarAltaCliente(){
@@ -61,8 +62,16 @@ function aceptarAltaCliente(){
         alert(mensaje);
     }else{
         //Llamada POST ayax
-        let parametros = "datos =" + JSON.stringify(new Cliente(dni, nombre, apellidos, direccion, correo, tlf));
-        $.post("altaCliente/altaCliente.php", parametros, respuestaAltaCliente, 'json');
+        let oCliente = {
+            dni: dni,
+            nombre: nombre,
+            apellidos: apellidos, 
+            direccion: direccion, 
+            correo: correo, 
+            tlf: tlf
+        };
+        let parametros = "datos=" + JSON.stringify(oCliente);
+        $.post("altaCliente/altaCliente.php", parametros, respuestaAltaCliente, "json");
         
     }
     function respuestaAltaCliente(oDatos){
@@ -71,7 +80,7 @@ function aceptarAltaCliente(){
         } else {
             alert(oDatos.mensaje);
             frmAltaCliente.reset();
-            $("#frmAltaCliente") .hide("normal");
+            $("#frmAltaCliente").hide("normal");
         }
     }
 
