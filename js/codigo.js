@@ -70,7 +70,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
             oUpoBebe.altaEmpleado(new Empleado(dni, nombre, apellidos, salario, direccion, correo, rol, tlf));
         }
         //Datos clientes
-        let oCLientes = oXML.querySelectorAll("cliente");
+        /*let oCLientes = oXML.querySelectorAll("cliente");
         for(let i=0;i < oCLientes.length ; i++){
             let dni = oCLientes[i].querySelector("dni").textContent;
             let nombre = oCLientes[i].querySelector("nombre").textContent;
@@ -80,7 +80,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
             let tlf = oCLientes[i].querySelector("telefono").textContent;
 
             oUpoBebe.altaCliente(new Cliente(dni, nombre, apellidos, direccion, correo, tlf));
-        }
+        }*/
        //Datos talleres
         let oTalleres = oXML.querySelectorAll("taller");
         for(let i = 0 ; i < oTalleres.length ; i++){
