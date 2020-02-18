@@ -70,8 +70,28 @@ function aceptarAltaCliente(){
             correo: correo, 
             tlf: tlf
         };
-        let parametros = "datos=" + JSON.stringify(oCliente);
-        $.post("altaCliente/altaCliente.php", parametros, respuestaAltaCliente, "json");
+            // Instanciar objeto Ajax
+            var oAjax = instanciarXHR();
+
+            // Parametros
+            let sParametros = "datos=" + JSON.stringify(oCliente);
+            sParametros = encodeURI(sParametros);
+
+            //Configurar la llamada --> Asincrono por defecto
+            oAjax.open("POST", "altaCliente/altaCliente.php");
+
+            //Asociar manejador de evento de la respuesta
+            oAjax.addEventListener("readystatechange", respuestaAltaCliente, false);
+
+            // Cabecera POST
+            oAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            //Hacer la llamada
+            oAjax.send(sParametros);
+        
+        
+        //let parametros = "datos=" + JSON.stringify(oCliente);
+        //$.post("altaCliente/altaCliente.php", encodeURI(parametros), respuestaAltaCliente, "json");
         
     }
     function respuestaAltaCliente(oDatos){
@@ -94,3 +114,15 @@ function aceptarAltaCliente(){
     }
 }
 //Fin alta cliente
+function instanciarXHR() {
+    var xhttp = null;
+
+    if (window.XMLHttpRequest) {
+        xhttp = new XMLHttpRequest();
+    } else // code for IE5 and IE6
+    {
+        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    return xhttp;
+}
