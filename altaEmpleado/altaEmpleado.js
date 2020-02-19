@@ -12,7 +12,7 @@ function fAceptarAltaEmpleado(){
     let sCorreoEmpleado = frmAltaEmpleado.txtCorreoEmpleado.value.trim();
     let sRolEmpleado = frmAltaEmpleado.txtRolEmpleado.value.trim();
     let iTlfEmpleado = frmAltaEmpleado.txtTlfEmpleado.value.trim();
-    let oEmpleado = new Empleado(sNifEmpleado,sNombreEmpleado,sApellidosEmpleado,fSalarioEmpleado,sDireccionEmpleado,sCorreoEmpleado,sRolEmpleado,iTlfEmpleado);
+    //let oEmpleado = new Empleado(sNifEmpleado,sNombreEmpleado,sApellidosEmpleado,fSalarioEmpleado,sDireccionEmpleado,sCorreoEmpleado,sRolEmpleado,iTlfEmpleado);
 
     let bValido = true;
     let sError = "";
@@ -85,12 +85,28 @@ function fAceptarAltaEmpleado(){
     }
 
 
+
     //alerta
     if(bValido == false){
         alert(sError);
     }else{
+
+        let oEmpleado = {
+            DniEmpleado: sNifEmpleado,
+            NombreEmpleado: sNombreEmpleado,
+            ApellidosEmpleado: sApellidosEmpleado,
+            SalarioEmpleado: fSalarioEmpleado,
+            DireccionEmpleado: sDireccionEmpleado,
+            CorreoEmpleado: sCorreoEmpleado,
+            RolEmpleado: sRolEmpleado,
+            TelefonoEmpleado: iTlfEmpleado
+        };
         
-        
+        let sParametros = "datos=" + JSON.stringify(oEmpleado);
+
+        $.post("altaEmpleado/altaEmpleado.php", sParametros, respuestaAltaEmpleado, 'json');
+
+        /*
         if(oUpoBebe.altaEmpleado(oEmpleado))
         {
             alert("Dado de alta");
@@ -99,9 +115,20 @@ function fAceptarAltaEmpleado(){
         }else{
             alert("El empleado YA EXISTE con ese DNI");
             
-        }
+        }*/
 
-}
+    }// fin else
+
+        function respuestaAltaEmpleado(oDatos, sStatus, oXHR)
+        {
+            if(oDatos.error){
+                alert(oDatos.mensaje);
+            }else{
+                alert(oDatos.mensaje);
+                frmAltaEmpleado.reset();
+                $("#frmAltaEmpleado").hide("normal");
+            }
+        }
 }
 
 function limpiarErroresAltaEmpleado(){
