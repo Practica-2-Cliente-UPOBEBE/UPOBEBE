@@ -94,29 +94,21 @@ function aceptarAltaCliente(){
         //$.post("altaCliente/altaCliente.php", encodeURI(parametros), respuestaAltaCliente, "json");
         
     }
-    function respuestaAltaCliente(oDatos){
-        /*if (oDatos.error) {
-            alert(oDatos.mensaje);
-        } else {
-            alert(oDatos.mensaje);
-            frmAltaCliente.reset();
-            $("#frmAltaCliente").hide("normal");
-        }*/
-        var oAjax = this;
+    function respuestaAltaCliente(){
+                     
+        if (this.readyState == 4 && this.status == 200){
+            let oDatos = this.responseText;
+            oDatos = JSON.parse(oDatos);
 
-            // Proceso la respuesta cuando llega
-            if (oAjax.readyState == 4 && oAjax.status == 200) {
-                console.log(oAjax.responseText);
-
-                var oRespuesta = JSON.parse(oAjax.responseText);
-
-                if (oRespuesta.error == 0) { //Si no hay error
-                    frmAltaCliente.reset();
-                    $("#frmAltaCliente").hide("normal");
-                }
-
-                alert(oRespuesta.mensaje);
+            if (oDatos.error) {
+                alert(oDatos.mensaje);
+            } else {
+                alert(oDatos.mensaje);
+                frmAltaCliente.reset();
+                $("#frmAltaCliente").hide("normal");
             }
+        }
+       
     }
 
     function limpiarErrores(){
