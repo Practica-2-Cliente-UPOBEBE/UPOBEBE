@@ -1,4 +1,4 @@
-//# sourceURL=altaCliente.js;
+//# sourceURL=altaEmpleado.js;
 
 $("#aceptarAltaEmpleado").click(fAceptarAltaEmpleado);
 
