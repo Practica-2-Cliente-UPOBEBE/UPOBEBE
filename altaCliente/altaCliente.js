@@ -94,14 +94,21 @@ function aceptarAltaCliente(){
         //$.post("altaCliente/altaCliente.php", encodeURI(parametros), respuestaAltaCliente, "json");
         
     }
-    function respuestaAltaCliente(oDatos){
-        if (oDatos.error) {
-            alert(oDatos.mensaje);
-        } else {
-            alert(oDatos.mensaje);
-            frmAltaCliente.reset();
-            $("#frmAltaCliente").hide("normal");
+    function respuestaAltaCliente(){
+                     
+        if (this.readyState == 4 && this.status == 200){
+            let oDatos = this.responseText;
+            oDatos = JSON.parse(oDatos);
+
+            if (oDatos.error) {
+                alert(oDatos.mensaje);
+            } else {
+                alert(oDatos.mensaje);
+                frmAltaCliente.reset();
+                $("#frmAltaCliente").hide("normal");
+            }
         }
+       
     }
 
     function limpiarErrores(){
