@@ -102,9 +102,9 @@ function fAceptarAltaEmpleado(){
             TelefonoEmpleado: iTlfEmpleado
         };
         
-        let sParametros = "datos=" + JSON.stringify(oEmpleado);
+        //let sParametros = "datos=" + JSON.stringify(oEmpleado);
 
-        $.post("altaEmpleado/altaEmpleado.php", sParametros, respuestaAltaEmpleado, 'json');
+        $.post("altaEmpleado/altaEmpleado.php", oEmpleado, respuestaAltaEmpleado, 'json');
 
         /*
         if(oUpoBebe.altaEmpleado(oEmpleado))

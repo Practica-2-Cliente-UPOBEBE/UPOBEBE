@@ -7,9 +7,14 @@ $usuario   = "root";
 $password  = "";
 
 // Recojo los datos de entrada
-$datosJSON = $_POST["datos"];
-//Decodifico el objeto cliente
-$cliente = json_decode($datosJSON);
+$nif = $_POST["DniEmpleado"];
+$nombre = $_POST["NombreEmpleado"];
+$apellido = $_POST["ApellidosEmpleado"];
+$salario = $_POST["SalarioEmpleado"];
+$direccion = $_POST["DireccionEmpleado"];
+$correo = $_POST["CorreoEmpleado"];
+$rol = $_POST["RolEmpleado"];
+$telefono = $_POST["TelefonoEmpleado"];
 
 // Creamos la conexión al servidor.
 $conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mysqli_error($conexion));
@@ -17,7 +22,7 @@ mysqli_set_charset($conexion,"utf8");
 mysqli_query($conexion,"utf8");
 
 
-$sql = "INSERT INTO empleados (dni, nombre, apellidos,salario, direccion, correo, rol, telefono) VALUES ('$cliente->dni','$cliente->nombre','$cliente->apellidos','$cliente->direccion', '$cliente->correo', '$cliente->tlf');";
+$sql = "INSERT INTO empleados (dni, nombre, apellidos,salario, direccion, correo, rol, telefono) VALUES ('$nif','$nombre','$apellido','$salario', '$direccion', '$correo', '$rol', '$telefono');";
 $resultado = mysqli_query($conexion,$sql);
 
 if ($resultado){
