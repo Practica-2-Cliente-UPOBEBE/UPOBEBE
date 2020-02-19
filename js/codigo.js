@@ -26,7 +26,7 @@ document.getElementById("altaReparacion").addEventListener("click", fMostrarAlta
 
 //evento - mostrar listado
 document.getElementById("mostrarListadoVentas").addEventListener("click",fMostrarListadoVentas,false);
-document.getElementById("mostrarListadoEmpleados").addEventListener("click",fMostrarListadoEmpleados,false);
+//document.getElementById("mostrarListadoEmpleados").addEventListener("click",fMostrarListadoEmpleados,false);
 document.getElementById("mostrarListadoCliente").addEventListener("click",fMostrarListadoCliente,false);
 document.getElementById("mostrarListadoTaller").addEventListener("click",fMostrarListadoTaller,false);
 document.getElementById("mostrarListadoArticulo").addEventListener("click",fMostrarListadoArticulo,false);
@@ -37,7 +37,7 @@ document.getElementById("aceptarListarVentasPeriodo").addEventListener("click",f
 //document.getElementById("mostrarCarrito").addEventListener("click",fMostrarCarrito,false);
 
 //eventos - botones Dar de ALTA:
-document.getElementById("aceptarAltaEmpleado").addEventListener("click",fAltaEmpleado,false);
+//document.getElementById("aceptarAltaEmpleado").addEventListener("click",fAltaEmpleado,false);
 //document.getElementById("aceptarAltaCliente").addEventListener("click",aceptarAltaCliente,false);
 //document.getElementById("aceptarAltaArticulo").addEventListener("click",altaArticulo,false);
 document.getElementById("aceptarAltaTaller").addEventListener("click",altaTaller,false);
@@ -56,6 +56,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
         let oXML = loadXMLDoc("datosUpoBebe.xml");
 
         //Datos empleados
+        /*
         let oEmpleados = oXML.querySelectorAll("empleado");
         for(let i=0;i < oEmpleados.length ; i++){
             let dni = oEmpleados[i].querySelector("dni").textContent;
@@ -68,7 +69,7 @@ document.getElementById("darDeBajaCliente").addEventListener("click",darDeBajaCl
             let tlf = oEmpleados[i].querySelector("telefono").textContent;
             
             oUpoBebe.altaEmpleado(new Empleado(dni, nombre, apellidos, salario, direccion, correo, rol, tlf));
-        }
+        }*/
         //Datos clientes
         /*let oCLientes = oXML.querySelectorAll("cliente");
         for(let i=0;i < oCLientes.length ; i++){
