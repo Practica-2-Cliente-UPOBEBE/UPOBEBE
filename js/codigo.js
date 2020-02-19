@@ -19,7 +19,7 @@ document.getElementById("mostrarPaginaPrincipal").addEventListener("click",fMost
 //mostrar formularios:
 //document.getElementById("altaArticulo").addEventListener("click",fMostrarAltaArticulo,false);
 //document.getElementById("altaCliente").addEventListener("click",fMostarAltaCliente,false);
-document.getElementById("altaEmpleado").addEventListener("click",fMostarAltaEmpleado,false);
+//document.getElementById("altaEmpleado").addEventListener("click",fMostarAltaEmpleado,false);
 document.getElementById("altaTaller").addEventListener("click",fMostrarAltaTaller,false);
 document.getElementById("fMostrarBajaModificarCliente").addEventListener("click", fMostrarBajaModificarCliente, false);
 document.getElementById("altaReparacion").addEventListener("click", fMostrarAltaReparacion, false);
@@ -196,6 +196,7 @@ function fMostrarListadoVentasPeriodo(){
 }
 //fin ventas periodo
 // EMPLEADO
+/*
 function fMostarAltaEmpleado(){
     fOcultarFormularios();
     fOcultarTablasListado();
@@ -211,6 +212,7 @@ function fMostrarListadoEmpleados(){
     document.getElementById("tabla").append(tablaAMostrar);
     
 }
+*/
 // fin EMPLEADO
 
 function fVaciarTabla(){
@@ -433,6 +435,7 @@ function fMostrarListadoPeriodoComprados(){
 
 //**** ALTAS  *******************************/
 // alta Empleado
+/*
     function fAltaEmpleado()
     {
         //frmAltaEmpleado.aceptarAltaEmpleado.addEventListener("click", fValidarAltaEmpleado, false);
@@ -544,7 +547,7 @@ function fMostrarListadoPeriodoComprados(){
             frmAltaEmpleado.txtTlfEmpleado.classList.remove("error");
         }
     }
-    
+    */
     
 //fin alta empleado
 
