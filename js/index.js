@@ -2,6 +2,7 @@
 $("#altaArticulo").click(abrirAltaArticulo);
 $("#altaCliente").click(abrirAltaCliente);
 $("#mostrarCarrito").click(abrirCarrito);
+$("#altaEmpleado").click(abrirAltaEmpleado);
 
 
 function abrirAltaArticulo() {
@@ -139,4 +140,24 @@ function abrirCarrito(){
     });
     
     
+}
+
+function abrirAltaEmpleado(){
+
+    // Oculto todos los formularios menos este
+    $("form:not('#frmAltaEmpleado')").hide("normal");
+    $("#body").hide("normal");
+
+     // Verifico si ya he cargado el formulario antes
+     if ($('#frmAltaEmpleado').size() == 0) {
+        $("<div>").appendTo('#formularios').load("altaEmpleado/altaEmpleado.html",
+            function() {
+                $.getScript("altaEmpleado/altaEmpleado.js");
+            });
+
+    } else {
+        // Lo muestro si está oculto
+        $('#frmAltaEmpleado').show("normal");
+    }
+
 }
