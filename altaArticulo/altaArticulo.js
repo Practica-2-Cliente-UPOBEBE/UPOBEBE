@@ -53,7 +53,10 @@ function fAceptarAltaArticulo()
     if (!bValido) {
         alert(mensaje);
     } else {
+
+        let datosString;
        
+        /*
         let oArticulo ={
             //Id: sIDArticulo,
             Nombre: sNombreArticulo,
@@ -82,7 +85,8 @@ function fAceptarAltaArticulo()
             frmAltaArticulo.reset();
             $("#frmAltaArticulo").parent().hide("normal");
         }
-    }
+        */
+    }//fin else
 
     function limpiarErrores() {
        // frmAltaArticulo.txtIDArticulo.classList.remove("error");
