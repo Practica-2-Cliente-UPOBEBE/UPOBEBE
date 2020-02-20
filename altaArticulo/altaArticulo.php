@@ -7,9 +7,13 @@ $usuario   = "root";
 $password  = "";
 
 // Recojo los datos de entrada
-$datosJSON = $_POST["datos"];
+//$datosJSON = $_POST["datos"];
+$nombre = $_POST["txtNombreArticulo"];
+$descripcion = $_POST["txtDescripcionArticulo"];
+$categoria = $_POST["txtCategoriaArticulo"];
+$precio = $_POST["txtPrecioArticulo"];
 //Decodifico el objeto articulo
-$articulo = json_decode($datosJSON);
+//$articulo = json_decode($datosJSON);
 
 // Creamos la conexión al servidor.
 $conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mysqli_error($conexion));
@@ -19,7 +23,7 @@ $sql ="select max(id) + 1 as num from articulos";
 $resultado = mysqli_query($conexion,$sql);
 $fila = $resultado->fetch_assoc();
 
-$sql = "INSERT INTO articulos VALUES (".$fila["num"].",'$articulo->Nombre','$articulo->Descripcion',$articulo->Categoria,$articulo->Precio);";
+$sql = "INSERT INTO articulos VALUES (".$fila["num"].",'$nombre','$descripcion',$categoria,$precio);";
 $resultado = mysqli_query($conexion,$sql);
 
 if ($resultado){

@@ -54,8 +54,28 @@ function fAceptarAltaArticulo()
         alert(mensaje);
     } else {
 
-        let datosString;
-       
+        //let datosString = $('#frmAltaArticulo').serialize();
+    
+        $.ajax({
+            url: "altaArticulo/altaArticulo.php",
+            data: $('#frmAltaArticulo').serialize(),
+            cache: false,
+            async: true, // por defecto
+            method: "POST",
+            success: respuestaAltaArticulo
+        });
+      
+
+       function respuestaAltaArticulo(resultado) {
+        let datos = JSON.parse(resultado);
+        if (datos["error"]) {
+            alert(datos["mensaje"]);
+        } else {
+            alert(datos["mensaje"]);
+            frmAltaArticulo.reset();
+            $("#frmAltaArticulo").parent().hide("normal");
+        }
+    }
         /*
         let oArticulo ={
             //Id: sIDArticulo,
@@ -86,6 +106,7 @@ function fAceptarAltaArticulo()
             $("#frmAltaArticulo").parent().hide("normal");
         }
         */
+    
     }//fin else
 
     function limpiarErrores() {
