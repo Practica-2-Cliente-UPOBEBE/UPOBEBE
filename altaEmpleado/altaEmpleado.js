@@ -126,7 +126,7 @@ function fAceptarAltaEmpleado(){
             }else{
                 alert(oDatos.mensaje);
                 frmAltaEmpleado.reset();
-                $("#frmAltaEmpleado").hide("normal");
+                $("#frmAltaEmpleado").parent().hide("normal");
             }
         }
 }
