@@ -53,7 +53,24 @@ function fAceptarAltaArticulo()
     if (!bValido) {
         alert(mensaje);
     } else {
-        alert(oUpoBebe.altaArticulo(new Articulo(sIDArticulo, sNombreArticulo, sDescripcionArticulo, sCategoria, fPrecioArticulo)));
+       
+        let oArticulo ={
+            Id: sIDArticulo,
+            Nombre: sNombreArticulo,
+            Descripcion: sDescripcionArticulo,
+            Categoria: sCategoria,
+            Precio: fPrecioArticulo
+        };
+
+        $.ajax({
+            url: "altaArticulo/altaArticulo.php",
+            data: "datos=" + JSON.stringify(articulo),
+            cache: false,
+            async: true, // por defecto
+            method: "POST",
+            success: respuestaAltaArticulo
+        });
+
     }
 
     function limpiarErrores() {
