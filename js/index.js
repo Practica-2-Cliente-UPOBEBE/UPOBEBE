@@ -137,12 +137,9 @@ function abrirCarrito(){
             $.getScript("altaCarrito/aceptarCompra.js");
         }
     },'json');
-    
-    
 }
 
 function abrirAltaEmpleado(){
-
     // Oculto todos los formularios menos este
     $("form:not('#frmAltaEmpleado')").hide("normal");
     $("#body").hide("normal");
