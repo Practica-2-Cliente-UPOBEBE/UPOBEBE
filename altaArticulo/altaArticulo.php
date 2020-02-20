@@ -8,7 +8,7 @@ $password  = "";
 
 // Recojo los datos de entrada
 $datosJSON = $_POST["datos"];
-//Decodifico el objeto casa
+//Decodifico el objeto articulo
 $articulo = json_decode($datosJSON);
 
 // Creamos la conexión al servidor.
