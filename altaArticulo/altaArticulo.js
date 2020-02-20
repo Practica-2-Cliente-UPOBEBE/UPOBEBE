@@ -73,6 +73,17 @@ function fAceptarAltaArticulo()
 
     }
 
+    function respuestaAltaArticulo(resultado) {
+        let datos = JSON.parse(resultado);
+        if (datos["error"]) {
+            alert(datos["mensaje"]);
+        } else {
+            alert(datos["mensaje"]);
+            frmAltaArticulo.reset();
+            $("#frmAltaArticulo").parent().hide("normal");
+        }
+    }
+
     function limpiarErrores() {
         frmAltaArticulo.txtIDArticulo.classList.remove("error");
         frmAltaArticulo.txtNombreArticulo.classList.remove("error");
@@ -81,4 +92,6 @@ function fAceptarAltaArticulo()
         frmAltaArticulo.txtPrecioArticulo.classList.remove("error");
     }
 }
+
+
 
