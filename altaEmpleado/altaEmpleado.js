@@ -118,7 +118,7 @@ function fAceptarAltaEmpleado(){
         }*/
 
     }// fin else
-
+    
         function respuestaAltaEmpleado(oDatos, sStatus, oXHR)
         {
             if(oDatos.error){
@@ -129,6 +129,9 @@ function fAceptarAltaEmpleado(){
                 $("#frmAltaEmpleado").parent().hide("normal");
             }
         }
+        
+
+      
 }
 
 function limpiarErroresAltaEmpleado(){
