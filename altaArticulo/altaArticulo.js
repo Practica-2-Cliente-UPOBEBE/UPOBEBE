@@ -3,7 +3,7 @@ $("#aceptarAltaArticulo").click(fAceptarAltaArticulo);
 
 function fAceptarAltaArticulo()
 {
-    let sIDArticulo = frmAltaArticulo.txtIDArticulo.value.trim();
+   // let sIDArticulo = frmAltaArticulo.txtIDArticulo.value.trim();
     let sNombreArticulo = frmAltaArticulo.txtNombreArticulo.value.trim();
     let sDescripcionArticulo = frmAltaArticulo.txtDescripcionArticulo.value.trim();
     let sCategoria = frmAltaArticulo.selectCategoria.value;
@@ -11,14 +11,14 @@ function fAceptarAltaArticulo()
     let mensaje = "ERROR:";
     let bValido = true;
     limpiarErrores();
-
+    /*
     let oExpRegID = /^[a-zA-Z\s0-9]{5}$/;
     if (oExpRegID.test(sIDArticulo) == false) {
         bValido = false;
         mensaje += "\nEl campo ID debe contener 5 dígitos alfanuméricos.";
         frmAltaArticulo.txtIDArticulo.classList.add("error");
         frmAltaArticulo.txtIDArticulo.focus();
-    }
+    }*/
 
     let oExpRegNombre = /[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}/;
     if(oExpRegNombre.test(sNombreArticulo)==false)
@@ -85,7 +85,7 @@ function fAceptarAltaArticulo()
     }
 
     function limpiarErrores() {
-        frmAltaArticulo.txtIDArticulo.classList.remove("error");
+       // frmAltaArticulo.txtIDArticulo.classList.remove("error");
         frmAltaArticulo.txtNombreArticulo.classList.remove("error");
         frmAltaArticulo.txtDescripcionArticulo.classList.remove("error");
         frmAltaArticulo.selectCategoria.classList.remove("error");
