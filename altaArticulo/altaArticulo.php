@@ -10,8 +10,9 @@ $password  = "";
 //$datosJSON = $_POST["datos"];
 $nombre = $_POST["txtNombreArticulo"];
 $descripcion = $_POST["txtDescripcionArticulo"];
-$categoria = $_POST["txtCategoriaArticulo"];
+$categoria = $_POST["selectCategoria"];
 $precio = $_POST["txtPrecioArticulo"];
+
 //Decodifico el objeto articulo
 //$articulo = json_decode($datosJSON);
 
