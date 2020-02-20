@@ -1,9 +1,9 @@
 //# sourceURL=altaEmpleado.js;
 
 $("#aceptarAltaEmpleado").click(fAceptarAltaEmpleado);
-
+alert("asd")
 function fAceptarAltaEmpleado(){
-
+    
     let sNifEmpleado = frmAltaEmpleado.txtNIF.value.trim();
     let sNombreEmpleado = frmAltaEmpleado.txtNombreEmpleado.value.trim();
     let sApellidosEmpleado = frmAltaEmpleado.txtApellidoEmpleado.value.trim();
