@@ -226,6 +226,7 @@ function fVaciarTabla(){
 }
 
 // Articulo
+/*
 function fMostrarAltaArticulo(oEvento)
 {
     var oE = oEvento || window.event;
@@ -233,7 +234,7 @@ function fMostrarAltaArticulo(oEvento)
     fOcultarTablasListado();
    frmAltaArticulo.style.display = "block";
     frmAltaArticulo.reset();
-}
+}*/
 
 function fMostrarListadoArticulo(){
     fOcultarFormularios();
@@ -555,6 +556,7 @@ function fMostrarListadoPeriodoComprados(){
 
 
 //Alta artículo
+/*
 function altaArticulo() {
     let sIDArticulo = frmAltaArticulo.txtIDArticulo.value.trim();
     let sNombreArticulo = frmAltaArticulo.txtNombreArticulo.value.trim();
@@ -617,7 +619,7 @@ function altaArticulo() {
         frmAltaArticulo.txtPrecioArticulo.classList.remove("error");
     }
 
-}
+}*/
 //Fin alta artículo
 
 
