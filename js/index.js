@@ -47,12 +47,9 @@ function abrirCarrito(){
     //llamada get para comprobar que haya alguna linea y que el codVenta sea null
     var aLineas = [];
     $.get("altaCarrito/getLineas.php",function(datos){
-        //let oDatos = this.responseText;
-        let oDatos = JSON.parse(datos);
-        //console.log(oDatos.datos);
-        if(oDatos.existe == 1){
-            for(let i = 0; i<oDatos.datos.length ; i++){
-                aLineas.push(oDatos.datos[i]);
+        if(datos.existe == 1){
+            for(let i = 0; i<datos.datos.length ; i++){
+                aLineas.push(datos.datos[i]);
             }
         }
         
@@ -139,7 +136,7 @@ function abrirCarrito(){
             
             $.getScript("altaCarrito/aceptarCompra.js");
         }
-    });
+    },'json');
     
     
 }
