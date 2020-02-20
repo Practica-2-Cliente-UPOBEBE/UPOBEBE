@@ -94,6 +94,7 @@ function abrirCarrito(){
                     td.appendChild(botonMenosUno);
                     td.appendChild(botonEliminar);*/
                     //
+                    let fila = cuerpoTabla.insertRow(-1);
                     //GET NOMBRE Y PRECIO FROM ARTICULOS
                     $.ajax({
                         url: "altaCarrito/getArticulo.php",
@@ -103,20 +104,21 @@ function abrirCarrito(){
                         dataType: "text",
                         success: respuestaArticulo
                     });
-                    function respuestaArticulo(){
-                        
-                        let oDatos = this.responseText;
-                        let x = JSON.parse(oDatos);
-                        console.log(x);
+                    function respuestaArticulo(datos){
+                            let oDatos = JSON.parse(datos);
+                            fila.insertCell(-1).textContent = oDatos.nombre;
+                            fila.insertCell(-1).textContent = elemento.unidades;
+                            fila.insertCell(-1).textContent = oDatos.precio;
+                            fila.insertCell(-1).textContent = oDatos.precio * elemento.unidades;
+                            contadorTotalLineas += oDatos.precio * elemento.unidades;
                     }
     
-                    /*let fila = cuerpoTabla.insertRow(-1);
-                    fila.insertCell(-1).textContent = elemento.id_linea;
-                    fila.insertCell(-1).textContent = elemento.unidades;
-                    fila.insertCell(-1).textContent = elemento.id_articulo;
-                    fila.insertCell(-1).textContent = elemento.id_venta;
-                    fila.appendChild(td);*/
-                    //contadorTotalLineas += elemento.totalLinea();
+                    
+                    
+                    
+                    
+                    //fila.appendChild(td);
+                    
                 
                 
                 
@@ -135,7 +137,7 @@ function abrirCarrito(){
                 formu.style.visibility = "visible";
             }
             
-            document.getElementById("aceptarCompra").addEventListener("click", darAltaCompra, false);
+            $.getScript("altaCarrito/aceptarCompra.js");
         }
     });
     
