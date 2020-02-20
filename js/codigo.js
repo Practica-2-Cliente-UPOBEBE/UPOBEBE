@@ -143,9 +143,9 @@ function loadXMLDoc(filename) {
 function fOcultarFormularios(){
     document.getElementById("divIzquierdo").style.display = "none";
     //frmAltaEmpleado.style.display = "none";
-    if(document.getElementById("frmAltaArticulo") != null){
-        frmAltaArticulo.style.display = "none";
-    }
+    //if(document.getElementById("frmAltaArticulo") != null){
+      //  frmAltaArticulo.style.display = "none";
+    //}
     /*if($.contains(document.body, document.getElementById("frmAltaArticulo") )) {
         frmAltaArticulo.style.display = "none";
     }*/

@@ -3,10 +3,7 @@ $("#aceptarAltaArticulo").click(fAceptarAltaArticulo);
 
 function fAceptarAltaArticulo()
 {
-    
-}
-
-let sIDArticulo = frmAltaArticulo.txtIDArticulo.value.trim();
+    let sIDArticulo = frmAltaArticulo.txtIDArticulo.value.trim();
     let sNombreArticulo = frmAltaArticulo.txtNombreArticulo.value.trim();
     let sDescripcionArticulo = frmAltaArticulo.txtDescripcionArticulo.value.trim();
     let sCategoria = frmAltaArticulo.selectCategoria.value;
@@ -66,3 +63,5 @@ let sIDArticulo = frmAltaArticulo.txtIDArticulo.value.trim();
         frmAltaArticulo.selectCategoria.classList.remove("error");
         frmAltaArticulo.txtPrecioArticulo.classList.remove("error");
     }
+}
+
