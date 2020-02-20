@@ -37,14 +37,13 @@ function darAltaCompra(){
        
         let f = new Date();
         let fecha = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-        let nuevaVenta = oUpoBebe.altaVenta(new Venta(idVenta, oCliente, oEmpleado, arrayLineas, fecha));
         let parametros = "dniCliente=" + dniCliente + "&dniEmpleado=" +dniEmpleado + "&fecha=" +fecha;
         $.post("altaCarrito/altaCarrito.php", encodeURI(parametros), respuestaAltaCarrito, "text");
         function respuestaAltaCarrito(datos) {
             let oDatos = JSON.parse(datos);
             if (oDatos.insertado == 1) {
                 alert("Compra realizada");
-                //Añadir el objeto venta a las lineas correspondientes
+                //Añadir el id venta a las lineas correspondientes
 
                 $.post("altaCarrito/insertIdVentaEnLineas.php");
                 
