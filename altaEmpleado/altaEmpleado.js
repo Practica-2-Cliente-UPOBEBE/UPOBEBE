@@ -1,5 +1,5 @@
 //# sourceURL=altaEmpleado.js;
-
+alert("esoty en el js");
 $("#aceptarAltaEmpleado").click(fAceptarAltaEmpleado);
 
 function fAceptarAltaEmpleado(){
