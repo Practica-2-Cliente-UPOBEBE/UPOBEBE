@@ -34,24 +34,27 @@ function darAltaCompra(){
         document.getElementById("dniCliente").classList.remove("error");
     }else{
         //POST para agregar la venta
-        let arrayLineas = oUpoBebe.tLineaArticulo.filter(linea => linea.oVenta == null);
+       
         let f = new Date();
         let fecha = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
         let nuevaVenta = oUpoBebe.altaVenta(new Venta(idVenta, oCliente, oEmpleado, arrayLineas, fecha));
-        if(nuevaVenta){
-            //Añadir el objeto venta a las lineas correspondientes
-            arrayLineas.forEach(linea => {
-                linea.oVenta = nuevaVenta;
-            });
+        let parametros = "dniCliente=" + dniCliente + "&dniEmpleado=" +dniEmpleado + "&fecha=" +fecha;
+        $.post("altaCarrito/altaCarrito.php", encodeURI(parametros), respuestaAltaCarrito, "text");
+        function respuestaAltaCarrito(datos) {
+            let oDatos = JSON.parse(datos);
+            if (oDatos.insertado == 1) {
+                alert("Compra realizada");
+                //Añadir el objeto venta a las lineas correspondientes
 
-            idVenta++;
-            alert("Venta realizada con éxito");
-            document.getElementById("dniCliente").classList.remove("error");
-            document.getElementById("dniEmpleado").classList.remove("error");
-            document.getElementById("formularioCompra").reset();
+                $.post("altaCarrito/insertIdVentaEnLineas.php");
+                
+                document.getElementById("dniCliente").classList.remove("error");
+                document.getElementById("dniEmpleado").classList.remove("error");
+                document.getElementById("formularioCompra").reset();
             
-        }else{
-            alert("Error en la venta");
+            }else{
+                alert(oDatos.mensaje);
+            }
         }
     }
 }
