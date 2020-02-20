@@ -15,8 +15,11 @@ $articulo = json_decode($datosJSON);
 $conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mysqli_error($conexion));
 mysqli_set_charset($conexion,"utf8");
 mysqli_query($conexion,"utf8");
+$sql ="select max(id) + 1 as num from articulos";
+$resultado = mysqli_query($conexion,$sql);
+$fila = $resultado->fetch_assoc();
 
-$sql = "INSERT INTO articulos VALUES ('$articulo->Nombre','$articulo->Descripcion','$articulo->Categoria','$articulo->Precio');";
+$sql = "INSERT INTO articulos VALUES (".$fila["num"].",'$articulo->Nombre','$articulo->Descripcion',$articulo->Categoria,$articulo->Precio);";
 $resultado = mysqli_query($conexion,$sql);
 
 if ($resultado){
