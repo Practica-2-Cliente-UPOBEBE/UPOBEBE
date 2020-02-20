@@ -27,7 +27,7 @@ document.getElementById("altaReparacion").addEventListener("click", fMostrarAlta
 //evento - mostrar listado
 document.getElementById("mostrarListadoVentas").addEventListener("click",fMostrarListadoVentas,false);
 //document.getElementById("mostrarListadoEmpleados").addEventListener("click",fMostrarListadoEmpleados,false);
-document.getElementById("mostrarListadoCliente").addEventListener("click",fMostrarListadoCliente,false);
+//document.getElementById("mostrarListadoCliente").addEventListener("click",fMostrarListadoCliente,false);
 document.getElementById("mostrarListadoTaller").addEventListener("click",fMostrarListadoTaller,false);
 document.getElementById("mostrarListadoArticulo").addEventListener("click",fMostrarListadoArticulo,false);
 
@@ -258,29 +258,7 @@ function fMostarAltaCliente(){
 
 }
 
-function fMostrarListadoCliente(){
-    fOcultarFormularios();
-    fVaciarTabla();
-    //Borrar los nodos hijos de la tabla
-    let tHead = document.getElementById("tabla").createTHead();
-    let tBody = document.getElementById("tabla").appendChild(document.getElementById("tabla").createTBody());
-    let cabecera = tHead.insertRow(-1);
-    cabecera.insertCell(-1).textContent = "DNI";
-    cabecera.insertCell(-1).textContent = "NOMBRE";
-    cabecera.insertCell(-1).textContent = "APELLIDOS";
-    cabecera.insertCell(-1).textContent = "DIRECCIÓN";
-    cabecera.insertCell(-1).textContent = "CORREO";
-    cabecera.insertCell(-1).textContent = "TELÉFONO";
-    while (tBody.firstChild) {
-        tBody.removeChild(tBody.firstChild);
-      }
-    //Añadir las filas a la tabla
-    oUpoBebe.tClientes.forEach(element => {
-        tBody.appendChild(element.toString()); 
-    });
-    
-    document.getElementById("tabla").style.display = "table";
-}
+
 
 function fMostrarBajaModificarCliente(){
     fOcultarFormularios();

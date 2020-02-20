@@ -3,6 +3,8 @@ $("#altaArticulo").click(abrirAltaArticulo);
 $("#altaCliente").click(abrirAltaCliente);
 $("#mostrarCarrito").click(abrirCarrito);
 $("#altaEmpleado").click(abrirAltaEmpleado);
+$("#mostrarListadoCliente").click(fMostrarListadoCliente);
+
 
 
 function abrirAltaArticulo() {
@@ -156,4 +158,40 @@ function abrirAltaEmpleado(){
         $('#frmAltaEmpleado').show("normal");
     }
 
+}
+function fMostrarListadoCliente(){
+    fOcultarFormularios();
+    fVaciarTabla();
+    //Borrar los nodos hijos de la tabla
+    let tHead = document.getElementById("tabla").createTHead();
+    let tBody = document.getElementById("tabla").appendChild(document.getElementById("tabla").createTBody());
+    let cabecera = tHead.insertRow(-1);
+    cabecera.insertCell(-1).textContent = "DNI";
+    cabecera.insertCell(-1).textContent = "NOMBRE";
+    cabecera.insertCell(-1).textContent = "APELLIDOS";
+    cabecera.insertCell(-1).textContent = "DIRECCIÓN";
+    cabecera.insertCell(-1).textContent = "CORREO";
+    cabecera.insertCell(-1).textContent = "TELÉFONO";
+    while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
+      }
+    //Añadir las filas a la tabla
+    //GET from clientes
+      $.get("altaCliente/getClientesListadoXML.php", respuestaListadoClientes, "xml");
+      function respuestaListadoClientes(oXML){
+        let clientes = oXML.querySelectorAll("cliente");
+        
+        clientes.forEach(function(cliente){
+            let fila = tBody.insertRow(-1);
+            fila.insertCell(-1).textContent = cliente.querySelector("dni").textContent;
+            fila.insertCell(-1).textContent = cliente.querySelector("nombre").textContent;
+            fila.insertCell(-1).textContent = cliente.querySelector("apellidos").textContent;
+            fila.insertCell(-1).textContent = cliente.querySelector("direccion").textContent;
+            fila.insertCell(-1).textContent = cliente.querySelector("correo").textContent;
+            fila.insertCell(-1).textContent = cliente.querySelector("telefono").textContent;
+        });
+        
+      }
+    
+    document.getElementById("tabla").style.display = "table";
 }
