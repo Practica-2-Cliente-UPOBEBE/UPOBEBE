@@ -142,7 +142,7 @@ function loadXMLDoc(filename) {
 // mostrar y ocultar formularios cuando hacemos click:
 function fOcultarFormularios(){
     document.getElementById("divIzquierdo").style.display = "none";
-    //frmAltaEmpleado.style.display = "none";
+    frmAltaEmpleado.style.display = "none";
     if(document.getElementById("frmAltaArticulo") != null){
         frmAltaArticulo.style.display = "none";
     }
