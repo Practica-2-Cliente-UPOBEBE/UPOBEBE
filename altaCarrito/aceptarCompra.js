@@ -4,35 +4,45 @@ document.getElementById("aceptarCompra").addEventListener("click", darAltaCompra
 
 //Pulsar el botón de comprar
 function darAltaCompra(){
+    var aux = 0;
     //Recoger en variables los dni de cliente y vendedor
     let dniCliente = document.getElementById("dniCliente").value.trim();
     let dniEmpleado = document.getElementById("dniEmpleado").value.trim();
     //Comprobar que existan
-    var existeCliente = false;
-    var existeEmpleado = false;
+
     $.get("altaCarrito/getCliente.php", "dni="+dniCliente, function(datos){
         let oDatos = JSON.parse(datos);
         if(oDatos.existe == 1){
-            existeCliente = true;
+
+            if(aux == 0){
+                aux = 1;
+                document.getElementById("dniCliente").classList.remove("error");
+                document.getElementById("dniEmpleado").classList.add("error");
+            }else if(aux == 1){
+                comprobacionYPost();
+            }
+        }else{
+            alert("No hay ningún cliente con ese DNI");
+            document.getElementById("dniCliente").focus();
         }
     }, "text");
     $.get("altaCarrito/getEmpleado.php", "dni="+dniEmpleado, function(datos){
         let oDatos = JSON.parse(datos);
         if(oDatos.existe == 1){
-            existeEmpleado = true;
+
+            if(aux == 0){
+                aux = 1;
+                document.getElementById("dniCliente").classList.add("error");
+                document.getElementById("dniEmpleado").classList.remove("error");
+            }else if(aux == 1){
+                comprobacionYPost();
+            }
+        }else{
+            alert("No hay ningún empleado con ese DNI");
+            document.getElementById("dniEmpleado").focus();
         }
     }, "text");
-
-    if(!existeCliente){
-        alert("No hay ningún cliente con ese DNI");
-        document.getElementById("dniCliente").classList.add("error");
-        document.getElementById("dniCliente").focus();
-    }else if(!existeEmpleado){
-        alert("No hay ningún empleado con ese DNI");
-        document.getElementById("dniEmpleado").classList.add("error");
-        document.getElementById("dniEmpleado").focus();
-        document.getElementById("dniCliente").classList.remove("error");
-    }else{
+function comprobacionYPost(){
         //POST para agregar la venta
        
         let f = new Date();
@@ -55,5 +65,7 @@ function darAltaCompra(){
                 alert(oDatos.mensaje);
             }
         }
-    }
+    
+}
+    
 }
