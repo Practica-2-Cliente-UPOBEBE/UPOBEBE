@@ -16,7 +16,7 @@ $conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mys
 mysqli_set_charset($conexion,"utf8");
 mysqli_query($conexion,"utf8");
 
-$sql = "INSERT INTO articulos VALUES ('$articulo->Id',$articulo->Nombre,$articulo->Descripcion,'$articulo->Categoria','$articulo->Precio');";
+$sql = "INSERT INTO articulos VALUES ($articulo->Nombre,$articulo->Descripcion,'$articulo->Categoria','$articulo->Precio');";
 $resultado = mysqli_query($conexion,$sql);
 
 if ($resultado){

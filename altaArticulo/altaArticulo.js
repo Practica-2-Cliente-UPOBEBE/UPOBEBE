@@ -55,7 +55,7 @@ function fAceptarAltaArticulo()
     } else {
        
         let oArticulo ={
-            Id: sIDArticulo,
+            //Id: sIDArticulo,
             Nombre: sNombreArticulo,
             Descripcion: sDescripcionArticulo,
             Categoria: sCategoria,
@@ -64,7 +64,7 @@ function fAceptarAltaArticulo()
 
         $.ajax({
             url: "altaArticulo/altaArticulo.php",
-            data: "datos=" + JSON.stringify(articulo),
+            data: "datos=" + JSON.stringify(oArticulo),
             cache: false,
             async: true, // por defecto
             method: "POST",
