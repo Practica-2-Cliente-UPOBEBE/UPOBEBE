@@ -25,7 +25,7 @@ document.getElementById("fMostrarBajaModificarCliente").addEventListener("click"
 document.getElementById("altaReparacion").addEventListener("click", fMostrarAltaReparacion, false);
 
 //evento - mostrar listado
-document.getElementById("mostrarListadoVentas").addEventListener("click",fMostrarListadoVentas,false);
+//document.getElementById("mostrarListadoVentas").addEventListener("click",fMostrarListadoVentas,false);
 //document.getElementById("mostrarListadoEmpleados").addEventListener("click",fMostrarListadoEmpleados,false);
 //document.getElementById("mostrarListadoCliente").addEventListener("click",fMostrarListadoCliente,false);
 document.getElementById("mostrarListadoTaller").addEventListener("click",fMostrarListadoTaller,false);
@@ -387,15 +387,6 @@ function modificarCliente(){
     }
 // fin taller
 
-// mostrar ventas
-function fMostrarListadoVentas(){
-    fOcultarFormularios();
-    fOcultarTablasListado();
-    document.getElementById("tabla").style.display = "table";
-    fVaciarTabla();
-    oUpoBebe.listadoVentas();
-    //document.getElementById("body").append(tablaAMostrar);
-}
 
 // mostar listados periodo vendidos
 function fMostrarListadoPeriodoVendidos(){
