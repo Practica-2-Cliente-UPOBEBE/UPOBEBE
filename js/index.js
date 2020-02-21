@@ -139,6 +139,9 @@ function abrirCarrito(){
             $.getScript("altaCarrito/aceptarCompra.js");
         }
     },'json');
+    $("#tablaCarrito").show("normal");
+    $("#formularioCompra").show("normal");
+    $("#body").show("normal");
 }
 
 function abrirAltaEmpleado(){
@@ -194,5 +197,6 @@ function fMostrarListadoCliente(){
       }
     
     document.getElementById("tabla").style.display = "table";
-    //document.getElementById("tabla").show("normal");
+    //$("#body").style.display = "block";
+    $("#body").show("normal");
 }
