@@ -184,30 +184,7 @@ UpoBebe.prototype._buscarVenta = function(sIDventa){
 //** fin método REPARAR */
 
 // *********LISTADOS ******
-UpoBebe.prototype.listadoVentas = function(){
-    let tabla = document.getElementById("tabla");
-    let cabecera = tabla.createTHead();
-    let fila= cabecera.insertRow(-1);
-    let celda = fila.insertCell(-1);
-    celda.textContent = "ID";
-    celda = fila.insertCell(-1);
-    celda.textContent = "Nombre del cliente";
-    celda = fila.insertCell(-1);
-    celda.textContent = "Nombre del empleado";
-    celda = fila.insertCell(-1);
-    celda.textContent = "Lineas de los artículos";
-    celda = fila.insertCell(-1);
-    celda.textContent = "Total del pedido";
-    celda = fila.insertCell(-1);
-    celda.textContent = "Fecha";
-    let cuerpito = document.createElement("tbody");
-    this.tVentas.forEach(x =>{
-        cuerpito.appendChild(x.toString());
-    });
-    tabla.appendChild(cuerpito);
-    return tabla;
 
-}
 Array.prototype.swap = function (x,y) {
 	var b = this[x];
 	this[x] = this[y];
