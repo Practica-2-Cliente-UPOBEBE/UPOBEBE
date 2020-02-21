@@ -194,4 +194,5 @@ function fMostrarListadoCliente(){
       }
     
     document.getElementById("tabla").style.display = "table";
+    //document.getElementById("tabla").show("normal");
 }
