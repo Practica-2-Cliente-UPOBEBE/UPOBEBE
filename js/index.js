@@ -4,7 +4,7 @@ $("#altaCliente").click(abrirAltaCliente);
 $("#mostrarCarrito").click(abrirCarrito);
 $("#altaEmpleado").click(abrirAltaEmpleado);
 $("#mostrarListadoCliente").click(fMostrarListadoCliente);
-
+$("#mostrarListadoVentas").click(fMostrarListadoVentas);
 
 
 function abrirAltaArticulo() {
@@ -198,5 +198,76 @@ function fMostrarListadoCliente(){
     
     document.getElementById("tabla").style.display = "table";
     //$("#body").style.display = "block";
+    $("#body").show("normal");
+}
+
+function fMostrarListadoVentas(){
+    fOcultarFormularios();
+    fOcultarTablasListado();
+    document.getElementById("tabla").style.display = "table";
+    fVaciarTabla();
+    
+
+    let tabla = document.getElementById("tabla");
+    let cabecera = tabla.createTHead();
+    let fila= cabecera.insertRow(-1);
+    let celda = fila.insertCell(-1);
+    celda.textContent = "ID";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre del cliente";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre del empleado";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Lineas de los artículos";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Total del pedido";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Fecha";
+    let cuerpito = document.createElement("tbody");
+
+    //GET from clientes
+    $.get("altaCarrito/getVentasListadoXML.php", respuestaListadoVentas, "xml");
+    function respuestaListadoVentas(oXML){
+      let ventas = oXML.querySelectorAll("venta");
+      
+      ventas.forEach(function(venta){
+          let totalPedido = 0;
+          let fila = cuerpito.insertRow(-1);
+          fila.insertCell(-1).textContent = venta.querySelector("id").textContent;
+          fila.insertCell(-1).textContent = venta.querySelector("nombreCli").textContent;
+          fila.insertCell(-1).textContent = venta.querySelector("nombreEmple").textContent;
+          //GET sincrono para mostrar las lineas de pedido por ventas
+          //Devolverá un array y hay que recorrerlo
+          $.ajax({
+            url: "altaCarrito/getDatosLineasPorVenta.php",
+            type: "GET",
+            async: false,
+            data: "id_venta=" + venta.querySelector("id").textContent,
+            dataType: "xml",
+            success: fRespuesta
+        });
+        function fRespuesta(oXML){
+            let celda = fila.insertCell(-1);
+            
+            let lineas = oXML.querySelectorAll("linea");
+            
+            lineas.forEach(function(linea){
+                let p = document.createElement("p");
+                p.textContent = linea.querySelector("nombreArt").textContent + " - ";
+                p.textContent += linea.querySelector("precio").textContent + " - ";
+                p.textContent += linea.querySelector("unidades").textContent + " - ";
+                p.textContent += linea.querySelector("totalLinea").textContent;
+                totalPedido += parseInt(linea.querySelector("totalLinea").textContent);
+            });
+            celda.appendChild(p);
+        }
+          fila.insertCell(-1).textContent = totalPedido;
+          fila.insertCell(-1).textContent = venta.querySelector("fecha").textContent;
+      });
+      
+    }
+    tabla.appendChild(cuerpito);
+    
+    
     $("#body").show("normal");
 }
