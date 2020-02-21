@@ -143,9 +143,9 @@ function loadXMLDoc(filename) {
 function fOcultarFormularios(){
     document.getElementById("divIzquierdo").style.display = "none";
     //frmAltaEmpleado.style.display = "none";
-    //if(document.getElementById("frmAltaArticulo") != null){
-      //  frmAltaArticulo.style.display = "none";
-    //}
+    if(document.getElementById("frmAltaArticulo") != null){
+        frmAltaArticulo.style.display = "none";
+    }
     /*if($.contains(document.body, document.getElementById("frmAltaArticulo") )) {
         frmAltaArticulo.style.display = "none";
     }*/
@@ -722,21 +722,20 @@ function eliminarProducto(oEvento){
 function añadirArticuloACarrito(oEvento){
     let oE = oEvento || window.event;
     //Cogemos el objeto artículo y lo añadimos a la linea de artículo ----- idLinea, oArt, oVenta, unid
-    let oArticulo = oUpoBebe._buscarArticulo(oE.target.parentNode.parentNode.dataset.id);
-    
-        if(oUpoBebe.añadirLineaArticulo(new LineaDeArticulo(idLinea, oArticulo, null, 1))){
-            //Si no existe aún lo añade como una nueva linea
-            idLinea++;
-            alert("Artículo añadido al carrito");
-
-        }else{
-            //Buscar esa linea de pedido y sumarle una unidad al producto si ya existia
-            oUpoBebe.tLineaArticulo.forEach(linea =>{
-                if(linea.oVenta == null && linea.oArt.nombreArticulo == oArticulo.nombreArticulo){
-                    linea.unidades = linea.unidades+1;
-                }
-            });
-        }
+    let nombreArt = oE.target.parentNode.parentNode.firstChild.textContent;
+    //Lamada POST para meter lineas de pedido
+    $.ajax({
+        url: "php/agregarLinea.php",
+        method: "POST",
+        async: false,
+        success: respuestaAgregarLinea,
+        data: { nombreArticulo: nombreArt
+            },
+        dataType : 'json'
+    });
+    function respuestaAgregarLinea(datos){
+        alert(datos.mensaje);
+    }
 }
 
 // mostrar alta reparacion
