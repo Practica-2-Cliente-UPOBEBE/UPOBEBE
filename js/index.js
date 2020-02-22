@@ -255,14 +255,15 @@ function fMostrarListadoVentas(){
             lineas.forEach(function(linea){
                 let p = document.createElement("p");
                 p.textContent = linea.querySelector("nombreArt").textContent + " - ";
-                p.textContent += linea.querySelector("precio").textContent + " - ";
-                p.textContent += linea.querySelector("unidades").textContent + " - ";
-                p.textContent += linea.querySelector("totalLinea").textContent;
+                p.textContent += linea.querySelector("precio").textContent + "€ - ";
+                p.textContent += linea.querySelector("unidades").textContent + "unid. - ";
+                p.textContent += linea.querySelector("totalLinea").textContent + "€";
                 totalPedido += parseInt(linea.querySelector("totalLinea").textContent);
+                celda.appendChild(p);
             });
-            celda.appendChild(p);
+            
         }
-          fila.insertCell(-1).textContent = totalPedido;
+          fila.insertCell(-1).textContent = totalPedido +"€";
           fila.insertCell(-1).textContent = venta.querySelector("fecha").textContent;
       });
       
