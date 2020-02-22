@@ -1,0 +1,6 @@
+-Si no puedes importarla directamente, lo que tienes que hacer eS:
+
+1º. Crear una Base de Datos en PHPMyAdmin con el mismo nombre que nuestra .sql
+(upobebe)
+
+2º Dentro de esta Base De DATOS vacía, subir de nuevo la SQL o en la base de datos en el apartado SQL copiar y pegar todo el documente de upobebe.sql
