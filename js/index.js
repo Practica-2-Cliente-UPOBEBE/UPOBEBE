@@ -5,6 +5,7 @@ $("#mostrarCarrito").click(abrirCarrito);
 $("#altaEmpleado").click(abrirAltaEmpleado);
 $("#mostrarListadoCliente").click(fMostrarListadoCliente);
 $("#mostrarListadoVentas").click(fMostrarListadoVentas);
+$("#mostrarListadoEmpleados").click(fMostrarListadoEmpleado);
 
 
 function abrirAltaArticulo() {
@@ -270,4 +271,9 @@ function fMostrarListadoVentas(){
     
     
     $("#body").show("normal");
+}
+
+function fMostrarListadoEmpleado
+{
+
 }
