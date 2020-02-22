@@ -273,7 +273,46 @@ function fMostrarListadoVentas(){
     $("#body").show("normal");
 }
 
-function fMostrarListadoEmpleado
+function fMostrarListadoEmpleado()
 {
+    fOcultarFormularios();
+    fVaciarTabla();
+    //Borrar los nodos hijos de la tabla
+    let tHead = document.getElementById("tabla").createTHead();
+    let tBody = document.getElementById("tabla").appendChild(document.getElementById("tabla").createTBody());
+    let cabecera = tHead.insertRow(-1);
+    cabecera.insertCell(-1).textContent = "DNI";
+    cabecera.insertCell(-1).textContent = "NOMBRE";
+    cabecera.insertCell(-1).textContent = "APELLIDOS";
+    cabecera.insertCell(-1).textContent = "SALARIO";
+    cabecera.insertCell(-1).textContent = "DIRECCIÓN";
+    cabecera.insertCell(-1).textContent = "CORREO";
+    cabecera.insertCell(-1).textContent = "ROL";
+    cabecera.insertCell(-1).textContent = "TELÉFONO";
+    while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
+      }
 
+    //GET from clientes
+    $.get("altaEmpleado/getEmpleadosListadoXML.php", respuestaListadoEmpleado, "xml");
+    function respuestaListadoEmpleado(oXML){
+      let empleados = oXML.querySelectorAll("empleado");
+      
+      empleados.forEach(function(empleado){
+          let fila = tBody.insertRow(-1);
+          fila.insertCell(-1).textContent = empleado.querySelector("dni").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("nombre").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("apellidos").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("salario").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("direccion").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("correo").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("rol").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("telefono").textContent;
+      });
+      
+    }
+  
+  document.getElementById("tabla").style.display = "table";
+  //$("#body").style.display = "block";
+  $("#body").show("normal");
 }

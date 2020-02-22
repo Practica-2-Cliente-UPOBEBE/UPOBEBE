@@ -1,7 +1,6 @@
 //# sourceURL=altaEmpleado.js;
 
 $("#aceptarAltaEmpleado").click(fAceptarAltaEmpleado);
-alert("asd")
 function fAceptarAltaEmpleado(){
     
     let sNifEmpleado = frmAltaEmpleado.txtNIF.value.trim();

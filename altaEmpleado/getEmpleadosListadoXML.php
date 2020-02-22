@@ -1,5 +1,4 @@
 <?php
-require_once("../datosUpoBebe.xml");
 // Configuración BASE DE DATOS MYSQL
 $servidor  = "localhost";
 $basedatos = "upobebe";
@@ -11,7 +10,7 @@ $conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mys
 mysqli_set_charset($conexion,"utf8");
 mysqli_query($conexion,"utf8");
 
-$sql = "SELECT * FROM `empleados`";
+$sql = "SELECT dni,nombre,apellidos,salario,direccion,correo,rol,telefono FROM empleados";
 $resultado = mysqli_query($conexion,$sql);
 
 $XML ='<?xml version="1.0" encoding="UTF-8"?>';
@@ -25,7 +24,7 @@ while ($fila = mysqli_fetch_assoc($resultado)) {
         $XML .= '<salario>'.$fila["salario"].'</salario>';
         $XML .='<direccion>'.$fila["direccion"].'</direccion>';
         $XML .='<correo>'.$fila["correo"].'</correo>';
-        $XML .='<correo>'.$fila["rol"].'</correo>';
+        $XML .='<rol>'.$fila["rol"].'</rol>';
         $XML .='<telefono>'.$fila["telefono"].'</telefono>';
     $XML .='</empleado>';
 }
