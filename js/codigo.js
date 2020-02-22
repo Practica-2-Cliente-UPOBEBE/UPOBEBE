@@ -879,17 +879,46 @@ function fFiltrarPorNombre(){
     }
     
 }
-window.addEventListener("load", function(){let oXML = loadXMLDoc("datosUpoBebe.xml");
+window.addEventListener("load", function(){
+    let oXML = loadXMLDoc("datosUpoBebe.xml");
     
-//Datos categorías
-let oCategorias = oXML.querySelectorAll("categoria");
-for(let i = 0 ; i < oCategorias.length ; i++){
-    let nombre = oCategorias[i].querySelector("nombre").textContent;
-    let option = document.createElement("option");
-    option.textContent = nombre;
-    option.value = nombre;
-    document.getElementById("selectCat").appendChild(option);
-}});
+    //Datos categorías
+    //Uso de localStorage
+    //Si no está ya en localStorage se hace una llamada get y se coje, en este caso una llamada al archivo xml porque es donde estan las categorias
+    var oArrayCategorias = null;
+
+        // Existe en almacenamiento local
+        if (localStorage["categorias"] != null) {
+            oArrayCategorias = JSON.parse(localStorage["categorias"]);
+            //console.log(oArrayCategorias)
+            for(let i = 0 ; i < oArrayCategorias.length ; i++){
+                let nombre = oArrayCategorias[i].nombre;
+                let option = document.createElement("option");
+                option.textContent = nombre;
+                option.value = nombre;
+                document.getElementById("selectCat").appendChild(option);
+            }
+
+
+        } else {
+
+            let oArrayCategorias = oXML.querySelectorAll("categoria");
+            let arrayCategorias = [];
+            for(let i = 0 ; i < oArrayCategorias.length ; i++){
+                let nombre = oArrayCategorias[i].querySelector("nombre").textContent;
+                let option = document.createElement("option");
+                option.textContent = nombre;
+                option.value = nombre;
+                document.getElementById("selectCat").appendChild(option);
+
+                arrayCategorias.push({nombre: nombre});
+            };
+            // Guardar en localStorage
+            
+            localStorage["categorias"] = JSON.stringify(arrayCategorias) ;
+
+        }
+    });
 
 function fCategoria(oEvento){
     let oE = oEvento || window.event;
