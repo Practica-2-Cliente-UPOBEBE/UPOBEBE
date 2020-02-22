@@ -46,7 +46,7 @@ function comprobacionYPost(){
         //POST para agregar la venta
        
         let f = new Date();
-        let fecha = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+        let fecha = f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate();
         let parametros = "dniCliente=" + dniCliente + "&dniEmpleado=" +dniEmpleado + "&fecha=" +fecha;
         $.post("altaCarrito/altaCarrito.php", encodeURI(parametros), respuestaAltaCarrito, "text");
         function respuestaAltaCarrito(datos) {
