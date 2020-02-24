@@ -6,6 +6,7 @@ $("#altaEmpleado").click(abrirAltaEmpleado);
 $("#mostrarListadoCliente").click(fMostrarListadoCliente);
 $("#mostrarListadoVentas").click(fMostrarListadoVentas);
 $("#mostrarListadoEmpleados").click(fMostrarListadoEmpleado);
+$("#aceptarListarVentasPeriodo").click(fMostrarListadoVentasPeriodo)
 
 
 function abrirAltaArticulo() {
@@ -316,4 +317,53 @@ function fMostrarListadoEmpleado()
   document.getElementById("tabla").style.display = "table";
   //$("#body").style.display = "block";
   $("#body").show("normal");
+}
+
+function fMostrarListadoVentasPeriodo(){
+    fOcultarFormularios();
+    fVaciarTabla();
+
+    let fechaInicio = frmVentasPeriodo.fechaVentaInicio.value;
+    let fechaFin = frmVentasPeriodo.fechaVentaFin.value;
+
+    let tabla = document.getElementById("tabla");
+    let cabecera = tabla.createTHead();
+    let fila= cabecera.insertRow(-1);
+    let celda = fila.insertCell(-1);
+    celda.textContent = "ID";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre del cliente";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre del empleado";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Lineas de los artículos";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Total del pedido";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Fecha";
+    let cuerpito = document.createElement("tbody");
+
+
+    $.get("listadoVentasPeriodo/getListadoVentasPeriodo.php", respuestaListadoVentasPeriodo, "xml");
+    function respuestaListadoVentasPeriodo(oXML){
+      let empleados = oXML.querySelectorAll("empleado");
+      
+      empleados.forEach(function(empleado){
+          let fila = tBody.insertRow(-1);
+          fila.insertCell(-1).textContent = empleado.querySelector("dni").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("nombre").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("apellidos").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("salario").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("direccion").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("correo").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("rol").textContent;
+          fila.insertCell(-1).textContent = empleado.querySelector("telefono").textContent;
+      });
+      
+    }
+  
+  document.getElementById("tabla").style.display = "table";
+  //$("#body").style.display = "block";
+  $("#body").show("normal");
+
 }

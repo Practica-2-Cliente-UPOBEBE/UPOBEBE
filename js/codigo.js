@@ -32,7 +32,7 @@ document.getElementById("mostrarListadoTaller").addEventListener("click",fMostra
 document.getElementById("mostrarListadoArticulo").addEventListener("click",fMostrarListadoArticulo,false);
 
 document.getElementById("mostrarFormularioVentasPeriodo").addEventListener("click",fMostrarFormularioVentasPeriodos,false);
-document.getElementById("aceptarListarVentasPeriodo").addEventListener("click",fMostrarListadoVentasPeriodo,false);
+// document.getElementById("aceptarListarVentasPeriodo").addEventListener("click",fMostrarListadoVentasPeriodo,false);
 //evento - mostrar carrito:
 //document.getElementById("mostrarCarrito").addEventListener("click",fMostrarCarrito,false);
 
@@ -186,6 +186,7 @@ function fMostrarFormularioVentasPeriodos(){
     document.getElementById("divFrmListaVentasPeriodo").style.display = "block";
     frmVentasPeriodo.reset();
 }
+/*
 function fMostrarListadoVentasPeriodo(){
     fOcultarFormularios();
     document.getElementById("tabla").style.display = "table";
@@ -194,7 +195,7 @@ function fMostrarListadoVentasPeriodo(){
     let dtFin = (new Date(frmVentasPeriodo.fechaVentaFin.value));
     oUpoBebe.listadoVentasPeriodo(dtInicio,dtFin);
     
-}
+}*/
 //fin ventas periodo
 // EMPLEADO
 /*
@@ -708,14 +709,14 @@ function eliminarProducto(oEvento){
         }
 
 }
-
+var arrayCarrito=[];
 //Boton de añadir articulo al carrito
 function añadirArticuloACarrito(oEvento){
     let oE = oEvento || window.event;
     //Cogemos el objeto artículo y lo añadimos a la linea de artículo ----- idLinea, oArt, oVenta, unid
     let nombreArt = oE.target.parentNode.parentNode.firstChild.textContent;
     //Lamada POST para meter lineas de pedido
-    $.ajax({
+  /*  $.ajax({
         url: "php/agregarLinea.php",
         method: "POST",
         async: false,
@@ -726,7 +727,8 @@ function añadirArticuloACarrito(oEvento){
     });
     function respuestaAgregarLinea(datos){
         alert(datos.mensaje);
-    }
+    }*/
+    arrayCarrito.push(nombreArt);
 }
 
 // mostrar alta reparacion
