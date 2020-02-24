@@ -6,18 +6,16 @@ $basedatos = "upobebe";
 $usuario   = "root";
 $password  = "";
 
-
+$datosJSON = $_GET["datos"];
+$venta = json_decode($datosJSON);
 
 // Creamos la conexión al servidor.
 $conexion = mysqli_connect($servidor, $usuario, $password,$basedatos) or die(mysqli_error($conexion));
 mysqli_set_charset($conexion,"utf8");
 mysqli_query($conexion,"utf8");
 
-//Nombre del cliente y del empleado
-
-
-
 $sql = "SELECT * FROM `ventas`";
+
 $resultado = mysqli_query($conexion,$sql);
 
 $XML ='<?xml version="1.0" encoding="UTF-8"?>';
@@ -28,6 +26,8 @@ while ($fila = mysqli_fetch_assoc($resultado)) {
         $XML .='<id>'.$fila["id"].'</id>';
         $XML .='<nombreCli>'.mysqli_fetch_assoc(mysqli_query($conexion,"SELECT nombre FROM `clientes` WHERE dni = '".$fila["dni_cliente"]."'"))["nombre"].'</nombreCli>';
         $XML .='<nombreEmple>'.mysqli_fetch_assoc(mysqli_query($conexion,"SELECT nombre FROM `empleados` WHERE dni = '".$fila["dni_empleado"]."'"))["nombre"].'</nombreEmple>';
+        $XML .='<linea>'..'<linea>';
+        $XML .='<total>'..'<total>';
         $XML .='<fecha>'.$fila["fecha"].'</fecha>';
     $XML .='</venta>';
 }

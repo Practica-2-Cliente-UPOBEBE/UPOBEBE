@@ -322,6 +322,7 @@ function fMostrarListadoEmpleado()
 function fMostrarListadoVentasPeriodo(){
     fOcultarFormularios();
     fVaciarTabla();
+    
 
     let fechaInicio = frmVentasPeriodo.fechaVentaInicio.value;
     let fechaFin = frmVentasPeriodo.fechaVentaFin.value;
