@@ -16,7 +16,7 @@ mysqli_query($conexion,"utf8");
 
 $sql1 = "SELECT ventas.id,clientes.nombre AS cliente,empleados.nombre AS empleado, ventas.fecha, SUM(articulos.precio * lineas_ventas.unidades ) AS total FROM ventas,clientes,empleados,lineas_ventas,articulos 
 WHERE ventas.dni_cliente = clientes.dni AND ventas.dni_empleado = empleados.dni AND lineas_ventas.id_venta = ventas.id AND lineas_ventas.id_articulo = articulos.id 
-WHERE fecha BETWEEN '".$_GET["fechaInicio"]."' AND '".$_GET["fechaFin"]."'
+AND fecha BETWEEN STR_TO_DATE('".$_GET["fechaInicio"]."', '%Y-%m-%d') AND STR_TO_DATE('".$_GET["fechaFin"]."', '%Y-%m-%d')
 GROUP BY ventas.id,clientes.nombre ,empleados.nombre , ventas.fecha";
 
 echo $sql1;
