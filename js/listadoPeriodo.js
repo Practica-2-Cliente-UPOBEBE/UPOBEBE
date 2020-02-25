@@ -27,6 +27,7 @@ function fMostrarListadoVentasPeriodo(){
     celda.textContent = "Total del pedido";
     celda = fila.insertCell(-1);
     celda.textContent = "Fecha";
+    
     let cuerpito = document.createElement("tbody");
 
 
@@ -39,6 +40,7 @@ function fMostrarListadoVentasPeriodo(){
           fila.insertCell(-1).textContent = venta.querySelector("id").textContent;
           fila.insertCell(-1).textContent = venta.querySelector("nombreCli").textContent;
           fila.insertCell(-1).textContent = venta.querySelector("nombreEmple").textContent;
+          fila.insertCell(-1).textContent = venta.querySelector("lineas").textContent;
           fila.insertCell(-1).textContent = venta.querySelector("total").textContent;
           fila.insertCell(-1).textContent = venta.querySelector("fecha").textContent;
           

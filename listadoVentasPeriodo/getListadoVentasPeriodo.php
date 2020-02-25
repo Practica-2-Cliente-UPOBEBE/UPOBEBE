@@ -19,9 +19,11 @@ WHERE ventas.dni_cliente = clientes.dni AND ventas.dni_empleado = empleados.dni 
 AND fecha BETWEEN STR_TO_DATE('".$_GET["fechaInicio"]."', '%Y-%m-%d') AND STR_TO_DATE('".$_GET["fechaFin"]."', '%Y-%m-%d')
 GROUP BY ventas.id,clientes.nombre ,empleados.nombre , ventas.fecha";
 
-echo $sql1;
+$sql2 ="SELECT LV.id_linea,LV.id_articulo,ARTI.nombre,ARTI.precio,LV.unidades FROM LINEAS_VENTAS LV INNER JOIN ARTICULOS ARTI ON LV.id_articulo=ARTI.id";
 
 $resultado = mysqli_query($conexion,$sql1);
+
+$resultado2 = mysqli_query($conexion,$sql2);
 
 $XML ='<?xml version="1.0" encoding="UTF-8"?>';
 $XML .='<datos>';
@@ -42,6 +44,10 @@ while($fila = mysqli_fetch_assoc($resultado)){
     $XML .='<id>'.$fila["id"].'</id>';
     $XML .='<nombreCli>'.$fila["cliente"].'</nombreCli>';
     $XML .='<nombreEmple>'.$fila["empleado"].'</nombreEmple>';
+
+    while($fila2= mysqli_fetch_assoc($resultado2)){
+        $XML .= '<lineas>'.$fila2["nombre"].'</lineas>';
+    }
     $XML .='<total>'.$fila["total"].'</total>';
     $XML .='<fecha>'.$fila["fecha"].'</fecha>';
     $XML .='</venta>';
