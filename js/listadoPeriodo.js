@@ -1,7 +1,71 @@
 //# sourceURL=listadoPeriodo.js;
-$("#aceptarListarVentasPeriodo").click(fListarListado);
+$("#aceptarListarVentasPeriodo").click(fMostrarListadoVentasPeriodo);
+function fMostrarListadoVentasPeriodo(){
+	console.log("lista");
+    fOcultarFormularios();
+    fVaciarTabla();
+    
+
+    
+	var sParametros={
+		fechaInicio: frmVentasPeriodo.fechaVentaInicio.value,
+		fechaFin: frmVentasPeriodo.fechaVentaFin.value
+	};
+
+    let tabla = document.getElementById("tabla");
+    let cabecera = tabla.createTHead();
+    let fila= cabecera.insertRow(-1);
+    let celda = fila.insertCell(-1);
+    celda.textContent = "ID";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre del cliente";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Nombre del empleado";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Lineas de los artículos";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Total del pedido";
+    celda = fila.insertCell(-1);
+    celda.textContent = "Fecha";
+    let cuerpito = document.createElement("tbody");
+
+
+    $.get("listadoVentasPeriodo/getListadoVentasPeriodo.php",sParametros, respuestaListadoVentasPeriodo);
+    function respuestaListadoVentasPeriodo(oXML){
+      let lineas = oXML.querySelectorAll("venta");
+      
+      lineas.forEach(function(venta){
+          let fila = cuerpito.insertRow(-1);
+          fila.insertCell(-1).textContent = venta.querySelector("id").textContent;
+          fila.insertCell(-1).textContent = venta.querySelector("nombreCli").textContent;
+          fila.insertCell(-1).textContent = venta.querySelector("nombreEmple").textContent;
+          fila.insertCell(-1).textContent = venta.querySelector("total").textContent;
+          fila.insertCell(-1).textContent = venta.querySelector("fecha").textContent;
+          
+      });
+      
+	}
+	document.getElementById("tabla").append(cuerpito);
+  
+  document.getElementById("tabla").style.display = "table";
+  //$("#body").style.display = "block";
+  $("#body").show("normal");
+
+}
 
 function fListarListado(){
+	
+	
+	$.ajax({
+		url: "listadoVentasPeriodo/getListadoVentasPeriodo.php",
+		type: "GET",
+		async: false,
+		data: "datos=" + JSON.stringify(sParametros),
+		//dataType: "xml",
+		success: procesoRespuestaFechas
+	});
+
+/*
     if(frmVentasPeriodo.fechaVentaInicio.value<=frmVentasPeriodo.fechaVentaFin.value || 
 		frmVentasPeriodo.fechaVentaInicio.value.trim()!="" || frmVentasPeriodo.fechaVentaFin.value.trim()!=""){
 		var sParametros={
@@ -9,16 +73,16 @@ function fListarListado(){
 			fechaFin: frmVentasPeriodo.fechaVentaFin.value
 		};
 		$.ajax({
-	        url: "./php/getListadoVentasPeriodo.php",
+	        url: "../listadoVentasPeriodo/getListadoVentasPeriodo.php",
 	        type: "GET",
 	        async: false,
 	        data: "datos=" + JSON.stringify(sParametros),
-	        dataType: "xml",
+	        //dataType: "xml",
 	        success: procesoRespuestaFechas
 	    });
 	}else {
-		alert("Error en Fechas.")
-	}
+		alert("Error en Fechas.");
+	}*/
 }
 
 var sOptions="";
