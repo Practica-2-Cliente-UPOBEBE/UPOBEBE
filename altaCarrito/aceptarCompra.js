@@ -55,8 +55,8 @@ function comprobacionYPost(){
                 alert("Compra realizada");
                 //Añadir el id venta a las lineas correspondientes
 
-              //  $.post("altaCarrito/insertIdVentaEnLineas.php");
-    arrayCarrito.forEach(articulo=>$.post("altaCarrito/insertIdVentaEnLineas.php",encodeURI("datos="+articulo)));
+                $.post("altaCarrito/insertIdVentaEnLineas.php");
+    //arrayCarrito.forEach(articulo=>$.post("altaCarrito/insertIdVentaEnLineas.php",encodeURI("datos="+articulo)));
    
                 document.getElementById("dniCliente").classList.remove("error");
                 document.getElementById("dniEmpleado").classList.remove("error");

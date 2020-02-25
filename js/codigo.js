@@ -709,14 +709,14 @@ function eliminarProducto(oEvento){
         }
 
 }
-var arrayCarrito=[];
+//var arrayCarrito=[];
 //Boton de añadir articulo al carrito
 function añadirArticuloACarrito(oEvento){
     let oE = oEvento || window.event;
     //Cogemos el objeto artículo y lo añadimos a la linea de artículo ----- idLinea, oArt, oVenta, unid
     let nombreArt = oE.target.parentNode.parentNode.firstChild.textContent;
     //Lamada POST para meter lineas de pedido
-  /*  $.ajax({
+    $.ajax({
         url: "php/agregarLinea.php",
         method: "POST",
         async: false,
@@ -727,8 +727,8 @@ function añadirArticuloACarrito(oEvento){
     });
     function respuestaAgregarLinea(datos){
         alert(datos.mensaje);
-    }*/
-    arrayCarrito.push(nombreArt);
+    }
+    //arrayCarrito.push(nombreArt);
 }
 
 // mostrar alta reparacion
