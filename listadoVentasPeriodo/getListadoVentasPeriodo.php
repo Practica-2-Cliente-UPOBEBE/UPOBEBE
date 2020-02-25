@@ -46,7 +46,7 @@ while($fila = mysqli_fetch_assoc($resultado)){
     $XML .='<nombreEmple>'.$fila["empleado"].'</nombreEmple>';
 
     while($fila2= mysqli_fetch_assoc($resultado2)){
-        $XML .= '<lineas>'.$fila2["nombre"].'</lineas>';
+        $XML .= '<lineas>'.$fila2["nombre"].' - '.$fila2["precio"]. '€ - '.$fila2["unidades"].'unid. </lineas>';
     }
     $XML .='<total>'.$fila["total"].'</total>';
     $XML .='<fecha>'.$fila["fecha"].'</fecha>';
