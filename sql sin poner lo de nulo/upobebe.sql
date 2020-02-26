@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-02-2020 a las 19:12:48
--- Versión del servidor: 10.1.35-MariaDB
--- Versión de PHP: 7.2.9
+-- Tiempo de generación: 25-02-2020 a las 14:45:28
+-- Versión del servidor: 10.4.6-MariaDB
+-- Versión de PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `upobebe`
 --
+CREATE DATABASE IF NOT EXISTS `upobebe` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `upobebe`;
 
 -- --------------------------------------------------------
 
@@ -106,7 +108,7 @@ INSERT INTO `empleados` (`dni`, `nombre`, `apellidos`, `salario`, `direccion`, `
 CREATE TABLE `lineas_ventas` (
   `id_linea` int(20) NOT NULL,
   `id_articulo` int(20) NOT NULL,
-  `id_venta` int(20) DEFAULT NULL,
+  `id_venta` int(20) NOT NULL,
   `unidades` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -116,8 +118,7 @@ CREATE TABLE `lineas_ventas` (
 
 INSERT INTO `lineas_ventas` (`id_linea`, `id_articulo`, `id_venta`, `unidades`) VALUES
 (1, 1, 1, 3),
-(2, 1, 2, 3),
-(3, 1, 2, 1);
+(2, 1, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -137,8 +138,7 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`id`, `dni_cliente`, `dni_empleado`, `fecha`) VALUES
-(1, '44444444C', '11111111A', '2019-05-21'),
-(2, '55555555C', '22222222A', '2020-02-25');
+(1, '44444444C', '11111111A', '2019-05-21');
 
 --
 -- Índices para tablas volcadas
@@ -189,13 +189,13 @@ ALTER TABLE `articulos`
 -- AUTO_INCREMENT de la tabla `lineas_ventas`
 --
 ALTER TABLE `lineas_ventas`
-  MODIFY `id_linea` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_linea` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
