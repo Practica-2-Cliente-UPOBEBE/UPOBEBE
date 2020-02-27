@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-02-2020 a las 19:12:48
--- Versión del servidor: 10.1.35-MariaDB
--- Versión de PHP: 7.2.9
+-- Tiempo de generación: 27-02-2020 a las 18:47:48
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -115,9 +115,9 @@ CREATE TABLE `lineas_ventas` (
 --
 
 INSERT INTO `lineas_ventas` (`id_linea`, `id_articulo`, `id_venta`, `unidades`) VALUES
-(1, 1, 1, 3),
+(1, 1, 1, 2),
 (2, 1, 2, 3),
-(3, 1, 2, 1);
+(3, 2, 2, 3);
 
 -- --------------------------------------------------------
 
